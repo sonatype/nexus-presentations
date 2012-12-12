@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.sonatype.training.nxs301</groupId>
+  <artifactId>05-site-deploy</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <distributionManagement>
+    <site>
+      <id>nexus-site</id>
+      <!-- Site hosting in Nexus -->
+      <!-- requires hosted repository with format maven-site and the repository id "site-internal"-->
+      <url>
+        dav:http://localhost:8081/nexus/content/sites/site-internal/${project.groupId}/${project.artifactId}/${project.version}
+      </url>
+      <!-- this trick of using the properties as folders allows for parallel deployment of multiple sites just like
+      for the artifact itself! -->
+
+      <!-- alternative deployment for traditional web server without different versions, so new deployment overwrites old one -->
+      <!--<url>scp://webhost.company.com/www/website</url>-->
+    </site>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <!-- necessary for the dav protocol for deployment to Nexus -->
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>2.2</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>en,fr</locales>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
