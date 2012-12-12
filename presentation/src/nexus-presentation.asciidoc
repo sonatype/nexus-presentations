@@ -1,0 +1,144 @@
+= It is time to start using a repository manager
+:author:    Manfred Moser, Sonatype, Inc.
+:backend:   slidy
+:max-width: 45em
+:data-uri:
+:icons:
+:toc!:
+:slidetitleindentcar: 
+:copyright: Copyright 2011, Sonatype Inc. All Rights Reserved.
+
+
+== About Manfred Moser
+
+* Sonatype Trainer for Apache Maven and Sonatype Nexus
+
+* Sonatype Author for books, web site and blog posts
+
+* Author of The Hudson Book
+
+* Project Manager ksoap2-android, Android Maven Plugin 
+
+* Presenter at various conferences AnDevCon, OSCON, JUC, ... 
+
+* Founder of VIJUG and GDG Victoria BC
+
+* Owner http://www.simpligility.com[simpligility technologies inc.]
+
+////
+== Objectives
+
+* Understand the benefits of using a repository manager
+
+* Know how to start using Nexus
+
+* Learn about Component Lifecycle Management 
+
+* Learn about RDD
+
+* Have lots of fun
+////
+
+
+== Development Today
+
+Uses components. Lots of them. 
+
+* Facilitate the power of open source
+
+* Don't reinvent the wheel
+
+A component is any artifact or library that your software needs in
+order to be built, released and to run
+
+== Manual Dependency Management
+
+* Painful
+
+* Unreliable
+
+* Overloads SCM
+
+== Declarative Dependency Managment
+
+* Automatic
+
+* Including transitive dependencies
+
+* Maven is downloading the internet, again!
+
+* So are all the other tools, and all use
+
+** Central Repository
+
+** Maven repository format
+
+
+== Maven Repository Format
+
+groupId, artifactId, version, classifier, packaging
+
+add examples
+
+
+
+
+
+
+== Adoption Stages and Advantages
+
+* Proxy external repositories
+
+** Starting with Central Repository
+
+** Reduced downloads, faster builds, increased stability
+
+* Host external and internal artifacts
+
+** Deploy once for everybody
+
+** Share binary components like open source projects
+
+** Improve cooperation between multiple, different teams (dev, qa,
+   ops...)
+
+* Lifecycle Integration
+
+** Addition of CI server
+
+** Controlling component usage - Procurement
+
+** Improving release process - Staging
+
+* Gaining license and security understanding of the components 
+
+
+
+== Nexus as Center Hub
+
+add image here
+
+-> Nexus will be a key component of your enterprise development
+  infrastructure
+
+
+== Installing Nexus
+
+easy
+
+
+== Connecting Maven to Nexus
+
+settings.xml
+
+
+
+
+
+
+////
+/* Local Variables: */
+/* ispell-personal-dictionary: "ispell.dict" */
+/* End:             */
+////
+
