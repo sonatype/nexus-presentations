@@ -124,7 +124,23 @@ add image here
 
 == Installing Nexus
 
-easy
+. Install Java 6 or Java 7
+
+. Get the bundle with the embedded Jetty server from http://www.sonatype.org/nexus/go[the download
+page]
+
+. Extract archive, create symbolic link and run
+
+----
+sudo cp nexus-professional-2.1.2-bundle.tar.gz /usr/local
+cd /usr/local
+sudo tar xvzf nexus-professional-2.1.2-bundle.tar.gz
+ln -s nexus-professional-2.1.2 nexus
+cd nexus
+./bin/nexus console
+----
+
+. http://localhost:8081/nexus and log in with admin/admin123
 
 
 == Connecting Maven to Nexus
