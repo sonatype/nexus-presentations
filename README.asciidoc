@@ -1,5 +1,5 @@
 == Introduction to Repository Management and Sonatype Nexus
 
-a presentation and labs suitable for a lunch-and-learn/brown bag sessions or a user group meeting with sample material.
+a presentation and labs suitable for a lunch-and-learn/brown bag session or a user group meeting with sample material.
 
 Presented at the Vancouver Island Java User Group Dec' 2012
