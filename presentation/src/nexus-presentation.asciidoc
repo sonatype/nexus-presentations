@@ -431,6 +431,8 @@ mvn clean deploy
 
 == Maven Deploy Plugin
 
+Use the example project in labs/maven-deploy-example
+
 ----
 mvn clean deploy
 mvn versions:set -DnewVersion=1.0.0
