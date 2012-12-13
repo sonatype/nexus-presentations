@@ -17,7 +17,7 @@
 
 * Author of The Hudson Book
 
-* Project Manager ksoap2-android, Android Maven Plugin 
+* Open source project manager ksoap2-android, Android Maven Plugin 
 
 * Presenter at various conferences AnDevCon, OSCON, JUC, ... 
 
@@ -48,10 +48,10 @@ Uses components. Lots of them.
 A component is any artifact or library that your software needs in
 order to be built, released and to run
 
-Contains:: code, class files, object files, binary resources like
+*Contains* code, class files, object files, binary resources like
 images, property files, xml files...
 
-In:: jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on
+*In* jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on
 
 == Manual Dependency Management
 
@@ -61,19 +61,29 @@ In:: jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and s
 
 * Overloads SCM
 
+* Hard to maintain and document
+
 == Declarative Dependency Managment
 
 * Automatic
 
 * Including transitive dependencies
 
-* Maven is downloading the internet, again!
+* Declarative - so easy to read and understant
+
+* Support from tools
+
+But
+
+* Common complaint "Maven is downloading the internet, again!"
 
 * So are all the other tools, and all use
 
 ** Central Repository
 
 ** Maven repository format
+
+TIP: This is where Sonatype Nexus can help!
 
 == Adoption Stages and Advantages
 
@@ -127,8 +137,7 @@ ln -s nexus-professional-2.1.2 nexus
 cd nexus
 ./bin/nexus console
 ----
-
-. http://localhost:8081/nexus and log in with admin/admin123
+Go to http://localhost:8081/nexus and log in with admin/admin123
 
 NOTE: Nexus Professional has enterprise benefits, but open source
 edition is perfect for getting started.
@@ -141,9 +150,8 @@ Apache Maven introduced repository concept:
 
 * and dependencies
 
-All are retrieved from repositories on the internet:
-
-Central Repository built into Maven (Super-POM)
+All are retrieved from repositories on the internet, by the default
+the http://search.maven.org[Central Repository]
 
 * Nexus runs Open Source Repository Hosting OSSRH as input for the Central Repository
 
@@ -329,7 +337,15 @@ Public Group is exposed to users ->
 
 * takes security access rights into account
 
+Examples:
 
+* add an additional external proxy repository
+
+* add an internal hosted repository
+
+* manually deploy component into 3rd party hosted repository
+
+TIP: Demo time!
 
 == Release vs Snapshot Repositories
 
@@ -348,7 +364,6 @@ Public Group is exposed to users ->
 * Transient
 
 * No promise SNAPSHOT artifacts will remain the same
-
 
 == Deploying Internal Components
 
@@ -514,9 +529,4 @@ TIP: Want to see a demo?
 
 * http://www.sonatype.com/Services/Training[Training classes]
 
-////
-/* Local Variables: */
-/* ispell-personal-dictionary: "ispell.dict" */
-/* End:             */
-////
 
