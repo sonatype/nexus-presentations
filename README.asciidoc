@@ -9,6 +9,8 @@ Presented at the Vancouver Island Java User Group Dec' 2012
 The html file in the root folder is all you need to show the
 presentation. Find some lab material in labs. 
 
+Just download the repo with git clone or as zip/tar.gz
+
 === Modifications
 
 If you need to modify and rebuild the slides, modify the
