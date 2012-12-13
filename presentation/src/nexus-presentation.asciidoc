@@ -1,4 +1,4 @@
-= It is time to start using a repository manager
+= Introduction to Repository Management and Sonatype Nexus
 :author:    Manfred Moser, Sonatype, Inc.
 :backend:   slidy
 :max-width: 45em
@@ -25,7 +25,6 @@
 
 * Owner http://www.simpligility.com[simpligility technologies inc.]
 
-////
 == Objectives
 
 * Understand the benefits of using a repository manager
@@ -35,10 +34,6 @@
 * Learn about Component Lifecycle Management 
 
 * Learn about RDD
-
-* Have lots of fun
-////
-
 
 == Development Today
 
@@ -163,7 +158,7 @@ the blog.]
 
 Establish system/user wide setting for Maven to use Nexus:
 
-* modify/create ~/.m2/settings.xml to point to Nexus
+* modify/create ~/.m2/settings.xml to point to Nexus (see labs/settings/)
 
 * build a few Maven projects
 
@@ -368,16 +363,156 @@ is when the benefits step up to the next level:
 * Choice of build system 
 
 
+== Deployments with Maven...
+
+----
+mvn clean deploy
+----
+
+* pom.xml -> distributionManagement 
+
+** snapshotRepository
+
+** releaseRepository
+
+* settings.xml -> server
+
+== pom.xml - distributionManagement
+
+----
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+----
+
+== settings.xml - server
+
+----
+  <servers>
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+    <server>
+      <id>nexus-site</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+  </servers>
+----
+
+== Maven Deploy Plugin
+
+----
+mvn clean deploy
+mvn versions:set -DnewVersion=1.0.0
+mvn clean deploy
+----
+
+Snapshot versions can be deployed multiple times.
+
+Releases only once.
+
+Now components are available for everybody via the public group.
+
+TIP: Your continuous integration server could do the deployment.
 
 == Advanced Features
 
 Procurement:: Control availability of components
 
-Staging:: multi-step, controlled release process
+Staging:: multi-step, controlled release process including reruns
+
+Maven Settings Distribution:: via Nexus Maven Plugin
 
 Other repository formats:: NuGet, Site, P2, OBR, YUM
 
+== Distributed Deployments
 
+Scale your organization, while maintaining performance for everybody! 
+
+image::images/nexus-smart-proxy.png[scale=100]
+
+Various scenarios and setups common including:
+
+* integration with component providers
+
+* cooperation with external development teams
+
+* component distribution to clients
+
+== Repository Driven Development
+
+Move components from one repository to another.
+
+image::images/rdd.png[scale=100]
+
+* select repository for each stage
+
+* use tools to move from one to the next
+
+* every omission makes things harder 
+
+WARNING: Can you imagine not using a source code management system?
+
+== Component Lifecycle Management
+
+Component lifecycle management can be defined as the *practice of*
+
+* *analyzing*,
+* *controlling*, and 
+* *monitoring*
+
+*the components used in your software development lifecycle*.
+
+Sonatype CLM integration in 
+
+* Hudson/Jenkins
+* Eclipse
+* Nexus
+* ...
+
+TIP: Want to see a demo?
+
+== Integrating with Nexus
+
+* Lots of build tools can integrate with Maven repositories 
+
+** Ant/Ivy, Gradle, SBT, Grails, ...
+
+* All functionality is available in REST API
+
+* Plugin architecture with Maven archetypes and samples to create your own
+
+== Want to learn more? 
+
+* http://www.sonatype.org/nexus[Nexus Opens Source OSS website] 
+
+* http://www.sonatype.com/Products/Nexus-Professional[Nexus
+  Professional website]
+
+* http://www.sonatype.com/Support/Videos[Screen cast recordings]
+
+* http://links.sonatype.com/products/nexus/oss/docs[Repository Management with Nexus]
+
+* http://www.sonatype.org/nexus/participate[Mailing lists]
+
+* https://links.sonatype.com/products/nexus/community-chat[Talk to the developers/support - HipChat]
+
+* http://www.sonatype.com/Services/Training[Training classes]
 
 ////
 /* Local Variables: */
