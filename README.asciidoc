@@ -3,3 +3,25 @@
 a presentation and labs suitable for a lunch-and-learn/brown bag session or a user group meeting with sample material.
 
 Presented at the Vancouver Island Java User Group Dec' 2012
+
+=== Tips for using
+
+The html file in the root folder is all you need to show the
+presentation. Find some lab material in labs. 
+
+=== Modifications
+
+If you need to modify and rebuild the slides, modify the
+
+----
+presentation/src/nexus-presentation.asciidoc
+----
+
+and run
+
+----
+cd presentation
+./generate.sh 
+----
+
+asciidoc with slidy backend install required.
