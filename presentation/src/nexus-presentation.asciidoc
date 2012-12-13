@@ -42,7 +42,9 @@
 
 == Development Today
 
-Uses components. Lots of them. 
+Uses components. Lots of them.
+
+-> more than 80% of a common enterprise software 
 
 * Facilitate the power of open source
 
@@ -50,6 +52,11 @@ Uses components. Lots of them.
 
 A component is any artifact or library that your software needs in
 order to be built, released and to run
+
+Contains:: code, class files, object files, binary resources like
+images, property files, xml files...
+
+In:: jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on
 
 == Manual Dependency Management
 
@@ -72,18 +79,6 @@ order to be built, released and to run
 ** Central Repository
 
 ** Maven repository format
-
-
-== Maven Repository Format
-
-groupId, artifactId, version, classifier, packaging
-
-add examples
-
-
-
-
-
 
 == Adoption Stages and Advantages
 
@@ -112,11 +107,9 @@ add examples
 
 * Gaining license and security understanding of the components 
 
+== Sonatype Nexus as Center Hub
 
-
-== Nexus as Center Hub
-
-add image here
+image::images/nexus-tool-suite-integration.png[scale=100]
 
 -> Nexus will be a key component of your enterprise development
   infrastructure
@@ -142,13 +135,247 @@ cd nexus
 
 . http://localhost:8081/nexus and log in with admin/admin123
 
+NOTE: Nexus Professional has enterprise benefits, but open source
+edition is perfect for getting started.
+
+== Relationship Apache Maven and Nexus
+
+Apache Maven introduced repository concept:
+
+* storage for plugins
+
+* and dependencies
+
+All are retrieved from repositories on the internet:
+
+Central Repository built into Maven (Super-POM)
+
+* Nexus runs Open Source Repository Hosting OSSRH as input for the Central Repository
+
+* Nexus can run as proxy on site for you
+
+* Best of breed Maven Repository Manager MRM (and beyond)
+
+TIP: Read more about the scale needed to run OSSRH http://www.sonatype.com/people/2012/04/how-can-we-prove-that-nexus-can-scale/[on
+the blog.]
 
 == Connecting Maven to Nexus
 
-settings.xml
+Establish system/user wide setting for Maven to use Nexus:
+
+* modify/create ~/.m2/settings.xml to point to Nexus
+
+* build a few Maven projects
+
+* see how it starts proxying 
+
+----
+<settings>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://localhost:8081/nexus/content/groups/public</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+     <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+</settings>
+----
+
+TIP: For other build tools this will be different.
+
+== Component Coordinates
+
+Structure storage for components using unique "GAV" coordinates: 
+
+* *g* roupId, *a* rtifactId, *v* ersion - GAV
+
+* optionally classifier and packaging
+
+----
+<dependency>
+  <groupId>org.testng</groupId>
+  <artifactId>testng</artifactId>
+  <version>6.1.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.google.inject</groupId>
+  <artifactId>guice</artifactId>
+  <version>3.0</version>
+  <classifier>no_aop</classifier>
+</dependency>
+
+<dependency>
+  <groupId>org.glassfish.admingui</groupId>
+  <artifactId>war</artifactId>
+  <version>10.0-b28</version>
+  <type>war</type>
+</dependency>
+----
+
+== Maven Repository Format
+
+Uses the GAV component coordinates. Coordinates map to specific
+locations in a Maven repository.
+
+----
+<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-core</artifactId>
+  <version>3.4.1</version>
+</dependency>
+----
+
+Maps to:
+
+----
+org/apache/camel/
+                 camel-core/
+                            3.4.1/
+    camel-core-3.4.1.pom
+    camel-core-3.4.1.jar
+----
+
+File names are created using
+
+----
+artifactId-version-classifier.packaging
+----
+
+
+Classifiers javadoc and sources are appended to file name: 
+----
+    camel-core-3.4.1-javadoc.jar
+    camel-core-3.4.1-sources.jar
+----
+
+TIP: Other repository formats use a different structure, but the Maven
+structure is understood and used by many tools.
+
+== What is a Repository?
+
+* Organized storage and access container for artifacts
+
+* Uses artifact coordinates for structure
+
+-> A Repository Manager helps with administration and usage
+
+== Repository Manager Tasks
+
+* Proxy and managing access to public repositories
+
+* Storing artifacts that are not in public repositories
+
+* Managing releases and snapshots
+
+* Controlling available and allowed dependencies
+
+* Facilitate internal collaboration across artifacts and teams
+
+== Repository Manager Advantages
+
+* Increased speed
+
+* Reduced bandwidth usage
+
+* Predictability
+
+* Ability to control and audit
+
+* Improved management of 3rd party artifacts
+
+* Internal collaboration enabled
+
+* Distribution of artifacts made possible
+
+* Help preserving a public good by reducing the load on Central
+
+== Nexus User Interface Tour
+
+* Search for components, including advanced search
+
+* View component details
+
+* Repositories
+
+* Server administration
+
+* Security 
+
+== Proxying 
+
+Public Group is exposed to users ->
+
+* can be changed on server for all users
+
+* takes security access rights into account
 
 
 
+== Release vs Snapshot Repositories
+
+*Release Repositories*
+
+* Store "point-in-time" Releases
+
+* Releases never change
+
+* Publish a Release -> Both the artifact and meta-data "live forever"
+
+*Snapshot Repositories*
+
+* Used for development-only
+
+* Transient
+
+* No promise SNAPSHOT artifacts will remain the same
+
+
+== Deploying Internal Components
+
+is when the benefits step up to the next level:
+
+* Sharing of binary components and not specification documents
+
+* No more building each others components
+
+* End of large multi-module builds
+
+* Choice of build system 
+
+
+
+== Advanced Features
+
+Procurement:: Control availability of components
+
+Staging:: multi-step, controlled release process
+
+Other repository formats:: NuGet, Site, P2, OBR, YUM
 
 
 
