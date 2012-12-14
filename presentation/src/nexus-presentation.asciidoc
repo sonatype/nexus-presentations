@@ -477,11 +477,16 @@ Move components from one repository to another.
 
 image::images/rdd.png[scale=100]
 
-* select repository for each stage
+* select a repository technologies for each stage, that is designed
+  for this work
 
 * use tools to move from one to the next
 
-* every omission makes things harder 
+* every omission makes things harder
+
+http://www.simpligility.com/2012/09/you-dont-do-repository-driven-development-yet-where-have-you-been/[Thinking along these lines] of not reimplementing something, where an
+existing repository exist can help in every step from source to
+production.
 
 WARNING: Can you imagine not using a source code management system?
 
