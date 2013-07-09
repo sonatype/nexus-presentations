@@ -2,7 +2,10 @@ body {
     font-family: "myriad-pro-1","myriad-pro-2",Arial,Geneva,sans-serif;
 }
 
+/*
 div.slide div.sect1 h1, div.slide div.sect2 h1, div.slide div.sect3 h1 {
+*/
+div.sect1 h1 {
   color: #3399CC;
   text-align: right;
   width: 100%;
