@@ -2,4 +2,4 @@
 
 set -e 
 
-asciidoc --backend slidy --attribute stylesheet=`pwd`/stylesheets/sonatype-slides.css -o ../nexus-presentation.html src/nexus-presentation.asciidoc
+asciidoc --backend slidy --attribute stylesheet=`pwd`/sonatype-slides.css -o ../nexus-presentation.html nexus-presentation.asciidoc
