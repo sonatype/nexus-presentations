@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>Introduction to Repository Management and Sonatype Nexus</title>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="copyright" content="Copyright &#169; Copyright 2011, Sonatype Inc. All Rights Reserved." />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="copyright" content="Copyright 2011-2013, Sonatype Inc. All Rights Reserved." />
+<meta name="generator" content="AsciiDoc 8.6.8 / slidy2 backend 1.0.3" />
+<title>Repository Management and Sonatype Nexus</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -532,6 +532,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+</style>
+<style type="text/css">
 /* slidy.css
 
    Copyright (c) 2005-2010 W3C (MIT, ERCIM, Keio), All Rights Reserved.
@@ -585,7 +587,6 @@ div.initial_prompt {
   width: 90%;
   background-color: rgb(200,200,200);
   opacity: 0.35;
-  background-color: rgb(200,200,200, 0.35);
   cursor: pointer;
 }
 
@@ -978,7 +979,70 @@ li {
   margin-bottom: 0.5em;
 }
 
-
+/* jmi hack */
+@media screen {
+  body.single_slide .invisible { opacity: 0.15; visibility: visible; }
+  /*img.invisible { opacity: 0.1; visibility: visible; } */
+  img.invisible { visibility: hidden !important }
+}
+a {text-decoration: underline;}
+</style>
+<style type="text/css" title="slidy_color_set_none">
+/* empty color set styles */
+</style>
+<style type="text/css" title="slidy_color_set_yellow">
+/* rainbow color styles */
+body { background-color: #ffffaa;}
+a:link, a:visited, a:hover, a:active { color: blue; text-decoration: underline }
+a:hover { color: red; text-decoration: underline }
+div.slide { color: black;}
+div.slide h1,h2,h3,h4,h5,h6 { color: orange;}
+em { color: green;}
+tt { color: green;}
+div.sidebarblock, div.literalblock, div.listingblock, div.exampleblock, div.title { color: red;}
+div.quoteblock, div.verseblock {  color: black; }
+div.admonitionblock { color: red;}
+</style>
+<style type="text/css" title="slidy_color_set_green">
+/* blue color styles */
+body { background-color: #449900;}
+a:link, a:visited, a:hover, a:active { color: fuchsia; text-decoration: underline }
+a:hover { color: red; text-decoration: underline }
+div.slide { color: yellow;}
+div.slide h1,h2,h3,h4,h5,h6 { color: lime;}
+em { color: orange;}
+tt { color: orange;}
+div.sidebarblock, div.literalblock, div.listingblock, div.exampleblock, div.title { color: #44ff00;}
+div.quoteblock, div.verseblock {  color: black; }
+div.admonitionblock { color: #88ff55;}
+</style>
+<style type="text/css" title="slidy_color_set_blue">
+/* blue color styles */
+body { background-color: navy;}
+a:link, a:visited, a:hover, a:active { color: yellow; text-decoration: underline }
+a:hover { color: red; text-decoration: underline }
+div.slide { background-color: navy; color: aqua;}
+div.slide h1,h2,h3,h4,h5,h6 { color: aqua;}
+em { color: blue;}
+tt { color: blue;}
+div.sidebarblock, div.literalblock, div.listingblock, div.exampleblock, div.title { color: teal;}
+div.admonitionblock { color: teal;}
+</style>
+<style type="text/css" title="slidy_color_set_black">
+/* black color set styles */
+body { background-color: black !important; }
+a:link, a:visited, a:hover, a:active { color: gray; text-decoration: underline }
+a:hover { color: red; text-decoration: underline }
+div.slide { color: silver !important; }
+span, caption, th { color: silver !important; }
+div.slide h1,h2,h3,h4,h5,h6 { color: white;}
+em, strong { color: #999999;}
+tt { color: blue;}
+div.sidebarblock, div.literalblock, div.listingblock, div.exampleblock, div.title { color: black; }
+div.admonitionblock, div.quoteblock, div.verseblock {  color: white; }
+div.cover.slide, div.cover.slide h1 { background-color: black; }
+</style>
+<style type="text/css">
 body {
     font-family: "myriad-pro-1","myriad-pro-2",Arial,Geneva,sans-serif;
 }
@@ -986,7 +1050,7 @@ body {
 /*
 div.slide div.sect1 h1, div.slide div.sect2 h1, div.slide div.sect3 h1 {
 */
-div.sect1 h1 {
+div.slide h1 {
   color: #3399CC;
   text-align: right;
   width: 100%;
@@ -1024,6 +1088,11 @@ div.listingblock {
 
    http://www.w3.org/Consortium/Legal/copyright-documents
    http://www.w3.org/Consortium/Legal/copyright-software
+
+   Defines single name "w3c_slidy" in global namespace
+   Adds event handlers without trampling on any others
+
+   JMI: Dynamic features added
 */
 
 // the slidy object implementation
@@ -1068,6 +1137,24 @@ var w3c_slidy = {
   help_page: "http://www.w3.org/Talks/Tools/Slidy2/help/help.html",
   help_text: "Navigate with mouse click, space bar, Cursor Left/Right, " +
              "or Pg Up and Pg Dn. Use S and B to change font size.",
+// jmi
+  help_keymap:
+    "PGDN\t: nextSlide\n" +
+     "PGUP\t: previousSlide\n" +
+     "HOME\t: firstSlide\n" +
+     "END  \t: lastSlide\n" +
+     "SPACE\t: nextContent\n" +
+     "->  \t: nextContent\n" +
+     "<-  \t: previousContent\n" +
+     "A   \t: toggleAllSlides\n" +
+     "F   \t: toggleFooter\n" +
+     "K   \t: toggleMouseClick\n" +
+     "I   \t: toggleIncremental\n" +
+     "L   \t: toggleColorSet\n" +
+     "T, C\t: tableOfContents\n" +
+     "B   \t: biggerFontSize\n" +
+     "S   \t: smallerFontSize\n" +
+     "M   \t: key mapping\n",
 
   size_index: 0,
   size_adjustment: 0,
@@ -1083,6 +1170,9 @@ var w3c_slidy = {
   // object elements. The work around is to save width/height attributes
   // and then to recompute absolute width/height dimensions on resizing
    objects: [],
+
+//jmi
+incremental_display: true,
 
   // attach initialiation event handlers
   set_up: function () {
@@ -1110,7 +1200,7 @@ var w3c_slidy = {
   init: function () {
     //alert("slidy starting test 10");
     document.body.style.visibility = "visible";
-    w3c_slidy_i18n.init();
+    this.init_localization();
     this.add_toolbar();
     this.wrap_implicit_slides();
     this.collect_slides();
@@ -1125,6 +1215,9 @@ var w3c_slidy = {
     this.hide_image_toolbar();  // suppress IE image toolbar popup
     this.init_outliner();  // activate fold/unfold support
     this.title = document.title;
+    // jmi
+    this.color_sets = new Array();
+    this.init_color_sets();
 
     // work around for opera bug
     this.is_xhtml = (document.body.tagName == "BODY" ? false : true);
@@ -1168,8 +1261,9 @@ var w3c_slidy = {
     this.add_listener(window, "scroll", this.scrolled);
     this.add_listener(window, "unload", this.unloaded);
 
-    if (!document.body.onclick)
-      document.body.onclick = function () { };
+    // this seems to be a debugging hack
+    //if (!document.body.onclick)
+    //  document.body.onclick = function () { };
 
     this.single_slide_view();
 
@@ -1195,7 +1289,7 @@ var w3c_slidy = {
 
     var heading = this.create_element("div");
     this.add_class(heading, "toc-heading");
-    heading.innerHTML = "Table of Contents".localize();
+    heading.innerHTML = this.localize("Table of Contents");
 
     toc.appendChild(heading);
     var previous = null;
@@ -1216,7 +1310,7 @@ var w3c_slidy = {
       var name = document.createTextNode(this.slide_name(i));
       a.appendChild(name);
       a.onclick = w3c_slidy.toc_click;
-      a.onkeydown = w3c_slidy.toc_keydown;
+      a.onkeydown = w3c_slidy.toc_key_down;
       a.previous = previous;
 
       if (previous)
@@ -1247,7 +1341,7 @@ var w3c_slidy = {
       e||(e=window.event);
 
       if (w3c_slidy.selected_text_len <= 0)
-         w3c_slidy.hide_table_of_contents();
+         w3c_slidy.hide_table_of_contents(true);
 
       w3c_slidy.stop_propagation(e);
 
@@ -1277,16 +1371,16 @@ var w3c_slidy = {
       setTimeout(w3c_slidy.ie_hack, 100);
   },
 
-  hide_table_of_contents: function () {
+  hide_table_of_contents: function (focus) {
     w3c_slidy.add_class(w3c_slidy.toc, "hidden");
 
-    if (!w3c_slidy.opera)
+    if (focus && !w3c_slidy.opera)
       w3c_slidy.help_anchor.focus();
   },
 
   toggle_table_of_contents: function () {
     if (w3c_slidy.is_shown_toc())
-      w3c_slidy.hide_table_of_contents();
+      w3c_slidy.hide_table_of_contents(true);
     else
       w3c_slidy.show_table_of_contents();
   },
@@ -1327,14 +1421,14 @@ var w3c_slidy = {
       }
     }
 
-    w3c_slidy.hide_table_of_contents(e);
+    w3c_slidy.hide_table_of_contents(true);
     if (w3c_slidy.ie7) w3c_slidy.ie_hack();
     w3c_slidy.stop_propagation(e);
     return w3c_slidy.cancel(e);
   },
 
   // called onkeydown for toc entry
-  toc_keydown: function (event) {
+  toc_key_down: function (event) {
     var key;
 
     if (!event)
@@ -1387,7 +1481,7 @@ var w3c_slidy = {
         }
       }
 
-      w3c_slidy.hide_table_of_contents();
+      w3c_slidy.hide_table_of_contents(true);
 
       if (self.ie7)
        w3c_slidy.ie_hack();
@@ -1766,7 +1860,7 @@ var w3c_slidy = {
       p1.innerHTML = "Tap footer to move to next slide";
     else
       p1.innerHTML = "Space or Right Arrow to move to next " +
-                     "slide, click help below for more details";
+                     "slide, M to see keys mapping, click help below for more details";
 
     this.add_listener(prompt, "click", function (e) {
       document.body.removeChild(prompt);
@@ -1799,7 +1893,7 @@ var w3c_slidy = {
        right.setAttribute("style", "float: right; text-align: right");
 
        counter = this.create_element("span")
-       counter.innerHTML = "slide".localize() + " n/m";
+       counter.innerHTML = this.localize("slide") + " n/m";
        right.appendChild(counter);
        this.toolbar.appendChild(right);
 
@@ -1813,8 +1907,8 @@ var w3c_slidy = {
 
        var help = this.create_element("a");
        help.setAttribute("href", this.help_page);
-       help.setAttribute("title", this.help_text.localize());
-       help.innerHTML = "help?".localize();
+       help.setAttribute("title", this.localize(this.help_text));
+       help.innerHTML = this.localize("help?");
        left.appendChild(help);
        this.help_anchor = help;  // save for focus hack
 
@@ -1823,8 +1917,8 @@ var w3c_slidy = {
 
        var contents = this.create_element("a");
        contents.setAttribute("href", "javascript:w3c_slidy.toggle_table_of_contents()");
-       contents.setAttribute("title", "table of contents".localize());
-       contents.innerHTML = "contents?".localize();
+       contents.setAttribute("title", this.localize("table of contents"));
+       contents.innerHTML = this.localize("contents?");
        left.appendChild(contents);
 
        var gap2 = document.createTextNode(" ");
@@ -1872,8 +1966,8 @@ var w3c_slidy = {
 
        var help = this.create_element("a");
        help.setAttribute("href", this.help_page);
-       help.setAttribute("title", this.help_text.localize());
-       help.innerHTML = "help?".localize();
+       help.setAttribute("title", this.localize(this.help_text));
+       help.innerHTML = this.localize("help?");
        this.toolbar.appendChild(help);
        this.help_anchor = help;  // save for focus hack
 
@@ -1882,8 +1976,8 @@ var w3c_slidy = {
 
        var contents = this.create_element("a");
        contents.setAttribute("href", "javascript:toggleTableOfContents()");
-       contents.setAttribute("title", "table of contents".localize());
-       contents.innerHTML = "contents?".localize();
+       contents.setAttribute("title", this.localize("table of contents".localize));
+       contents.innerHTML = this.localize("contents?");
        this.toolbar.appendChild(contents);
 
        var gap2 = document.createTextNode(" ");
@@ -1911,7 +2005,7 @@ var w3c_slidy = {
        counter.style.color = "red";
        counter.style.background = "rgb(240,240,240)";
 
-       counter.innerHTML = "slide".localize() + " n/m";
+       counter.innerHTML = this.localize("slide") + " n/m";
        this.toolbar.appendChild(counter);
      }
 
@@ -2084,8 +2178,11 @@ var w3c_slidy = {
           self.set_location();
         }
       }
-      else if (this.target == null)
-        location.href = this.href;
+      else
+        w3c_slidy.stop_propagation(event);
+
+//      else if (this.target == null)
+//        location.href = this.href;
 
       this.blur();
       self.disable_slide_click = true;
@@ -2106,7 +2203,7 @@ var w3c_slidy = {
   // either directly or indirectly for use of w3c_slidy vs this
   show_slide_number: function () {
     var timer = w3c_slidy.get_timer();
-    w3c_slidy.slide_number_element.innerHTML = timer + "slide".localize() + " " +
+    w3c_slidy.slide_number_element.innerHTML = timer + w3c_slidy.localize("slide") + " " +
            (w3c_slidy.slide_number + 1) + "/" + w3c_slidy.slides.length;
   },
 
@@ -2204,13 +2301,7 @@ var w3c_slidy = {
       window.location.hash = hash;
 
     var doc = document.getElementById("historyFrame").contentWindow.document;
-    doc.open("javascript:'<html></html>'");
-    // PWL modified this string literal to break the close script tag
-    // which otherwise gets parsed when incorporated
-    doc.write("<html><head><script type=\"text/javascript\">window.parent.w3c_slidy.on_frame_loaded('"+
-      (hash) + "');</" + "script></head><body>hello mum</body></html>");
-    doc.close();
-    },
+  },
 
   // find current slide based upon location
   // first find target anchor and then look
@@ -2306,6 +2397,9 @@ var w3c_slidy = {
     {
       var slide;
 
+//jmi
+if (!w3c_slidy.incremental_display) {incremental = false;}
+
       if ((incremental || w3c_slidy.slide_number == 0) && w3c_slidy.last_shown != null)
       {
         w3c_slidy.last_shown = w3c_slidy.hide_previous_item(w3c_slidy.last_shown);
@@ -2335,6 +2429,8 @@ var w3c_slidy = {
     if (!w3c_slidy.view_all)
     {
       var slide, last = w3c_slidy.last_shown;
+//jmi
+if (!w3c_slidy.incremental_display) {incremental = false;}
 
       if (incremental || w3c_slidy.slide_number == w3c_slidy.slides.length - 1)
          w3c_slidy.last_shown = w3c_slidy.reveal_next_item(w3c_slidy.last_shown);
@@ -2875,7 +2971,7 @@ var w3c_slidy = {
 
   //  See e.g. http://www.quirksmode.org/js/events/keys.html for keycodes
   key_down: function (event) {
-    var key;
+    var key, target, tag;
 
     w3c_slidy.key_wanted = true;
 
@@ -2884,9 +2980,15 @@ var w3c_slidy = {
 
     // kludge around NS/IE differences
     if (window.event)
+    {
       key = window.event.keyCode;
+      target = window.event.srcElement;
+    }
     else if (event.which)
+    {
       key = event.which;
+      target = event.target;
+    }
     else
       return true; // Yikes! unknown browser
 
@@ -2894,6 +2996,12 @@ var w3c_slidy = {
     // as for alt on Opera and Konqueror
     if (!key)
        return true;
+
+    // avoid interfering with keystroke
+    // behavior for non-slidy chrome elements
+    if (!w3c_slidy.slidy_chrome(target) &&
+        w3c_slidy.special_element(target))
+      return true;
 
     // check for concurrent control/command/alt key
     // but are these only present on mouse events?
@@ -2904,7 +3012,7 @@ var w3c_slidy = {
     // dismiss table of contents if visible
     if (w3c_slidy.is_shown_toc() && key != 9 && key != 16 && key != 38 && key != 40)
     {
-      w3c_slidy.hide_table_of_contents();
+      w3c_slidy.hide_table_of_contents(true);
 
       if (key == 27 || key == 84 || key == 67)
         return w3c_slidy.cancel(event);
@@ -3014,7 +3122,7 @@ var w3c_slidy = {
       var alert_msg = (w3c_slidy.mouse_click_enabled ?
                 "enabled" : "disabled") +  " mouse click advance";
 
-      alert(alert_msg.localize());
+      alert(w3c_slidy.localize(alert_msg));
       return w3c_slidy.cancel(event);
     }
     else if (key == 84 || key == 67)  // T or C for table of contents
@@ -3029,8 +3137,31 @@ var w3c_slidy = {
       window.location = w3c_slidy.help_page;
       return w3c_slidy.cancel(event);
     }
-    //else alert("key code is "+ key);
-
+//jmi
+    else if (key == 73) // I to toggle incremental display
+    {
+      var slide = w3c_slidy.slides[w3c_slidy.slide_number];
+      w3c_slidy.hide_slide(slide);
+      if (w3c_slidy.incremental_display) { w3c_slidy.set_visibility_all_incremental("visible"); }
+      w3c_slidy.incremental_display = !w3c_slidy.incremental_display ;
+      w3c_slidy.last_shown = null ;
+      w3c_slidy.set_visibility_all_incremental("hidden");
+      //this.set_eos_status(true);
+      w3c_slidy.show_slide(slide);
+      return w3c_slidy.cancel(event);
+    }
+    else if (key == 76) // L to toggle color-set
+    {
+      w3c_slidy.toggle_color_set();
+      return w3c_slidy.cancel(event);
+    }
+    else if (key == 77) // display help_keymap
+    {
+      alert(w3c_slidy.help_keymap);
+      return w3c_slidy.cancel(event);
+    }
+//jmi end
+     //else alert("key code is "+ key);
     return true;
   },
 
@@ -3233,6 +3364,9 @@ var w3c_slidy = {
   // a parent element with attribute class="incremental"
   set_visibility_all_incremental: function (value) {
     var node = this.next_incremental_item(null);
+
+//jmi
+if (!w3c_slidy.incremental_display) {value = "visible";}
 
     if (value == "hidden")
     {
@@ -3452,14 +3586,9 @@ var w3c_slidy = {
       // all browsers agree on 2 for right button
       rightclick = (e.button == 2);
     }
-    else leftclick = true;
-/*
-    alert("you clicked over a " + target.nodeName + " element\n" +
-    "w3c_slidy.mouse_click_enabled = " + w3c_slidy.mouse_click_enabled + "\n" +
-    "leftclick = " + leftclick + "\n" +
-    "selected text length = " + w3c_slidy.selected_text_len);
-    //alert("selected text length = " + w3c_slidy.selected_text_len);
-*/
+    else
+      leftclick = true;
+
     if (w3c_slidy.selected_text_len > 0)
     {
       w3c_slidy.stop_propagation(e);
@@ -3469,21 +3598,14 @@ var w3c_slidy = {
     }
 
     // dismiss table of contents
-    w3c_slidy.hide_table_of_contents();
+    w3c_slidy.hide_table_of_contents(false);
 
     // check if target is something that probably want's clicks
     // e.g. a, embed, object, input, textarea, select, option
     var tag = target.nodeName.toLowerCase();
 
     if (w3c_slidy.mouse_click_enabled && leftclick &&
-        tag != "a" &&
-        tag != "embed" &&
-        tag != "object" &&
-        tag != "video" &&
-        tag != "input" &&
-        tag != "textarea" &&
-        tag != "select" &&
-        tag != "option" &&
+        !w3c_slidy.special_element(target) &&
         !target.onclick)
     {
       w3c_slidy.next_slide(true);
@@ -3492,6 +3614,38 @@ var w3c_slidy = {
       e.returnValue = false;
       return false;
     }
+
+    return true;
+  },
+
+  special_element: function (e) {
+    var tag = e.nodeName.toLowerCase();
+
+    return e.onkeydown ||
+      e.onclick ||
+      tag == "a" ||
+      tag == "embed" ||
+      tag == "object" ||
+      tag == "video" ||
+      tag == "audio" ||
+      tag == "input" ||
+      tag == "textarea" ||
+      tag == "select" ||
+      tag == "option";
+  },
+
+  slidy_chrome: function (el) {
+    while (el)
+    {
+      if (el == w3c_slidy.toc ||
+          el == w3c_slidy.toolbar ||
+          w3c_slidy.has_class(el, "outline"))
+        return true;
+
+      el = el.parentNode;
+    }
+
+    return false;
   },
 
   get_key: function (e)
@@ -3565,13 +3719,43 @@ var w3c_slidy = {
 
     w3c_slidy.key_wanted = false;
     return false;
-  }
-};
+  },
+// jmi
+  init_color_sets: function(){
+   if (this.color_sets.length == 0){
+     // initialize color_sets array
+     var tmp = document.styleSheets;
+     var j = 0;
+     for (var i=0;i<tmp.length;i++) {
+       var css_name = null ;
+       if (tmp[i].title) {
+	css_name = tmp[i].title ;
+       }
+       if ((tmp[i].href) && (tmp[i].href.indexOf('.css') != -1)) {
+	css_name = tmp[i].href.substring(tmp[i].href.lastIndexOf('/')+1,tmp[i].href.indexOf('.css')) ;
+       }
+	if ((css_name) && (css_name.indexOf('color_set') > 0)) {
+         this.color_sets[j] = tmp[i];
+         this.color_sets[j++].disabled = true;
+	}
+     }
+     if (this.color_sets.length > 0){ this.color_sets[0].disabled = false; }
+   }
+  },
+  toggle_color_set: function(){
+   // toggle to the next color_set
+   if (this.color_sets.length > 0){
+    var i = 0;
+    while ((i < this.color_sets.length) && (this.color_sets[i].disabled == true)) { i = i + 1 ; }
+    if (i == this.color_sets.length) { i = i - 1; }
+    this.color_sets[i].disabled = true ;
+    this.color_sets[(i + 1) % (this.color_sets.length)].disabled = false ;
+   }
+  },
 
 // for each language define an associative array
 // and also the help text which is longer
 
-var w3c_slidy_i18n = {
   strings_es: {
     "slide":"pág.",
     "help?":"Ayuda",
@@ -3663,7 +3847,7 @@ var w3c_slidy_i18n = {
   help_fr:
     "Naviguez avec la souris, la barre d'espace, les flèches " +
     "gauche/droite ou les touches Pg Up, Pg Dn. Utilisez " +
-    "les touches S et B pour modifier la taille de la police.",
+    "les touches S et B pour modifier la taille de la police, M pour l'association des touches.",
 
   strings_hu: {
     "slide":"oldal",
@@ -3760,28 +3944,67 @@ var w3c_slidy_i18n = {
     "vänster- och högerpiltangenterna eller tangenterna Pg Up, Pg Dn. " +
     "Använd tangenterna S och B för att ändra textens storlek.",
 
-// each such language array is declared in the localize array
-// which is set on string prototype and used as in "foo".localize();
-  localize: {
-    "es":this.strings_es,
-    "ca":this.strings_ca,
-    "cs":this.strings_cs,
-    "nl":this.strings_nl,
-    "de":this.strings_de,
-    "pl":this.strings_pl,
-    "fr":this.strings_fr,
-    "hu":this.strings_hu,
-    "it":this.strings_it,
-    "el":this.strings_el,
-    "jp":this.strings_ja,
-    "zh":this.strings_zh,
-    "ru":this.strings_ru,
-    "sv":this.strings_sv
+  strings: { },
+
+  localize: function (src) {
+    if (src == "")
+      return src;
+
+     // try full language code, e.g. en-US
+     var s, lookup = w3c_slidy.strings[w3c_slidy.lang];
+
+     if (lookup)
+     {
+       s = lookup[src];
+
+       if (s)
+        return s;
+     }
+
+     // strip country code suffix, e.g.
+     // try en if undefined for en-US
+     var lg = w3c_slidy.lang.split("-");
+
+     if (lg.length > 1)
+     {
+       lookup = w3c_slidy.strings[lg[0]];
+
+       if (lookup)
+       {
+         s = lookup[src];
+
+         if (s)
+          return s;
+       }
+     }
+
+     // otherwise string as is
+     return src;
   },
 
-  init: function () {
-    var i18n = w3c_slidy_i18n;
+  init_localization: function () {
+    var i18n = w3c_slidy;
     var help_text = w3c_slidy.help_text;
+
+    // each such language array is declared in the localize array
+    // this is used as in  w3c_slidy.localize("foo");
+    this.strings = {
+      "es":this.strings_es,
+      "ca":this.strings_ca,
+      "cs":this.strings_cs,
+      "nl":this.strings_nl,
+      "de":this.strings_de,
+      "pl":this.strings_pl,
+      "fr":this.strings_fr,
+      "hu":this.strings_hu,
+      "it":this.strings_it,
+      "el":this.strings_el,
+      "jp":this.strings_ja,
+      "zh":this.strings_zh,
+      "ru":this.strings_ru,
+      "sv":this.strings_sv
+    },
+
     i18n.strings_es[help_text] = i18n.help_es;
     i18n.strings_ca[help_text] = i18n.help_ca;
     i18n.strings_cs[help_text] = i18n.help_cs;
@@ -3804,44 +4027,6 @@ var w3c_slidy_i18n = {
 
     if (!w3c_slidy.lang)
       w3c_slidy.lang = "en";
-
-    // add localize method to all strings
-    // for use as in "contents".localize()
-   String.prototype.localize = function() {
-     if (this == "")
-       return this;
-
-     // try full language code, e.g. en-US
-     var s, lookup = w3c_slidy_i18n.localize[w3c_slidy.lang];
-
-     if (lookup)
-     {
-       s = lookup[this];
-
-       if (s)
-        return s;
-     }
-
-     // strip country code suffix, e.g.
-     // try en if undefined for en-US
-     var lg = w3c_slidy.lang.split("-");
-
-     if (lg.length > 1)
-     {
-       lookup = w3c_slidy_i18n.localize[lg[0]];
-
-       if (lookup)
-       {
-         s = lookup[this];
-
-         if (s)
-          return s;
-       }
-     }
-
-     // otherwise string as is
-     return this;
-   };
   }
 };
 
@@ -3866,11 +4051,16 @@ setTimeout(w3c_slidy.hide_slides, 50);
 </head>
 <body class="article" style="max-width:45em">
 <div id="header" class="slide">
-<h1>Introduction to Repository Management and Sonatype Nexus</h1>
+<h1>Repository Management and Sonatype Nexus</h1>
 <span id="author">Sonatype, Inc.</span><br />
 </div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_objectives">Objectives</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Objectives";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -3889,13 +4079,20 @@ Learn about Component Lifecycle Management
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_development_today">Development Today</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Development Today";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Uses components. Lots of them.</p></div>
-<div class="paragraph"><p>&#8594; more than 80% of a common enterprise software</p></div>
+<div class="paragraph">
+<p>Uses components. Lots of them.</p>
+</div>
+<div class="paragraph">
+<p>&#8594; more than 80% of a common enterprise software</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -3908,10 +4105,13 @@ Don&#8217;t reinvent the wheel
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_but_what_is_a_component">But What Is A Component?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="But What Is A Component?";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ol class="lowerroman">
 <li>
@@ -3921,9 +4121,13 @@ order to be built, released and to run
 </span>
 </li>
 </ol>
-<div class="paragraph"><p><strong>Contains</strong> code, class files, object files, binary resources like
-images, property files, xml files&#8230;</p></div>
-<div class="paragraph"><p><strong>In</strong> jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on</p></div>
+<div class="paragraph">
+<p><strong>Contains</strong> code, class files, object files, binary resources like
+images, property files, xml files&#8230;</p>
+</div>
+<div class="paragraph">
+<p><strong>In</strong> jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on</p>
+</div>
 <div class="dlist"><dl class="">
 <dt class="hdlist1">
 Examples
@@ -3948,10 +4152,13 @@ JDBC driver for your database needed at runtime
 </ul>
 </dd>
 </dl></div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_manual_dependency_management">Manual Dependency Management</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Manual Dependency Management";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -4027,10 +4234,13 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <td class="content">Unbelievably lots of developers still do this today!</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_declarative_dependency_managment">Declarative Dependency Managment</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Declarative Dependency Managment";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -4054,10 +4264,13 @@ Support from tools
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_problems_with_declarative_approach">"Problems" With Declarative Approach</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle=""Problems" With Declarative Approach";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -4150,12 +4363,17 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 <td class="content">This is where Sonatype Nexus can help!</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_adoption_stages_and_advantages">Adoption Stages and Advantages</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Adoption Stages and Advantages";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Proxy external repositories</p></div>
+<div class="paragraph">
+<p>Proxy external repositories</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -4185,12 +4403,17 @@ developers get access to more components without any work
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_adoption_stages_and_advantages_2">Adoption Stages and Advantages</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Adoption Stages and Advantages";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Host external and internal artifacts</p></div>
+<div class="paragraph">
+<p>Host external and internal artifacts</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -4209,12 +4432,17 @@ Improve cooperation between multiple, different teams (dev, qa,
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_adoption_stages_and_advantages_3">Adoption Stages and Advantages</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Adoption Stages and Advantages";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Lifecycle Integration</p></div>
+<div class="paragraph">
+<p>Lifecycle Integration</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -4237,10 +4465,13 @@ Gaining license and security understanding of the components
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_sonatype_nexus_as_center_hub">Sonatype Nexus as Center Hub</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Sonatype Nexus as Center Hub";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="imageblock">
 <div class="content">
@@ -6275,12 +6506,17 @@ VFRUVBRMqaioqKioqKioqKioqCiYUlFRUVFRUVFRUVFRUVFRMKWioqKioqKioqKioqKiYEpFRUVF
 RUVFRUVFRUVFtRP9/wcAiJDDv6CVA+IAAAAASUVORK5CYII=" />
 </div>
 </div>
-<div class="paragraph"><p>&#8594; Nexus will be a key component of your enterprise development
-  infrastructure</p></div>
+<div class="paragraph">
+<p>&#8594; Nexus will be a key component of your enterprise development
+  infrastructure</p>
 </div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_installing_nexus">Installing Nexus</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Installing Nexus";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ol class="arabic">
 <li>
@@ -6300,12 +6536,12 @@ Extract archive, create symbolic link and run
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><code>sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
+<pre><tt>sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
 cd /usr/local
 sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
 ln -s nexus-professional-x.y.z nexus
 cd nexus
-./bin/nexus console</code></pre>
+./bin/nexus console</tt></pre>
 </div></div>
 </li>
 <li>
@@ -6367,12 +6603,17 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 edition is perfect for getting started.</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_relationship_apache_maven_and_nexus">Relationship Apache Maven and Nexus</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Relationship Apache Maven and Nexus";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Apache Maven introduced repository concept:</p></div>
+<div class="paragraph">
+<p>Apache Maven introduced repository concept:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6385,8 +6626,10 @@ and dependencies
 </span>
 </li>
 </ul>
-<div class="paragraph"><p>All are retrieved from repositories on the internet, by the default
-the <a href="http://search.maven.org">Central Repository</a></p></div>
+<div class="paragraph">
+<p>All are retrieved from repositories on the internet, by the default
+the <a href="http://search.maven.org">Central Repository</a></p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6461,12 +6704,17 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 the blog.</a></td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_connecting_maven_to_nexus">Connecting Maven to Nexus</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Connecting Maven to Nexus";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Establish system/user wide setting for Maven to use Nexus:</p></div>
+<div class="paragraph">
+<p>Establish system/user wide setting for Maven to use Nexus:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6486,7 +6734,7 @@ see how it starts proxying
 </ul>
 <div class="listingblock">
 <div class="content">
-<pre><code>&lt;settings&gt;
+<pre><tt>&lt;settings&gt;
   &lt;mirrors&gt;
     &lt;mirror&gt;
       &lt;id&gt;nexus&lt;/id&gt;
@@ -6518,7 +6766,7 @@ see how it starts proxying
   &lt;activeProfiles&gt;
     &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
   &lt;/activeProfiles&gt;
-&lt;/settings&gt;</code></pre>
+&lt;/settings&gt;</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -6576,12 +6824,17 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 <td class="content">For other build tools this will be different.</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_component_coordinates">Component Coordinates</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Component Coordinates";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Structure storage for components using unique "GAV" coordinates:</p></div>
+<div class="paragraph">
+<p>Structure storage for components using unique "GAV" coordinates:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6596,7 +6849,7 @@ optionally classifier and packaging
 </ul>
 <div class="listingblock">
 <div class="content">
-<pre><code>&lt;dependency&gt;
+<pre><tt>&lt;dependency&gt;
   &lt;groupId&gt;org.testng&lt;/groupId&gt;
   &lt;artifactId&gt;testng&lt;/artifactId&gt;
   &lt;version&gt;6.1.1&lt;/version&gt;
@@ -6614,42 +6867,53 @@ optionally classifier and packaging
   &lt;artifactId&gt;war&lt;/artifactId&gt;
   &lt;version&gt;10.0-b28&lt;/version&gt;
   &lt;type&gt;war&lt;/type&gt;
-&lt;/dependency&gt;</code></pre>
+&lt;/dependency&gt;</tt></pre>
 </div></div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_maven_repository_format">Maven Repository Format</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Maven Repository Format";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Uses the GAV component coordinates. Coordinates map to specific
-locations in a Maven repository.</p></div>
+<div class="paragraph">
+<p>Uses the GAV component coordinates. Coordinates map to specific
+locations in a Maven repository.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre><code>&lt;dependency&gt;
+<pre><tt>&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-core&lt;/artifactId&gt;
   &lt;version&gt;3.4.1&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+&lt;/dependency&gt;</tt></pre>
 </div></div>
-<div class="paragraph"><p>Maps to:</p></div>
+<div class="paragraph">
+<p>Maps to:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre><code>org/apache/camel/
+<pre><tt>org/apache/camel/
                  camel-core/
                             3.4.1/
     camel-core-3.4.1.pom
-    camel-core-3.4.1.jar</code></pre>
+    camel-core-3.4.1.jar</tt></pre>
 </div></div>
-<div class="paragraph"><p>File names are created using</p></div>
+<div class="paragraph">
+<p>File names are created using</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre><code>artifactId-version-classifier.packaging</code></pre>
+<pre><tt>artifactId-version-classifier.packaging</tt></pre>
 </div></div>
-<div class="paragraph"><p>Classifiers javadoc and sources are appended to file name:</p></div>
+<div class="paragraph">
+<p>Classifiers javadoc and sources are appended to file name:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre><code>    camel-core-3.4.1-javadoc.jar
-    camel-core-3.4.1-sources.jar</code></pre>
+<pre><tt>    camel-core-3.4.1-javadoc.jar
+    camel-core-3.4.1-sources.jar</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -6708,10 +6972,13 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 structure is understood and used by many tools.</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_what_is_a_repository">What is a Repository?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="What is a Repository?";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -6725,11 +6992,16 @@ Uses artifact coordinates for structure
 </span>
 </li>
 </ul>
-<div class="paragraph"><p>&#8594; A Repository Manager helps with administration and usage</p></div>
+<div class="paragraph">
+<p>&#8594; A Repository Manager helps with administration and usage</p>
 </div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_repository_manager_tasks">Repository Manager Tasks</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Repository Manager Tasks";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -6758,10 +7030,13 @@ Facilitate internal collaboration across components and teams
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_repository_manager_advantages">Repository Manager Advantages</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Repository Manager Advantages";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -6800,10 +7075,13 @@ Distribution of components made possible
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_nexus_user_interface_tour">Nexus User Interface Tour</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Nexus User Interface Tour";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -6832,12 +7110,17 @@ Security
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_proxying">Proxying</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Proxying";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Public Group is exposed to users &#8594;</p></div>
+<div class="paragraph">
+<p>Public Group is exposed to users &#8594;</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6850,7 +7133,9 @@ takes security access rights into account
 </span>
 </li>
 </ul>
-<div class="paragraph"><p>Examples:</p></div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6924,12 +7209,17 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 <td class="content">Demo time!</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_release_vs_snapshot_repositories">Release vs Snapshot Repositories</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Release vs Snapshot Repositories";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p><strong>Release Repositories</strong></p></div>
+<div class="paragraph">
+<p><strong>Release Repositories</strong></p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -6947,7 +7237,9 @@ Publish a Release &#8594; Both the artifact and meta-data "live forever"
 </span>
 </li>
 </ul>
-<div class="paragraph"><p><strong>Snapshot Repositories</strong></p></div>
+<div class="paragraph">
+<p><strong>Snapshot Repositories</strong></p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -7021,12 +7313,17 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 <td class="content">Repositiory Groups merge them and expose the all under one URL.</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_deploying_internal_components">Deploying Internal Components</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Deploying Internal Components";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>is when the benefits step up to the next level:</p></div>
+<div class="paragraph">
+<p>is when the benefits step up to the next level:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -7049,14 +7346,17 @@ Choice of build system
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_deployments_with_maven_8230">Deployments with Maven&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Deployments with Maven&#8230;";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>mvn clean deploy</code></pre>
+<pre><tt>mvn clean deploy</tt></pre>
 </div></div>
 <ul class="">
 <li>
@@ -7082,14 +7382,17 @@ settings.xml &#8594; server
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_pom_xml_distributionmanagement">pom.xml - distributionManagement</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="pom.xml - distributionManagement";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>  &lt;distributionManagement&gt;
+<pre><tt>  &lt;distributionManagement&gt;
     &lt;repository&gt;
       &lt;id&gt;nexus-releases&lt;/id&gt;
       &lt;url&gt;http://localhost:8081/nexus/content/repositories/releases&lt;/url&gt;
@@ -7098,34 +7401,42 @@ settings.xml &#8594; server
       &lt;id&gt;nexus-snapshots&lt;/id&gt;
       &lt;url&gt;http://localhost:8081/nexus/content/repositories/snapshots&lt;/url&gt;
     &lt;/snapshotRepository&gt;
-  &lt;/distributionManagement&gt;</code></pre>
+  &lt;/distributionManagement&gt;</tt></pre>
 </div></div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_settings_xml_server">settings.xml - server</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="settings.xml - server";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="listingblock">
 <div class="content">
-<pre><code>  &lt;servers&gt;
+<pre><tt>  &lt;servers&gt;
     &lt;server&gt;
       &lt;id&gt;nexus&lt;/id&gt;
       &lt;username&gt;admin&lt;/username&gt;
       &lt;password&gt;admin123&lt;/password&gt;
     &lt;/server&gt;
-  &lt;/servers&gt;</code></pre>
+  &lt;/servers&gt;</tt></pre>
 </div></div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_maven_deploy_plugin">Maven Deploy Plugin</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Maven Deploy Plugin";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Use the example project in labs/maven-deploy-example</p></div>
+<div class="paragraph">
+<p>Use the example project in labs/maven-deploy-example</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre><code>mvn clean deploy
+<pre><tt>mvn clean deploy
 mvn versions:set -DnewVersion=1.0.0
-mvn clean deploy</code></pre>
+mvn clean deploy</tt></pre>
 </div></div>
 <ul class="">
 <li>
@@ -7139,7 +7450,9 @@ Releases only once.
 </span>
 </li>
 </ul>
-<div class="paragraph"><p>Now components are available for everybody via the public group.</p></div>
+<div class="paragraph">
+<p>Now components are available for everybody via the public group.</p>
+</div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -7196,10 +7509,13 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 <td class="content">Your continuous integration server could do the deployment.</td>
 </tr></table>
 </div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_advanced_features">Advanced Features</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Advanced Features";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="dlist"><dl class="">
 <dt class="hdlist1">
@@ -7243,12 +7559,17 @@ NuGet, Site, P2, OBR, YUM
 </p>
 </dd>
 </dl></div>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_distributed_deployments">Distributed Deployments</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Distributed Deployments";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Scale your organization, while maintaining performance for everybody!</p></div>
+<div class="paragraph">
+<p>Scale your organization, while maintaining performance for everybody!</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img alt="images/nexus-smart-proxy.png" src="data:image/png;base64,
@@ -9700,7 +10021,9 @@ paBla48NRSACsbb0kLDURm2tYwdvLk635hTy1lLF4sW1xyiy1W3XQtMWot16b6M3aXAesJxzzn1h
 A5ZzzjnnnAcs55xzzjl3p/8C5MHCswEiY0kAAAAASUVORK5CYII=" />
 </div>
 </div>
-<div class="paragraph"><p>Various scenarios and setups are common,  including:</p></div>
+<div class="paragraph">
+<p>Various scenarios and setups are common,  including:</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -9718,12 +10041,17 @@ component distribution to clients
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_component_lifecycle_management">Component Lifecycle Management</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Component Lifecycle Management";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph"><p>Component lifecycle management can be defined as the <strong>practice of</strong></p></div>
+<div class="paragraph">
+<p>Component lifecycle management can be defined as the <strong>practice of</strong></p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -9741,8 +10069,12 @@ component distribution to clients
 </span>
 </li>
 </ul>
-<div class="paragraph"><p><strong>the components used in your software development lifecycle</strong>.</p></div>
-<div class="paragraph"><p>Sonatype CLM integration in</p></div>
+<div class="paragraph">
+<p><strong>the components used in your software development lifecycle</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Sonatype CLM integration in</p>
+</div>
 <ul class="">
 <li>
 <span>
@@ -9765,10 +10097,13 @@ Nexus
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_integrating_with_nexus">Integrating with Nexus</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Integrating with Nexus";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -9799,10 +10134,13 @@ Plugin architecture with examples to create your own
 </span>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect1 slide">
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_want_to_learn_more">Want to learn more?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Want to learn more?";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
@@ -9849,7 +10187,31 @@ Plugin architecture with examples to create your own
 </span>
 </li>
 </ul>
+<div id="footer" style="position: absolute; left: 5%; top: 80%; width: 90%;">
+<div id="footer-text">
+Last updated 2013-09-24 15:54:50 PDT
 </div>
 </div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div>
+<script type="text/javascript">
+/*<![CDATA[*/
+    // move the div class="background" elements immediately
+    // as document.body children
+    var re = new RegExp("(^| )background\W*");
+    var divs = document.body.getElementsByTagName("div");
+    for (var i = (divs.length - 1); i >= 0 ; --i)
+    {
+      div = divs.item(i);
+      if ( re.test(div.getAttribute("class")) )
+      {
+        div2 = div.cloneNode(true);
+        div.parentNode.removeChild(div);
+        document.body.appendChild(div2);
+      }
+    }
+/*]]>*/
+</script>
 </body>
 </html>
