@@ -1,12 +1,10 @@
-= Introduction to Repository Management and Sonatype Nexus
+= Repository Management and Sonatype Nexus
 :author:   Sonatype, Inc.
-:backend:   slidy
 :max-width: 45em
-:data-uri:
 :icons:
 :toc!:
 :slidetitleindentcar: 
-:copyright: Copyright 2011, Sonatype Inc. All Rights Reserved.
+:copyright: Copyright 2011-2013, Sonatype Inc. All Rights Reserved.
 
 
 == Objectives
