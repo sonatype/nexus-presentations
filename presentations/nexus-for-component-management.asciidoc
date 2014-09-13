@@ -1,0 +1,650 @@
+= Sonatype Nexus for Component Management
+:title: Sonatype Nexus for Component Management
+:Author:   Manfred Moser, Sonatype, Inc.
+:Date: September 2014
+:max-width: 45em
+:icons:
+:toc!:
+:slidetitleindentcar: 
+:copyright: Copyright 2011-2014, Sonatype Inc. All Rights Reserved.
+:incremental!:
+
+== Nexus for Component Management
+
+:incremental:
+Join me on a journey
+
+* from no component manager usage
+
+* to full software development lifecycle integration 
+
+or 
+
+* from using e.g. using jars checked into version control
+
+* or just using Maven, Gradle, ... out of the box
+
+* via Nexus OSS
+
+* to Nexus Professional 
+
+* and onwards to Nexus Professional CLM Edition
+
+* to Sontype CLM with all its tools for IDE, CI and more
+
+:incremental!:
+
+== But What About the Top Ten Tips?
+
+[quote, Manfred Moser]
+____________________________________________________________________
+Don't worry. I got this covered. There will be lots of tips and tricks.
+____________________________________________________________________
+
+== And What About My Questions?
+
+:incremental:
+Go right ahead. Ask away any time. 
+
+But lets me set the stage...
+:incremental!:
+
+== So What is a Component?
+
+:incremental:
+* All the stuff you use to create your application
+
+* The plumbing you don't want to write yourself
+
+* Logging, IoC, persistence layer, ORM, ... 
+
+* And that you get easily by declaring dependencies with Maven, Gradle, nuget, npm... 
+:incremental!:
+
+== Software Development Lifecycle Integration? 
+
+:incremental:
+* Research what components to use
+
+* Implement usage of component usage in development
+
+* Check component usage in QA and release process
+
+* Monitor applications and components use in production
+
+* Go back to the start and change components and versions
+:incremental!:
+
+== Getting Started With Nexus OSS
+////
+
+Exclusive Nexus Training: Ten Tips to Optimize Development Performance and Control Risk 
+Trainer: Manfred Moser 
+
+
+Faster more reliable builds and development practices
+Improved understanding of your component usage
+Visibility into security and license risks
+Whether you use Nexus OSS, Nexus Pro, Nexus Pro CLM Edition – 
+or are just considering using a component manager – 
+this is the perfect opportunity to get first-hand training and have your questions answered.
+
+
+A tour the force from Nexus OSS to Pro to CLM.. sounds good. 
+I can frame that all under component management as well.  
+
+
+
+
+Not sure how much if any of this would be covered as part of a separate
+session at the event, but it would likely be beneficial to weave those any 
+specific items into an overall narrative around effectively managing the 
+flow of components into the development process and ultimately into production.  
+This would allow for showing component selection (leveraging CLM data), 
+staging and releasing (leveraging CLM policy and enforcement), 
+repository health check (for a high-level notional view of risk).  
+I imagine you could show how quickly a bad component can be identified and 
+swapped out for example, which is the kind of stuff that really differentiates 
+Nexus from Artifactory.  Having worked through the broader story and setting 
+the general context, then you can focus on the pro tips that reinforce the notion 
+of using Nexus to effectively manage components as an integral part of a modern s
+oftware supply chain.  Taking a bunch of questions is great, though I would 
+definitely set the theme first, creating the case for Nexus as a 
+critical part of the supply chain.
+
+If you're going to be showing features from pro I think staging, smart proxy, 
+and clm integration are worth consideration.  Those are all big selling points for using pro vs oss.
+
+
+Hi all!
+
+I am going to be presenting a workshop about Nexus usage and tips and tricks at a Nexus User Group event in Chicago and was wondering what sort of things you think should definitely be on that list.
+
+I am going to keep this all pretty open to modifications based on questions from the audience and can demo a lot of stuff based on the training material but I would like to have some of your input.
+
+Some of the things I want to show/explain
+
+- searching for components and inspecting various results
+- understanding repository groups 
+- configuring various tools to connect load from Nexus
+- explaining various security aspects like repo targets, roles and integration with e.g. LDAP
+- general install tips for JSW wrapper config and such
+
+What else do you think should definitely be shown? 
+
+The workshop covers all aspects from Nexus OSS via PRO to CLM edition and even some CLM stuff if desired.
+
+Thanks for any input/ideas.
+
+
+
+
+== Development Today
+
+Uses components. Lots of them.
+
+-> more than 80% of a common enterprise software 
+
+* Facilitate the power of open source
+
+* Don't reinvent the wheel
+
+== But What Is A Component? 
+
+... any artifact or library that your software needs in
+order to be built, released and to run
+
+*Contains* code, class files, object files, binary resources like
+images, property files, xml files...
+
+*In* jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on
+
+Examples::
+
+* Google Guice jar file needed during runtime
+
+* JUnit jar file needed for unit test execution
+
+* JDBC driver for your database needed at runtime
+
+== Manual Dependency Management
+
+* Painful
+
+* Unreliable
+
+* Overloads SCM
+
+* Hard to maintain and document
+
+NOTE: Unbelievably lots of developers still do this today!
+
+== Declarative Dependency Managment
+
+* Automatic
+
+* Including transitive dependencies
+
+* Declarative - so easy to read and understand
+
+* Support from tools
+
+== "Problems" With Declarative Approach
+
+* Common complaint "Maven is downloading the internet, again!"
+
+* In fact everything is cached locally (~/.m2/repository) 
+
+* Components are used from local repo in *all* your projects built
+  with Maven
+
+* Other tools also need to download components, and all use
+
+** Central Repository
+
+** Maven repository format
+
+TIP: This is where Sonatype Nexus can help!
+
+== Adoption Stages and Advantages
+
+Proxy external repositories
+
+* Starting with Central Repository
+ 
+* Reduced downloads, faster builds, increased stability
+
+* Adding more proxy repositories
+
+** only needs to be done on the server
+
+** developers get access to more components without any work
+
+== Adoption Stages and Advantages
+
+Host external and internal artifacts
+
+* Deploy once for everybody
+
+* Share binary components like open source projects
+
+* Improve cooperation between multiple, different teams (dev, qa,
+   ops...)
+
+== Adoption Stages and Advantages
+
+Lifecycle Integration
+
+* Addition of CI server
+
+* Controlling component usage - Procurement
+
+* Improving release process - Staging
+
+* Gaining license and security understanding of the components 
+
+== Sonatype Nexus as Center Hub
+
+image::images/nexus-tool-suite-integration.png[scale=100]
+
+-> Nexus will be a key component of your enterprise development
+  infrastructure
+
+
+== Installing Nexus
+
+. Install Java 7
+
+. Get the bundle with the embedded Jetty server from http://www.sonatype.org/nexus/go[the download
+page]
+
+. Extract archive, create symbolic link and run
++
+----
+sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
+cd /usr/local
+sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
+ln -s nexus-professional-x.y.z nexus
+cd nexus
+./bin/nexus console
+----
+
+. Go to http://localhost:8081/nexus and log in with admin/admin123
+
+NOTE: Nexus Professional has enterprise benefits, but open source
+edition is perfect for getting started. 
+
+== Relationship Apache Maven and Nexus
+
+Apache Maven introduced repository concept:
+
+* storage for plugins
+
+* and dependencies
+
+All are retrieved from repositories on the internet, by the default
+the http://search.maven.org[Central Repository]
+
+* Nexus runs Open Source Repository Hosting OSSRH as input for the Central Repository
+
+* Nexus can run as proxy on site for you
+
+* Best of breed Maven Repository Manager MRM (and beyond)
+
+TIP: Read more about the scale needed to run OSSRH http://www.sonatype.com/people/2012/04/how-can-we-prove-that-nexus-can-scale/[on
+the blog.]
+
+== Connecting Maven to Nexus
+
+Establish system/user wide setting for Maven to use Nexus:
+
+* modify/create ~/.m2/settings.xml to point to Nexus (see labs/settings/)
+
+* build a few Maven projects
+
+* see how it starts proxying 
+
+----
+<settings>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://localhost:8081/nexus/content/groups/public</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+     <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+</settings>
+----
+
+TIP: For other build tools this will be different.
+
+== Component Coordinates
+
+Structure storage for components using unique "GAV" coordinates: 
+
+* *g* roupId, *a* rtifactId, *v* ersion - GAV
+
+* optionally classifier and packaging
+
+----
+<dependency>
+  <groupId>org.testng</groupId>
+  <artifactId>testng</artifactId>
+  <version>6.1.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.google.inject</groupId>
+  <artifactId>guice</artifactId>
+  <version>3.0</version>
+  <classifier>no_aop</classifier>
+</dependency>
+
+<dependency>
+  <groupId>org.glassfish.admingui</groupId>
+  <artifactId>war</artifactId>
+  <version>10.0-b28</version>
+  <type>war</type>
+</dependency>
+----
+
+== Maven Repository Format
+
+Uses the GAV component coordinates. Coordinates map to specific
+locations in a Maven repository.
+
+----
+<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-core</artifactId>
+  <version>3.4.1</version>
+</dependency>
+----
+
+Maps to:
+
+----
+org/apache/camel/
+                 camel-core/
+                            3.4.1/
+    camel-core-3.4.1.pom
+    camel-core-3.4.1.jar
+----
+
+File names are created using
+
+----
+artifactId-version-classifier.packaging
+----
+
+
+Classifiers javadoc and sources are appended to file name: 
+----
+    camel-core-3.4.1-javadoc.jar
+    camel-core-3.4.1-sources.jar
+----
+
+TIP: Other repository formats use a different structure, but the Maven
+structure is understood and used by many tools.
+
+== What is a Repository?
+
+* Organized storage and access container for artifacts
+
+* Uses artifact coordinates for structure
+
+-> A Repository Manager helps with administration and usage
+
+== Repository Manager Tasks
+
+* Proxy and managing access to public repositories
+
+* Storing components that are not in public repositories
+
+* Managing releases and snapshots
+
+* Controlling available and allowed dependencies
+
+* Facilitate internal collaboration across components and teams
+
+== Repository Manager Advantages
+
+* Increased speed
+
+* Reduced bandwidth usage
+
+* Predictability
+
+* Ability to control and audit - all components under your control
+
+* Improved management of 3rd party artifacts
+
+* Internal collaboration enabled
+
+* Distribution of components made possible
+
+== Nexus User Interface Tour
+
+* Search for components, including advanced search
+
+* View component details including security and license details
+
+* Repositories
+
+* Server administration
+
+* Security 
+
+== Proxying 
+
+Public Group is exposed to users ->
+
+* can be changed on server for all users
+
+* takes security access rights into account
+
+Examples:
+
+* add an additional external proxy repository
+
+* add an internal hosted repository
+
+* manually deploy component into 3rd party hosted repository
+
+TIP: Demo time!
+
+== Release vs Snapshot Repositories
+
+*Release Repositories*
+
+* Store "point-in-time" Releases
+
+* Releases never change
+
+* Publish a Release -> Both the artifact and meta-data "live forever"
+
+*Snapshot Repositories*
+
+* Used for development-only
+
+* Transient
+
+* No promise SNAPSHOT artifacts will remain the same
+
+TIP: Repositiory Groups merge them and expose the all under one URL.
+
+== Deploying Internal Components
+
+is when the benefits step up to the next level:
+
+* Sharing of binary components and not specification documents
+
+* No more building each others components
+
+* End of large multi-module builds
+
+* Choice of build system 
+
+
+== Deployments with Maven...
+
+----
+mvn clean deploy
+----
+
+* pom.xml -> distributionManagement 
+
+** snapshotRepository
+
+** releaseRepository
+
+* settings.xml -> server
+
+== pom.xml - distributionManagement
+
+----
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+----
+
+== settings.xml - server
+
+----
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+  </servers>
+----
+
+== Maven Deploy Plugin
+
+Use the example project in labs/maven-deploy-example
+
+----
+mvn clean deploy
+mvn versions:set -DnewVersion=1.0.0
+mvn clean deploy
+----
+
+* Snapshot versions can be deployed multiple times.
+
+* Releases only once.
+
+Now components are available for everybody via the public group.
+
+TIP: Your continuous integration server could do the deployment.
+
+== Advanced Features
+
+Procurement:: Control availability of components
+
+Staging:: multi-step, controlled release process including reruns
+
+Maven Settings Distribution:: via Nexus Maven Plugin
+
+Security:: Enhanced LDAP, Atlassian Crowd
+
+Other repository formats:: NuGet, Site, P2, OBR, YUM
+
+== Distributed Deployments
+
+Scale your organization, while maintaining performance for everybody! 
+
+image::images/nexus-smart-proxy.png[scale=100]
+
+Various scenarios and setups are common,  including:
+
+* integration with component providers
+
+* cooperation with external development teams
+
+* component distribution to clients
+
+== Component Lifecycle Management
+
+Component lifecycle management can be defined as the *practice of*
+
+* *analyzing*,
+* *controlling*, and 
+* *monitoring*
+
+*the components used in your software development lifecycle*.
+
+Sonatype CLM integration in 
+
+* Hudson/Jenkins
+* Eclipse
+* Nexus
+* ...
+
+== Integrating with Nexus
+
+* Lots of build tools can integrate with Maven repositories 
+
+** Ant/Ivy, Gradle, SBT, Grails, ...
+
+* All functionality is available in REST API
+
+* Java Client for REST API available
+
+* Plugin architecture with examples to create your own
+
+== Want to learn more? 
+
+* http://www.sonatype.org/nexus[Nexus Opens Source OSS website] 
+
+* http://www.sonatype.com/Products/Nexus-Professional[Nexus
+  Professional website]
+
+* http://www.sonatype.com/Support/Videos[Screen cast recordings]
+
+* http://links.sonatype.com/products/nexus/oss/docs[Repository
+  Management with Nexus] - free book
+
+* http://www.sonatype.com/nexus/free-trial[Nexus Professional
+  Trial Bundle and Guide] - some examples can be used with Nexus OSS as well
+
+* http://www.sonatype.org/nexus/participate[Mailing lists]
+
+* https://links.sonatype.com/products/nexus/community-chat[Talk to the developers/support - HipChat]
+
+* http://www.sonatype.com/Services/Training[Training classes]
+
+
+////
+
