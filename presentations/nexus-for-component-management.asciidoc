@@ -1,4 +1,4 @@
-= Sonatype Nexus for Component Management
+=  Nexus for Component Management
 :title: Sonatype Nexus for Component Management
 :Author:   Manfred Moser, Sonatype, Inc.
 :Date: September 2014
@@ -18,7 +18,12 @@ Join me on a journey
 
 * to full software development lifecycle integration 
 
-or 
+WARNING: This is going to be a whirlwind trip.
+:incremental!:
+
+== Nexus for Component Management
+
+:incremental:
 
 * from using e.g. using jars checked into version control
 
@@ -37,45 +42,280 @@ or
 == But What About the Top Ten Tips?
 
 [quote, Manfred Moser]
-____________________________________________________________________
+____
 Don't worry. I got this covered. There will be lots of tips and tricks.
-____________________________________________________________________
+____
 
 == And What About My Questions?
 
 :incremental:
-Go right ahead. Ask away any time. 
+Go right ahead - ask any time. 
 
-But lets me set the stage...
+But first, let me set the stage... ;-) 
+
 :incremental!:
 
 == So What is a Component?
 
 :incremental:
-* All the stuff you use to create your application
+* All the stuff you use to create your applications
 
 * The plumbing you don't want to write yourself
 
 * Logging, IoC, persistence layer, ORM, ... 
 
-* And that you get easily by declaring dependencies with Maven, Gradle, nuget, npm... 
+* And that you get easily by declaring dependencies with Maven,
+  Gradle, nuget, npm... 
+
+* But also all the parts you create and use 
+
+* including the application deployment packages
+
 :incremental!:
 
-== Software Development Lifecycle Integration? 
+== Development Lifecycle Integration? 
 
 :incremental:
 * Research what components to use
 
-* Implement usage of component usage in development
+* Implement usage of components in development
 
 * Check component usage in QA and release process
 
 * Monitor applications and components use in production
 
 * Go back to the start and change components and versions
+
 :incremental!:
 
-== Getting Started With Nexus OSS
+== Getting Started - Nexus OSS
+
+:incremental:
+* Installation is simple
+
+* Configuration
+
+** conf/nexus.properties
+
+** bin/nexus(.bat)
+
+* Run as a service (JSW)
+
+** bin/jsw/conf/wrapper.conf
+
+TIP:  Lets have a look at these files.
+
+-> It's easy and the benefits are immediate 
+
+:incremental!:
+
+== Repository Concepts
+
+:incremental:
+* Proxy and hosted repositories
+
+* Repository groups for easy access/aggregation
+
+* Maven 2, NuGet and NPM 
+
+TIP: We explore all that in the user interface.
+
+:incremental!:
+
+== Security
+
+:incremental:
+* Privileges, roles and users
+
+* External role mappings e.g. LDAP
+
+* Repository targets
+
+* Authenication from outside 
+
+** settings.xml and more
+
+:incremental!:
+
+== Search & Component Information
+
+:incremental:
+* Different search methods
+
+* Find components in different repositories
+
+* Find available versions - not yet used
+
+** Useful for component selection
+
+* GAV coordinates and repository location
+
+:incremental!:
+
+== Component Management
+
+'Supply change management for components'
+
+:incremental:
+* Security and authentication
+
+* Repositories and repository targets
+
+* Component information
+
+->  Set the stage for first repository and component management
+
+:incremental!:
+
+== Component Management
+
+:incremental:
+* Who can read? 
+
+** other teams (QA, operations)
+
+** remote offices
+
+** contractors, partner companies, public access 
+
+* Who can write?
+
+** Build master
+
+** Release engineers
+
+** CI servers
+
+** SNAPSHOTS vs. release
+
+* What information is available to whom?
+
+** development, QA, security, legal, ...
+
+:incremental!:  
+
+
+== Component Management with Nexus OSS
+
+* Internal caching and storing of components
+
+* Reduced dependency on external repositories
+
+* One component storage location
+
+* Highly performant
+
+* Efficient search 
+
+* Repository Health Check
+
+* Some meta data
+
+-> Way better than manual management or ignoring the need
+
+-> yet easy to implement
+
+
+== Managing Nexus
+
+* Logging
+
+* Support tools
+
+* Scheduled tasks
+
+* System feeds
+
+* JMX
+
+* External monitoring software
+
+
+== Next Steps with Nexus Professional
+
+Lots more component information:
+
+* Archive browser and Maven dependency
+
+* Age & popularity
+
+* Security information
+
+* License Information
+
+* Repository health check with component details
+
+TIP: You gotta see this!
+
+
+== Next Steps with Nexus Professional
+
+More security features:
+
+* User token
+
+* Enterprise LDAP, Atlassian Crowd
+
+* SSL management
+
+
+== Scaling Nexus Deployments
+
+* One server
+
+* Bigger server..
+
+* With failover setup
+
+* Multiple server for read, single write
+
+* With load balancer
+
+* With Nexus Professional - Smart proxy
+
+
+== Release Process 
+
+TIP: Check out the
+http://www.sonatype.com/training/free-nexus-training[free video training course on staging].
+
+
+== Nexus Professional CLM Edition
+
+In a nutshell:
+
+* Configurable component policies 
+
+* Managed on the Sonatype CLM server
+
+* Tied into Nexus Staging
+
+TIP: Demo time!
+
+
+== Sonatype CLM
+
+Expands CLM Nexus Professional CLM Edition 
+
+* Manual analysis in CLM server
+ 
+* Eclipse IDE integration
+
+* Continuous Integration Server support
+
+* SonarQube support
+
+* Command line scanning
+
+
+== Resources
+
+* http://books.sonatype.com/nexus-book/reference/[Repository Management with Nexus]
+
+* The Nexus Community
+
+
+
 ////
 
 Exclusive Nexus Training: Ten Tips to Optimize Development Performance and Control Risk 
