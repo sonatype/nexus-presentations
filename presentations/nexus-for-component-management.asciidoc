@@ -4,28 +4,26 @@
 :Date: September 2014
 :max-width: 45em
 :icons:
-:toc!:
 :slidetitleindentcar: 
 :copyright: Copyright 2011-2014, Sonatype Inc. All Rights Reserved.
-:incremental!:
+
+:incremental:
 
 == Nexus for Component Management
 
-:incremental:
 Join me on a journey
 
 * from no component manager usage
 
 * to full software development lifecycle integration 
 
-WARNING: This is going to be a whirlwind trip.
-:incremental!:
+WARNING: Hold on tight. This is going to be a whirlwind trip.
 
 == Nexus for Component Management
 
-:incremental:
+We will move ...
 
-* from using e.g. using jars checked into version control
+* from using e.g. jars checked into version control
 
 * or just using Maven, Gradle, ... out of the box
 
@@ -37,9 +35,11 @@ WARNING: This is going to be a whirlwind trip.
 
 * to Sontype CLM with all its tools for IDE, CI and more
 
-:incremental!:
+
+
 
 == But What About the Top Ten Tips?
+
 
 [quote, Manfred Moser]
 ____
@@ -48,17 +48,13 @@ ____
 
 == And What About My Questions?
 
-:incremental:
 Go right ahead - ask any time. 
 
-But first, let me set the stage... ;-) 
-
-:incremental!:
+But first, let me set the stage...
 
 == So What is a Component?
 
-:incremental:
-* All the stuff you use to create your applications
+* All the stuff you use to create your applications 
 
 * The plumbing you don't want to write yourself
 
@@ -67,15 +63,24 @@ But first, let me set the stage... ;-)
 * And that you get easily by declaring dependencies with Maven,
   Gradle, nuget, npm... 
 
+* Comprises 80-90% of your application
+
+WARNING: And you are responsible for it all. 
+
+== So What is a Component?
+
 * But also all the parts you create and use 
 
-* including the application deployment packages
+** Including the application deployment packages
 
-:incremental!:
+* JARs, WARs, EARs..
+
+**  but also rpm and npm packages or tar.gz files
 
 == Development Lifecycle Integration? 
 
-:incremental:
+It is an endless circle of activities: 
+
 * Research what components to use
 
 * Implement usage of components in development
@@ -86,11 +91,11 @@ But first, let me set the stage... ;-)
 
 * Go back to the start and change components and versions
 
-:incremental!:
+WARNING: It only ends when any production deployments are
+decommissioned and NOT when development stops.
 
 == Getting Started - Nexus OSS
 
-:incremental:
 * Installation is simple
 
 * Configuration
@@ -105,41 +110,34 @@ But first, let me set the stage... ;-)
 
 TIP:  Lets have a look at these files.
 
--> It's easy and the benefits are immediate 
-
-:incremental!:
+-> It's easy and the benefits are immediate. 
 
 == Repository Concepts
 
-:incremental:
 * Proxy and hosted repositories
 
 * Repository groups for easy access/aggregation
 
-* Maven 2, NuGet and NPM 
+* Maven 2, NuGet and NPM  
 
 TIP: We explore all that in the user interface.
 
-:incremental!:
-
 == Security
 
-:incremental:
 * Privileges, roles and users
 
 * External role mappings e.g. LDAP
 
 * Repository targets
 
-* Authenication from outside 
+* Authentication from tools 
 
 ** settings.xml and more
 
-:incremental!:
-
 == Search & Component Information
 
-:incremental:
+:incremental!:  
+
 * Different search methods
 
 * Find components in different repositories
@@ -150,13 +148,12 @@ TIP: We explore all that in the user interface.
 
 * GAV coordinates and repository location
 
-:incremental!:
+:incremental!:  
 
 == Component Management
 
 'Supply change management for components'
 
-:incremental:
 * Security and authentication
 
 * Repositories and repository targets
@@ -165,35 +162,41 @@ TIP: We explore all that in the user interface.
 
 ->  Set the stage for first repository and component management
 
-:incremental!:
+== Component Management
+
+Who can read? 
+
+* other teams (QA, operations)
+
+* remote offices
+
+* contractors, partner companies, public access 
 
 == Component Management
 
-:incremental:
-* Who can read? 
+Who can write?
 
-** other teams (QA, operations)
+* Build master
 
-** remote offices
+* Release engineers
 
-** contractors, partner companies, public access 
+* CI servers
 
-* Who can write?
+* SNAPSHOTS vs. release
 
-** Build master
+== Component Management
 
-** Release engineers
+What information is available to whom?
 
-** CI servers
+* development
 
-** SNAPSHOTS vs. release
+* QA
 
-* What information is available to whom?
+* security
 
-** development, QA, security, legal, ...
+* legal
 
-:incremental!:  
-
+* ...
 
 == Component Management with Nexus OSS
 
@@ -213,8 +216,7 @@ TIP: We explore all that in the user interface.
 
 -> Way better than manual management or ignoring the need
 
--> yet easy to implement
-
+IMPORTANT: Yet easy to implement...
 
 == Managing Nexus
 
@@ -230,8 +232,7 @@ TIP: We explore all that in the user interface.
 
 * External monitoring software
 
-
-== Next Steps with Nexus Professional
+== Nexus Professional - More Information
 
 Lots more component information:
 
@@ -247,8 +248,7 @@ Lots more component information:
 
 TIP: You gotta see this!
 
-
-== Next Steps with Nexus Professional
+== Nexus Professional - More Security
 
 More security features:
 
@@ -257,7 +257,6 @@ More security features:
 * Enterprise LDAP, Atlassian Crowd
 
 * SSL management
-
 
 == Scaling Nexus Deployments
 
@@ -273,15 +272,38 @@ More security features:
 
 * With Nexus Professional - Smart proxy
 
+== Release Process 
+
+* Security controls write access
+
+* Configurable with repository targets
+
+** Disallow deployments outside company GAV
+
+** Specific GAV's allowed per team
+
+** Or only CI server can deploy
+
+** Or build master
 
 == Release Process 
+
+Dedicated tooling for release process in Nexus Professional - Staging
+
+* Temporary repository
+
+* Rule validation upon deployment
+
+* Configurable for repository targets
+
+* Security controlled stages
+
+* Used as input funnel for Central Repository - OSSRH
 
 TIP: Check out the
 http://www.sonatype.com/training/free-nexus-training[free video training course on staging].
 
-
 == Nexus Professional CLM Edition
-
 In a nutshell:
 
 * Configurable component policies 
@@ -291,7 +313,6 @@ In a nutshell:
 * Tied into Nexus Staging
 
 TIP: Demo time!
-
 
 == Sonatype CLM
 
@@ -307,77 +328,25 @@ Expands CLM Nexus Professional CLM Edition
 
 * Command line scanning
 
-
 == Resources
 
 * http://books.sonatype.com/nexus-book/reference/[Repository Management with Nexus]
 
 * The Nexus Community
 
+** Articles
 
+** Videos
+
+** Mailing Lists
+
+** Monthly Nexus Live 
+
+* Sonatype Support
 
 ////
 
-Exclusive Nexus Training: Ten Tips to Optimize Development Performance and Control Risk 
-Trainer: Manfred Moser 
-
-
-Faster more reliable builds and development practices
-Improved understanding of your component usage
-Visibility into security and license risks
-Whether you use Nexus OSS, Nexus Pro, Nexus Pro CLM Edition – 
-or are just considering using a component manager – 
-this is the perfect opportunity to get first-hand training and have your questions answered.
-
-
-A tour the force from Nexus OSS to Pro to CLM.. sounds good. 
-I can frame that all under component management as well.  
-
-
-
-
-Not sure how much if any of this would be covered as part of a separate
-session at the event, but it would likely be beneficial to weave those any 
-specific items into an overall narrative around effectively managing the 
-flow of components into the development process and ultimately into production.  
-This would allow for showing component selection (leveraging CLM data), 
-staging and releasing (leveraging CLM policy and enforcement), 
-repository health check (for a high-level notional view of risk).  
-I imagine you could show how quickly a bad component can be identified and 
-swapped out for example, which is the kind of stuff that really differentiates 
-Nexus from Artifactory.  Having worked through the broader story and setting 
-the general context, then you can focus on the pro tips that reinforce the notion 
-of using Nexus to effectively manage components as an integral part of a modern s
-oftware supply chain.  Taking a bunch of questions is great, though I would 
-definitely set the theme first, creating the case for Nexus as a 
-critical part of the supply chain.
-
-If you're going to be showing features from pro I think staging, smart proxy, 
-and clm integration are worth consideration.  Those are all big selling points for using pro vs oss.
-
-
-Hi all!
-
-I am going to be presenting a workshop about Nexus usage and tips and tricks at a Nexus User Group event in Chicago and was wondering what sort of things you think should definitely be on that list.
-
-I am going to keep this all pretty open to modifications based on questions from the audience and can demo a lot of stuff based on the training material but I would like to have some of your input.
-
-Some of the things I want to show/explain
-
-- searching for components and inspecting various results
-- understanding repository groups 
 - configuring various tools to connect load from Nexus
-- explaining various security aspects like repo targets, roles and integration with e.g. LDAP
-- general install tips for JSW wrapper config and such
-
-What else do you think should definitely be shown? 
-
-The workshop covers all aspects from Nexus OSS via PRO to CLM edition and even some CLM stuff if desired.
-
-Thanks for any input/ideas.
-
-
-
 
 == Development Today
 

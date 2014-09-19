@@ -1,11 +1,73 @@
-= Repository Management and Sonatype Nexus
-:author:   Sonatype, Inc.
+= Making the Most of Your Artifact Repository: Tips and Tricks
+:author:   Manfred Moser, Sonatype, Inc.
 :max-width: 45em
 :icons:
 :toc!:
 :slidetitleindentcar: 
-:copyright: Copyright 2011-2013, Sonatype Inc. All Rights Reserved.
+:copyright: Copyright 2011-2014, Sonatype Inc. All Rights Reserved.
 
+:incremental:
+
+== Artifact aka Component?
+
+== What is a Component Manager?
+
+* Proxy comp
+
+* H
+
+
+== RPM/YUM Support
+
+== NuGet Support
+
+http://www.sonatype.com/partners/microsoft/nuget
+
+Includes security and license information from Sonatype in VisualStudio
+
+== NPM Support
+
+
+== Community Projects
+
+Nexus Plugins and Integrations
+
+* Chef and Puppet script
+
+* Command line tools
+
+* CI server integrations
+
+TIP: http://books.sonatype.com/nexus-book/reference/community.html
+
+== The Nexus
+
+* add url to site
+
+* free stuff
+
+* looking for guest bloggers
+
+* help with presentations and presenter and swap
+
+-> come to the Sonatype Booth
+
+
+
+////
+
+No matter if you build your software with Gradle, Ant, Maven, or
+another tool, you’re using lots of open source components from
+external repositories. To speed up the build, improve reuse of your
+own components, and simplify management of all those components, you
+should be using a repository manager. Sonatype Nexus is the mostly
+widely used repository manager. This session presents a quick overview
+of Nexus usage and shows you features that make it the most powerful
+open source repository manager. The presentation also checks out
+basics such as hosted and proxy repositories as well as group
+repositories and goes further by examining features such as support
+for site repositories, RPM/Yum repositories, and NuGet
+repositories. It also discusses integrating Nexus with other tools.
 
 == Objectives
 
@@ -521,3 +583,4 @@ Sonatype CLM integration in
 
 * http://www.sonatype.com/Services/Training[Training classes]
 
+////
