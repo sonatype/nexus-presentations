@@ -1,12 +1,16 @@
 #!/bin/bash
 
-set -e 
+# fail if anything errors
+set -e
+# fail if a function call is missing an argument
+set -u
 
-asciidoc -a data-uri --backend slidy2 --attribute stylesheet=`pwd`/sonatype-slides.css -o ../nexus-introduction.html nexus-introduction.asciidoc
-echo "Built nexus-introduction.html"
 
-asciidoc -a data-uri --backend slidy2 --attribute stylesheet=`pwd`/sonatype-slides.css -o ../nexus-oss-advantages.html nexus-oss-advantages.asciidoc
-echo "Built nexus-oss-advantages.html"
+function renderHtml {
+    asciidoc -a data-uri --backend slidy2 --attribute stylesheet=`pwd`/sonatype-slides.css -o ../$1.html $1.asciidoc
+    echo "Built $1.html"
+}
 
-asciidoc -a data-uri --backend slidy2 --attribute stylesheet=`pwd`/sonatype-slides.css -o ../nexus-for-component-management.html nexus-for-component-management.asciidoc
-echo "Built nexus-for-component-management.html"
+renderHtml nexus-introduction
+renderHtml nexus-oss-advantages
+renderHtml nexus-for-component-management
