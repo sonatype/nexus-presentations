@@ -138,11 +138,11 @@ TIP:  Let's have a look at these files.
 
 == What is a Repository?
 
-* Organized storage and access container for components
+* Organized storage for components
 
 * Uses e.g. GAV coordinates for structure
 
--> A Compoent Manager helps with administration and usage of
+-> A Component Manager helps with administration and usage of
    components stored in repositories
 
 == Component Manager Tasks

@@ -1,5 +1,5 @@
-= Making the Most of Your Artifact Repository: Tips and Tricks
-:author:   Manfred Moser, Sonatype, Inc.
+= Making the Most of Your Component Manager
+:author:   Manfred Moser, Vancouver Island JUG & Sonatype, Inc.
 :max-width: 45em
 :icons:
 :toc!:
@@ -8,13 +8,69 @@
 
 :incremental:
 
-== Artifact aka Component?
+== So What is a Component?
 
-== What is a Component Manager?
+* All the stuff you use to create your applications 
 
-* Proxy comp
+* The plumbing you don't want to write yourself
 
-* H
+* Logging, IoC, persistence layer, ORM, ... 
+
+* And that you get easily by declaring dependencies with Maven,
+  Gradle, NuGet, npm... 
+
+* Comprises 80-90% of your application
+
+WARNING: And you are responsible for it all. 
+
+== So What is a Component?
+
+* But also all the parts you create and use 
+
+** Including the application deployment packages
+
+* JARs, WARs, EARs..
+
+**  but also rpm and npm packages or tar.gz files
+
+== What is a Repository?
+
+* Organized storage  for components
+
+* Uses e.g. GAV coordinates for structure
+
+-> A *Component Manager* helps with administration and usage of
+   components stored in repositories
+
+== Problems Without Component Manager
+
+* Common complaint "Maven/Gradle/npm is downloading the internet, again!"
+
+* In fact everything is cached locally (e.g. in ~/.m2/repository) 
+
+* Components are used from local repo in *all* your projects built
+  with Maven
+
+* How do I use the x.y.z proprietary component - I can't find it in
+Central (or wherever)?
+
+* How do I share my components with the other teams? 
+
+TIP: This is where Sonatype Nexus can help!
+
+
+== Component Manager Tasks
+
+Component manager like Nexus OSS is a dedicated server software:
+
+* Proxy and manage access to public repositories
+
+* Store components that are not in public repositories
+
+* Manage internal releases and development components
+
+->  Facilitate internal collaboration across components and teams
+
 
 == Nexus OSS
 
@@ -22,48 +78,105 @@
 
 * Eclipse licensed
 
-* Community  
+* Large community of users
+
+* add footnote to JRebel survey
+
+* TBD
+
+== Getting Started - Nexus OSS
+
+Installation is simple:
+
+. Install Java 7
+
+. Get the bundle with the embedded Eclipse Jetty server
+
+. Extract archive, create symbolic link and run
++
+----
+sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
+cd /usr/local
+sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
+ln -s nexus-professional-x.y.z nexus
+cd nexus
+./bin/nexus console
+----
+
+. Go to http://localhost:8081/nexus and log in with admin/admin123
+
+TIP:  Let's have a look..
+
+-> It's easy and the benefits are immediate. 
+
+== What Next? 
+
+* Configure server side repositories
 
 == Maven Repository Format
 
 * Maven repository format is the de-facto standard for JVM build tools
 
-* Allows build tool independen sharing 
+* Allows build tool independent sharing 
 
 * Ant/Ivy, Ant/Aether, Maven, Gradle, SBT, Grails, Leiningen
 
+* Proxy Central Repository and others
+
+* Hosted repository for your releases and third party components
 
 == NuGet
 
 * Package management for .Net developers
+
+* Proxy NuGet Gallery
+
+* Hosted repository for your releases and third party components
  
+* Strong support in Visual Studio
+
 * Part of Nexus OSS 2.9+
 
-* 
-http://www.sonatype.com/partners/microsoft/nuget
+* Security and license information for components provided by Sonatype
 
-Includes security and license information from Sonatype in VisualStudio
+TIP: More on the  http://www.sonatype.com/partners/microsoft/nuget[website].
+
 
 == NPM Support
 
-* Packaage management for Node.js development
+* Package management for Node.js development
+
+* Proxy npmjs.org registry
+
+* Hosted repository for your releases and third party components
 
 * Part of Nexus OSS 2.10+
 
 
-
-
-
 == RPM/YUM
 
+* Expose your Maven repository in YUM format
+
+* Use for production deployment of your application
 
 
 == (J)Ruby Gems Support
 
-* Very active open source project
+* Active open source project
+
+* Used by JRuby community
 
 * Plugins for Nexus OSS
 
+* TBD add link
+
+
+== Sonatype Nexus as Center Hub
+
+image::images/nexus-tool-suite-integration.png[scale=100]
+
+-> Nexus will be a key component of your enterprise development
+  infrastructure
 
 
 == Community Projects
@@ -80,26 +193,26 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 
 == The Nexus
 
-* add url to site
+* New community site at http://www.sonatype.org/nexus[http://www.sonatype.org/nexus]
 
-* free stuff
+* With blog posts, videos, free training material
 
-* looking for guest bloggers
+* Month Nexus Live
 
-* help with presentations and presenter and swap
+* Looking for guest bloggers
 
--> come to the Sonatype Booth
+* Help with presentations and presenter and swap
+
+-> come to the Sonatype booth.
 
 
 == OSSRH
 
-* Nexus Professional 
+* Free hosted Nexus Professional running for community
 
-* Free for snapshots
+* Hosts snapshot deployments
 
 * Releases are synced to the Central Repository
-
-
 
 == Central Repository
 
@@ -113,12 +226,39 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 
 == Nexus Professional
 
+* Takes component management to the next level
+
 * Available for free, if you run a open source forge like JBoss,
   Apache, ...
+
+** more component information
+
+** more security features, 
+
+** staging suite for release management
 
 
 == Sonatype CLM
 
+* Component Lifecycle Management
+
+* Define policies 
+
+** including security, license, coordinates, labels and other metadata
+
+* Work with and enforce policies
+
+**  in IDE
+
+** in CI server
+
+** SonarQube
+
+** Maven plugin
+
+** Command line tool
+
+* ...
 
 == Resources
 
@@ -170,80 +310,7 @@ repositories and goes further by examining features such as support
 for site repositories, RPM/Yum repositories, and NuGet
 repositories. It also discusses integrating Nexus with other tools.
 
-== Objectives
 
-* Understand the benefits of using a repository manager
-
-* Know how to start using Nexus
-
-* Learn about Component Lifecycle Management 
-
-== Development Today
-
-Uses components. Lots of them.
-
--> more than 80% of a common enterprise software 
-
-* Facilitate the power of open source
-
-* Don't reinvent the wheel
-
-== But What Is A Component? 
-
-... any artifact or library that your software needs in
-order to be built, released and to run
-
-*Contains* code, class files, object files, binary resources like
-images, property files, xml files...
-
-*In* jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on
-
-Examples::
-
-* Google Guice jar file needed during runtime
-
-* JUnit jar file needed for unit test execution
-
-* JDBC driver for your database needed at runtime
-
-== Manual Dependency Management
-
-* Painful
-
-* Unreliable
-
-* Overloads SCM
-
-* Hard to maintain and document
-
-NOTE: Unbelievably lots of developers still do this today!
-
-== Declarative Dependency Managment
-
-* Automatic
-
-* Including transitive dependencies
-
-* Declarative - so easy to read and understand
-
-* Support from tools
-
-== "Problems" With Declarative Approach
-
-* Common complaint "Maven is downloading the internet, again!"
-
-* In fact everything is cached locally (~/.m2/repository) 
-
-* Components are used from local repo in *all* your projects built
-  with Maven
-
-* Other tools also need to download components, and all use
-
-** Central Repository
-
-** Maven repository format
-
-TIP: This is where Sonatype Nexus can help!
 
 == Adoption Stages and Advantages
 
@@ -282,36 +349,9 @@ Lifecycle Integration
 
 * Gaining license and security understanding of the components 
 
-== Sonatype Nexus as Center Hub
-
-image::images/nexus-tool-suite-integration.png[scale=100]
-
--> Nexus will be a key component of your enterprise development
-  infrastructure
 
 
-== Installing Nexus
 
-. Install Java 7
-
-. Get the bundle with the embedded Jetty server from http://www.sonatype.org/nexus/go[the download
-page]
-
-. Extract archive, create symbolic link and run
-+
-----
-sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
-cd /usr/local
-sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
-ln -s nexus-professional-x.y.z nexus
-cd nexus
-./bin/nexus console
-----
-
-. Go to http://localhost:8081/nexus and log in with admin/admin123
-
-NOTE: Nexus Professional has enterprise benefits, but open source
-edition is perfect for getting started. 
 
 == Relationship Apache Maven and Nexus
 
