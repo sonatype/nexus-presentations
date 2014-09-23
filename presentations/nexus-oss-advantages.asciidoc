@@ -16,16 +16,54 @@
 
 * H
 
+== Nexus OSS
 
-== RPM/YUM Support
+* 64 % marketshare among component managers
 
-== NuGet Support
+* Eclipse licensed
 
+* Community  
+
+== Maven Repository Format
+
+* Maven repository format is the de-facto standard for JVM build tools
+
+* Allows build tool independen sharing 
+
+* Ant/Ivy, Ant/Aether, Maven, Gradle, SBT, Grails, Leiningen
+
+
+== NuGet
+
+* Package management for .Net developers
+ 
+* Part of Nexus OSS 2.9+
+
+* 
 http://www.sonatype.com/partners/microsoft/nuget
 
 Includes security and license information from Sonatype in VisualStudio
 
 == NPM Support
+
+* Packaage management for Node.js development
+
+* Part of Nexus OSS 2.10+
+
+
+
+
+
+== RPM/YUM
+
+
+
+== (J)Ruby Gems Support
+
+* Very active open source project
+
+* Plugins for Nexus OSS
+
 
 
 == Community Projects
@@ -53,6 +91,69 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 -> come to the Sonatype Booth
 
 
+== OSSRH
+
+* Nexus Professional 
+
+* Free for snapshots
+
+* Releases are synced to the Central Repository
+
+
+
+== Central Repository
+
+* add some numbers and charts here
+
+* Largest Repository
+
+* http://central.sonatype.org[Up to date documentation]
+
+* Central Repository
+
+== Nexus Professional
+
+* Available for free, if you run a open source forge like JBoss,
+  Apache, ...
+
+
+== Sonatype CLM
+
+
+== Resources
+
+* http://links.sonatype.com/products/nexus/oss/docs[Repository
+  Management with Nexus] - free book
+
+* http://www.sonatype.org/nexu[The Nexus Community]
+
+** with articles, videos, mailing Lists, Nexus Live and more
+
+* http://support.sonatype.com[Sonatype Support]
+
+* http://www.sonatype.com/Products/Nexus-Professional[Nexus
+  Professional website]
+
+* http://www.sonatype.com/nexus/free-trial[Nexus Professional
+  Trial Bundle and Guide] - some examples can be used with Nexus OSS as well
+
+* https://links.sonatype.com/products/nexus/community-chat[Talk to the developers/support - HipChat]
+
+* http://www.sonatype.com/Services/Training[Training classes]
+
+== Visit Me
+
+Come and drop by the Sonatype booth for
+
+* T-shirts
+
+* Lightsabers
+
+* Nexus Professional license for your forge
+
+* Contact for user group meeting
+
+* and more
 
 ////
 
@@ -550,37 +651,5 @@ Sonatype CLM integration in
 * Nexus
 * ...
 
-== Integrating with Nexus
-
-* Lots of build tools can integrate with Maven repositories 
-
-** Ant/Ivy, Gradle, SBT, Grails, ...
-
-* All functionality is available in REST API
-
-* Java Client for REST API available
-
-* Plugin architecture with examples to create your own
-
-== Want to learn more? 
-
-* http://www.sonatype.org/nexus[Nexus Opens Source OSS website] 
-
-* http://www.sonatype.com/Products/Nexus-Professional[Nexus
-  Professional website]
-
-* http://www.sonatype.com/Support/Videos[Screen cast recordings]
-
-* http://links.sonatype.com/products/nexus/oss/docs[Repository
-  Management with Nexus] - free book
-
-* http://www.sonatype.com/nexus/free-trial[Nexus Professional
-  Trial Bundle and Guide] - some examples can be used with Nexus OSS as well
-
-* http://www.sonatype.org/nexus/participate[Mailing lists]
-
-* https://links.sonatype.com/products/nexus/community-chat[Talk to the developers/support - HipChat]
-
-* http://www.sonatype.com/Services/Training[Training classes]
 
 ////
