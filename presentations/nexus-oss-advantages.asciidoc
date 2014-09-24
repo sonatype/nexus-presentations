@@ -1,5 +1,5 @@
 = Making the Most of Your Component Manager
-:author:   Manfred Moser, Vancouver Island JUG & Sonatype, Inc.
+:author:   Manfred Moser, Vancouver Island JUG, BC, Canada & Sonatype, Inc.
 :max-width: 45em
 :icons:
 :toc!:
@@ -42,6 +42,8 @@ WARNING: And you are responsible for it all.
 -> A *Component Manager* helps with administration and usage of
    components stored in repositories
 
+TIP: Just like a Git server helps you manage source code in Git repositories
+
 == Problems Without Component Manager
 
 * Common complaint "Maven/Gradle/npm is downloading the internet, again!"
@@ -53,7 +55,9 @@ WARNING: And you are responsible for it all.
 * But new versions or new components trigger downloads
 
 ** For everyone ... e.g. 500 developers and 500 CI nodes = 1000
-   downloads from Central Repository
+   downloads
+
+** That's a lot of wasted bandwidth and time
 
 * How do I use the x.y.z proprietary component - I can't find it in
 the Central Repository (or wherever)?
@@ -69,7 +73,7 @@ Component manager like Nexus OSS is a dedicated server software:
 
 * Proxy and manage access to public repositories
 
-* Store components that are not in public repositories
+* Store components that are *not* in public repositories
 
 * Manage internal releases and development components
 
@@ -82,11 +86,13 @@ Component manager like Nexus OSS is a dedicated server software:
 
 * Eclipse licensed
 
+* Highly performant
+
+* Large feature set, yet easy to use
+
 * Large community of users
 
-* add footnote to JRebel survey
-
-* TBD
+* tbd add footnote to JRebel survey
 
 == Getting Started - Nexus OSS
 
@@ -99,10 +105,10 @@ Installation is simple:
 . Extract archive, create symbolic link and run
 +
 ----
-sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
-cd /usr/local
-sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
-ln -s nexus-professional-x.y.z nexus
+sudo cp nexus-x.y.z-bundle.tar.gz /opt
+cd /opt
+sudo tar xvzf nexus-x.y.z-bundle.tar.gz
+ln -s nexus-x.y.z nexus
 cd nexus
 ./bin/nexus console
 ----
@@ -113,15 +119,17 @@ TIP:  Let's have a look..
 
 -> It's easy and the benefits are immediate. 
 
-== What Next? 
-
-* Configure server side repositories
-
 == Nexus User Interface Tour
 
-* Search for components, including advanced search
+* Search for components
 
-* View component details including security and license details
+** including advanced search
+
+** and find components availabel in remote repositories!
+
+* View component details 
+
+** including security and license details in Nexus Pro
 
 * Repositories
 
@@ -238,7 +246,9 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 
 * http://central.sonatype.org[Up to date documentation]
 
-* Central Repository
+* Available via https://repo1.maven.org/maven2
+
+* Highly performant, global CDN
 
 == Nexus Professional
 
@@ -275,6 +285,22 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 ** Command line tool
 
 * ...
+
+== Application Health Check
+
+== Nexus 3
+
+* First milestone release available
+
+* New user interface
+
+* New backend
+
+* New features
+
+* Lots more coming
+
+TIP: We want your feedback! Give it a whirl!
 
 == Resources
 
