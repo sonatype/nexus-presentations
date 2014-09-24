@@ -4235,19 +4235,31 @@ Common complaint "Maven/Gradle/npm is downloading the internet, again!"
 </li>
 <li>
 <span>
-In fact everything is cached locally (e.g. in ~/.m2/repository)
+Everything is cached locally (e.g. in ~/.m2/repository)
 </span>
 </li>
 <li>
 <span>
-Components are used from local repo in <strong>all</strong> your projects built
-  with Maven
+Components are used from local repo in <strong>all</strong> your projects
 </span>
+</li>
+<li>
+<span>
+But new versions or new components trigger downloads
+</span>
+<ul class=" incremental">
+<li>
+<span>
+For everyone &#8230; e.g. 500 developers and 500 CI nodes = 1000
+   downloads from Central Repository
+</span>
+</li>
+</ul>
 </li>
 <li>
 <span>
 How do I use the x.y.z proprietary component - I can&#8217;t find it in
-Central (or wherever)?
+the Central Repository (or wherever)?
 </span>
 </li>
 <li>
@@ -4511,6 +4523,41 @@ Configure server side repositories
 </div><div class="slide">
 
 <div class="sect1">
+<h1 id="_nexus_user_interface_tour">Nexus User Interface Tour</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Nexus User Interface Tour";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Search for components, including advanced search
+</span>
+</li>
+<li>
+<span>
+View component details including security and license details
+</span>
+</li>
+<li>
+<span>
+Repositories
+</span>
+</li>
+<li>
+<span>
+Server administration
+</span>
+</li>
+<li>
+<span>
+Security
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_maven_repository_format">Maven Repository Format</h1>
 <script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Maven Repository Format";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
@@ -4567,12 +4614,12 @@ Hosted repository for your releases and third party components
 </li>
 <li>
 <span>
-Strong support in Visual Studio
+Support in Visual Studio
 </span>
 </li>
 <li>
 <span>
-Part of Nexus OSS 2.9+
+Nexus OSS 2.9+
 </span>
 </li>
 <li>
@@ -7149,7 +7196,7 @@ and more
 </ul>
 <div id="footer" style="position: absolute; left: 5%; top: 80%; width: 90%;">
 <div id="footer-text">
-Last updated 2014-09-23 16:46:41 PDT
+Last updated 2014-09-24 09:39:09 PDT
 </div>
 </div>
 </div></div>
