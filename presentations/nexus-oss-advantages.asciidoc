@@ -46,7 +46,7 @@ TIP: Just like a Git server helps you manage source code in Git repositories
 
 == Problems Without Component Manager
 
-* Common complaint "Maven/Gradle/npm is downloading the internet, again!"
+* Common complaint "Maven/Gradle/npm/NuGet is downloading the internet, again!"
 
 * Everything is cached locally (e.g. in ~/.m2/repository) 
 
@@ -54,10 +54,12 @@ TIP: Just like a Git server helps you manage source code in Git repositories
 
 * But new versions or new components trigger downloads
 
-** For everyone ... e.g. 500 developers and 500 CI nodes = 1000
+** E.g. 500 developers and 500 CI nodes = 1000
    downloads
 
-** That's a lot of wasted bandwidth and time
+** Global bank reduced from 2.6 millon to 90k downloads
+
+** That's a lot of wasted bandwidth and *time*
 
 * How do I use the x.y.z proprietary component - I can't find it in
 the Central Repository (or wherever)?
@@ -69,30 +71,42 @@ TIP: This is where Sonatype Nexus can help!
 
 == Component Manager Tasks
 
-Component manager like Nexus OSS is a dedicated server software:
+Nexus is a dedicated server software:
+
+It is used to...
 
 * Proxy and manage access to public repositories
 
 * Store components that are *not* in public repositories
 
-* Manage internal releases and development components
+* Manage and host internal releases
+
+* Distribute components internally and beyond
 
 ->  Facilitate internal collaboration across components and teams
 
 
-== Nexus OSS
+=== Component Usage Growth...
 
-* 64 % marketshare among component managers
+is exploding. And so is usage of Nexus. 
+
+image::images/repository-growth.jpg[width="50%"]
+
+Data from access logs to Central Repository.
+
+== Nexus Open Source - Nexus OSS
+
+* 64% marketshare 
+
+** http://pages.zeroturnaround.com/Java-Tools-Technologies.html[RebelLabs, Java Tools and Technologies Landscape 2014]
 
 * Eclipse licensed
 
 * Highly performant
 
-* Large feature set, yet easy to use
+* Easy to install and use
 
 * Large community of users
-
-* tbd add footnote to JRebel survey
 
 == Getting Started - Nexus OSS
 
@@ -115,9 +129,10 @@ cd nexus
 
 . Go to http://localhost:8081/nexus and log in with admin/admin123
 
+. It's easy and the benefits are immediate. 
+
 TIP:  Let's have a look..
 
--> It's easy and the benefits are immediate. 
 
 == Nexus User Interface Tour
 
@@ -125,7 +140,7 @@ TIP:  Let's have a look..
 
 ** including advanced search
 
-** and find components availabel in remote repositories!
+** and find components available in remote repositories!
 
 * View component details 
 
@@ -136,6 +151,11 @@ TIP:  Let's have a look..
 * Server administration
 
 * Security 
+
+** fine-grained control
+
+** component access and user interface
+
 
 == Maven Repository Format
 
@@ -149,6 +169,8 @@ TIP:  Let's have a look..
 
 * Hosted repository for your releases and third party components
 
+TIP: Detailed instructions for different tools are http://books.sonatype.com/nexus-book/reference/config.html[in the Nexus book].
+
 == NuGet
 
 * Package management for .Net developers
@@ -160,8 +182,6 @@ TIP:  Let's have a look..
 * Support in Visual Studio
 
 * Nexus OSS 2.9+
-
-* Security and license information for components provided by Sonatype
 
 TIP: More on the  http://www.sonatype.com/partners/microsoft/nuget[website].
 
@@ -176,36 +196,37 @@ TIP: More on the  http://www.sonatype.com/partners/microsoft/nuget[website].
 
 * Part of Nexus OSS 2.10+
 
+TIP: Setup and more tips are http://books.sonatype.com/nexus-book/2.10/reference/npm.html[in the Nexus book.]
 
-== RPM/YUM
 
-* Expose your Maven repository in YUM format
+== RPM/Yum
 
-* Use for production deployment of your application
+* Expose your Maven repository in Yum format
 
+* Use it for production deployment of your application
+
+* Originally a community contribution
+
+* Long time part of Nexus OSS 
 
 == (J)Ruby Gems Support
 
-* Active open source project
+* Active https://github.com/sonatype/nexus-ruby-support[open source project]
 
 * Used by JRuby community
 
-* Plugins for Nexus OSS
+* Works with Nexus OSS
 
-* TBD add link
+== Sonatype Nexus as Central Hub
 
+image::images/nexus-tool-suite-integration.png[width="80%"]
 
-== Sonatype Nexus as Center Hub
-
-image::images/nexus-tool-suite-integration.png[scale=100]
-
--> Nexus will be a key component of your enterprise development
+-> Nexus is a key component of your enterprise development
   infrastructure
-
 
 == Community Projects
 
-Nexus Plugins and Integrations
+Nexus http://books.sonatype.com/nexus-book/reference/community.html[plugins and integrations]
 
 * Chef and Puppet script
 
@@ -213,42 +234,73 @@ Nexus Plugins and Integrations
 
 * CI server integrations
 
-TIP: http://books.sonatype.com/nexus-book/reference/community.html
+* and many more
+
+TIP: Write your own with REST or Java API.
 
 == The Nexus
 
 * New community site at http://www.sonatype.org/nexus[http://www.sonatype.org/nexus]
 
-* With blog posts, videos, free training material
+* With blog posts, videos, free training material, downloads
 
-* Month Nexus Live
+* Regular Nexus Live event
 
-* Looking for guest bloggers
+* Looking for guest contributions
 
-* Help with presentations and presenter and swap
+* Sonatype can help with presentations, presenter and support at meetings
 
--> come to the Sonatype booth.
+-> Come to the Sonatype booth!
 
 
 == OSSRH
 
-* Free hosted Nexus Professional running for community
+* Open Source Repository Hosting at http://oss.sonatype.org[http://oss.sonatype.org]
+
+* Free hosted Nexus Professional for community
 
 * Hosts snapshot deployments
 
 * Releases are synced to the Central Repository
 
+* Publishing is easy!
+
 == Central Repository
 
-* add some numbers and charts here
+image::images/central-stats.png[height="90%"]
 
-* Largest Repository
+== Central Repository
 
-* http://central.sonatype.org[Up to date documentation]
+* 13 *billion* downloads in 2013
 
-* Available via https://repo1.maven.org/maven2
+* Beyond that for 2014
+
+* Largest Repository of JVM components
+
+* http://central.sonatype.org[Up to date, comprehensive documentation]
+
+* Available via HTTPS at https://repo1.maven.org/maven2
+
+** Time to update your configuration
+
+* Search at http://search.maven.org
 
 * Highly performant, global CDN
+
+== Repository Health Check
+
+Checks all components in a Nexus repository for 
+* Security vulnerabilities
+
+* License issues
+
+* Overview in Nexus OSS
+
+* Details in Nexus Pro
+
+* >35000 checks run daily
+
+* >10000 Nexus instances
 
 == Nexus Professional
 
@@ -257,12 +309,15 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 * Available for free, if you run a open source forge like JBoss,
   Apache, ...
 
-** more component information
+* More component information
 
-** more security features, 
+* More security features 
 
-** staging suite for release management
+* Staging suite for release management
 
+* CLM integration
+
+TIP: Demo time...
 
 == Sonatype CLM
 
@@ -284,13 +339,24 @@ TIP: http://books.sonatype.com/nexus-book/reference/community.html
 
 ** Command line tool
 
-* ...
+* and inspect the results of the analysis
+
+TIP: Do we have time for a demo? Sure...
 
 == Application Health Check
 
+* Scan a file for components 
+
+* Analyze for security and license checks
+
+* Inspect a comprehensive report
+
+* For free available on the
+  http://www.sonatype.com/application-health-check[Sonatype website]
+
 == Nexus 3
 
-* First milestone release available
+* Milestone releases https://support.sonatype.com/forums/23079216-Nexus-3-Milestone-Releases[available]
 
 * New user interface
 
@@ -323,7 +389,7 @@ TIP: We want your feedback! Give it a whirl!
 
 * http://www.sonatype.com/Services/Training[Training classes]
 
-== Visit Me
+== Visit Us
 
 Come and drop by the Sonatype booth for
 
@@ -333,27 +399,8 @@ Come and drop by the Sonatype booth for
 
 * Nexus Professional license for your forge
 
-* Contact for user group meeting
+* Contact for user group meetings
 
-* and more
+* Demos, a chat and ...
 
-////
-
-No matter if you build your software with Gradle, Ant, Maven, or
-another tool, you’re using lots of open source components from
-external repositories. To speed up the build, improve reuse of your
-own components, and simplify management of all those components, you
-should be using a repository manager. Sonatype Nexus is the mostly
-widely used repository manager. This session presents a quick overview
-of Nexus usage and shows you features that make it the most powerful
-open source repository manager. The presentation also checks out
-basics such as hosted and proxy repositories as well as group
-repositories and goes further by examining features such as support
-for site repositories, RPM/Yum repositories, and NuGet
-repositories. It also discusses integrating Nexus with other tools.
-
-
-
-
-
-////
+TIP: a chance to to win a DJI Phantom FC40 Drone.
