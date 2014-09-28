@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <title>Repository Management and Sonatype Nexus</title>
+    <author>
+        <firstname>Sonatype,</firstname>
+        <surname>Inc.</surname>
+    </author>
+    <authorinitials>SI</authorinitials>
+</articleinfo>
+<section id="_objectives">
+<title>Objectives</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Understand the benefits of using a repository manager
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Know how to start using Nexus
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Learn about Component Lifecycle Management
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_development_today">
+<title>Development Today</title>
+<simpara>Uses components. Lots of them.</simpara>
+<simpara>&#8594; more than 80% of a common enterprise software</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Facilitate the power of open source
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Don&#8217;t reinvent the wheel
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_but_what_is_a_component">
+<title>But What Is A Component?</title>
+<orderedlist numeration="lowerroman">
+<listitem>
+<simpara>
+any artifact or library that your software needs in
+order to be built, released and to run
+</simpara>
+</listitem>
+</orderedlist>
+<simpara><emphasis role="strong">Contains</emphasis> code, class files, object files, binary resources like
+images, property files, xml files&#8230;</simpara>
+<simpara><emphasis role="strong">In</emphasis> jar, war, ear, swf, so, bin, apk, apklib, zip, tar.gz, rpm, deb files and so on</simpara>
+<variablelist>
+<varlistentry>
+<term>
+Examples
+</term>
+<listitem>
+<itemizedlist>
+<listitem>
+<simpara>
+Google Guice jar file needed during runtime
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+JUnit jar file needed for unit test execution
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+JDBC driver for your database needed at runtime
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+<section id="_manual_dependency_management">
+<title>Manual Dependency Management</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Painful
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Unreliable
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Overloads SCM
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Hard to maintain and document
+</simpara>
+</listitem>
+</itemizedlist>
+<note><simpara>Unbelievably lots of developers still do this today!</simpara></note>
+</section>
+<section id="_declarative_dependency_managment">
+<title>Declarative Dependency Managment</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Automatic
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Including transitive dependencies
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Declarative - so easy to read and understand
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Support from tools
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_problems_with_declarative_approach">
+<title>"Problems" With Declarative Approach</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Common complaint "Maven is downloading the internet, again!"
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+In fact everything is cached locally (~/.m2/repository)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Components are used from local repo in <emphasis role="strong">all</emphasis> your projects built
+  with Maven
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Other tools also need to download components, and all use
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Central Repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Maven repository format
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<tip><simpara>This is where Sonatype Nexus can help!</simpara></tip>
+</section>
+<section id="_adoption_stages_and_advantages">
+<title>Adoption Stages and Advantages</title>
+<simpara>Proxy external repositories</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Starting with Central Repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reduced downloads, faster builds, increased stability
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Adding more proxy repositories
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+only needs to be done on the server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+developers get access to more components without any work
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_adoption_stages_and_advantages_2">
+<title>Adoption Stages and Advantages</title>
+<simpara>Host external and internal artifacts</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Deploy once for everybody
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Share binary components like open source projects
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Improve cooperation between multiple, different teams (dev, qa,
+   ops&#8230;)
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_adoption_stages_and_advantages_3">
+<title>Adoption Stages and Advantages</title>
+<simpara>Lifecycle Integration</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Addition of CI server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Controlling component usage - Procurement
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Improving release process - Staging
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Gaining license and security understanding of the components
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_sonatype_nexus_as_center_hub">
+<title>Sonatype Nexus as Center Hub</title>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/nexus-tool-suite-integration.png" scale="100"/>
+  </imageobject>
+  <textobject><phrase>images/nexus-tool-suite-integration.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>&#8594; Nexus will be a key component of your enterprise development
+  infrastructure</simpara>
+</section>
+<section id="_installing_nexus">
+<title>Installing Nexus</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Install Java 7
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Get the bundle with the embedded Jetty server from <ulink url="http://www.sonatype.org/nexus/go">the download
+page</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Extract archive, create symbolic link and run
+</simpara>
+<screen>sudo cp nexus-professional-x.y.z-bundle.tar.gz /usr/local
+cd /usr/local
+sudo tar xvzf nexus-professional-x.y.z-bundle.tar.gz
+ln -s nexus-professional-x.y.z nexus
+cd nexus
+./bin/nexus console</screen>
+</listitem>
+<listitem>
+<simpara>
+Go to <ulink url="http://localhost:8081/nexus">http://localhost:8081/nexus</ulink> and log in with admin/admin123
+</simpara>
+</listitem>
+</orderedlist>
+<note><simpara>Nexus Professional has enterprise benefits, but open source
+edition is perfect for getting started.</simpara></note>
+</section>
+<section id="_relationship_apache_maven_and_nexus">
+<title>Relationship Apache Maven and Nexus</title>
+<simpara>Apache Maven introduced repository concept:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+storage for plugins
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+and dependencies
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>All are retrieved from repositories on the internet, by the default
+the <ulink url="http://search.maven.org">Central Repository</ulink></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Nexus runs Open Source Repository Hosting OSSRH as input for the Central Repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Nexus can run as proxy on site for you
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Best of breed Maven Repository Manager MRM (and beyond)
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Read more about the scale needed to run OSSRH <ulink url="http://www.sonatype.com/people/2012/04/how-can-we-prove-that-nexus-can-scale/">on
+the blog.</ulink></simpara></tip>
+</section>
+<section id="_connecting_maven_to_nexus">
+<title>Connecting Maven to Nexus</title>
+<simpara>Establish system/user wide setting for Maven to use Nexus:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+modify/create ~/.m2/settings.xml to point to Nexus (see labs/settings/)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+build a few Maven projects
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+see how it starts proxying
+</simpara>
+</listitem>
+</itemizedlist>
+<screen>&lt;settings&gt;
+  &lt;mirrors&gt;
+    &lt;mirror&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+      &lt;url&gt;http://localhost:8081/nexus/content/groups/public&lt;/url&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+     &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+      &lt;/pluginRepositories&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+  &lt;activeProfiles&gt;
+    &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
+  &lt;/activeProfiles&gt;
+&lt;/settings&gt;</screen>
+<tip><simpara>For other build tools this will be different.</simpara></tip>
+</section>
+<section id="_component_coordinates">
+<title>Component Coordinates</title>
+<simpara>Structure storage for components using unique "GAV" coordinates:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<emphasis role="strong">g</emphasis> roupId, <emphasis role="strong">a</emphasis> rtifactId, <emphasis role="strong">v</emphasis> ersion - GAV
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+optionally classifier and packaging
+</simpara>
+</listitem>
+</itemizedlist>
+<screen>&lt;dependency&gt;
+  &lt;groupId&gt;org.testng&lt;/groupId&gt;
+  &lt;artifactId&gt;testng&lt;/artifactId&gt;
+  &lt;version&gt;6.1.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;com.google.inject&lt;/groupId&gt;
+  &lt;artifactId&gt;guice&lt;/artifactId&gt;
+  &lt;version&gt;3.0&lt;/version&gt;
+  &lt;classifier&gt;no_aop&lt;/classifier&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.glassfish.admingui&lt;/groupId&gt;
+  &lt;artifactId&gt;war&lt;/artifactId&gt;
+  &lt;version&gt;10.0-b28&lt;/version&gt;
+  &lt;type&gt;war&lt;/type&gt;
+&lt;/dependency&gt;</screen>
+</section>
+<section id="_maven_repository_format">
+<title>Maven Repository Format</title>
+<simpara>Uses the GAV component coordinates. Coordinates map to specific
+locations in a Maven repository.</simpara>
+<screen>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
+  &lt;artifactId&gt;camel-core&lt;/artifactId&gt;
+  &lt;version&gt;3.4.1&lt;/version&gt;
+&lt;/dependency&gt;</screen>
+<simpara>Maps to:</simpara>
+<screen>org/apache/camel/
+                 camel-core/
+                            3.4.1/
+    camel-core-3.4.1.pom
+    camel-core-3.4.1.jar</screen>
+<simpara>File names are created using</simpara>
+<screen>artifactId-version-classifier.packaging</screen>
+<simpara>Classifiers javadoc and sources are appended to file name:</simpara>
+<screen>    camel-core-3.4.1-javadoc.jar
+    camel-core-3.4.1-sources.jar</screen>
+<tip><simpara>Other repository formats use a different structure, but the Maven
+structure is understood and used by many tools.</simpara></tip>
+</section>
+<section id="_what_is_a_repository">
+<title>What is a Repository?</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Organized storage and access container for artifacts
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Uses artifact coordinates for structure
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>&#8594; A Repository Manager helps with administration and usage</simpara>
+</section>
+<section id="_repository_manager_tasks">
+<title>Repository Manager Tasks</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Proxy and managing access to public repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Storing components that are not in public repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Managing releases and snapshots
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Controlling available and allowed dependencies
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Facilitate internal collaboration across components and teams
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_repository_manager_advantages">
+<title>Repository Manager Advantages</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Increased speed
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reduced bandwidth usage
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Predictability
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Ability to control and audit - all components under your control
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Improved management of 3rd party artifacts
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Internal collaboration enabled
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Distribution of components made possible
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_nexus_user_interface_tour">
+<title>Nexus User Interface Tour</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Search for components, including advanced search
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+View component details including security and license details
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Server administration
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Security
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_proxying">
+<title>Proxying</title>
+<simpara>Public Group is exposed to users &#8594;</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+can be changed on server for all users
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+takes security access rights into account
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Examples:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+add an additional external proxy repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+add an internal hosted repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+manually deploy component into 3rd party hosted repository
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Demo time!</simpara></tip>
+</section>
+<section id="_release_vs_snapshot_repositories">
+<title>Release vs Snapshot Repositories</title>
+<simpara><emphasis role="strong">Release Repositories</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Store "point-in-time" Releases
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Releases never change
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Publish a Release &#8594; Both the artifact and meta-data "live forever"
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara><emphasis role="strong">Snapshot Repositories</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Used for development-only
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Transient
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+No promise SNAPSHOT artifacts will remain the same
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Repositiory Groups merge them and expose the all under one URL.</simpara></tip>
+</section>
+<section id="_deploying_internal_components">
+<title>Deploying Internal Components</title>
+<simpara>is when the benefits step up to the next level:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Sharing of binary components and not specification documents
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+No more building each others components
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+End of large multi-module builds
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Choice of build system
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_deployments_with_maven_8230">
+<title>Deployments with Maven&#8230;</title>
+<screen>mvn clean deploy</screen>
+<itemizedlist>
+<listitem>
+<simpara>
+pom.xml &#8594; distributionManagement
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+snapshotRepository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+releaseRepository
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+settings.xml &#8594; server
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_pom_xml_distributionmanagement">
+<title>pom.xml - distributionManagement</title>
+<screen>  &lt;distributionManagement&gt;
+    &lt;repository&gt;
+      &lt;id&gt;nexus-releases&lt;/id&gt;
+      &lt;url&gt;http://localhost:8081/nexus/content/repositories/releases&lt;/url&gt;
+    &lt;/repository&gt;
+    &lt;snapshotRepository&gt;
+      &lt;id&gt;nexus-snapshots&lt;/id&gt;
+      &lt;url&gt;http://localhost:8081/nexus/content/repositories/snapshots&lt;/url&gt;
+    &lt;/snapshotRepository&gt;
+  &lt;/distributionManagement&gt;</screen>
+</section>
+<section id="_settings_xml_server">
+<title>settings.xml - server</title>
+<screen>  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;username&gt;admin&lt;/username&gt;
+      &lt;password&gt;admin123&lt;/password&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;</screen>
+</section>
+<section id="_maven_deploy_plugin">
+<title>Maven Deploy Plugin</title>
+<simpara>Use the example project in labs/maven-deploy-example</simpara>
+<screen>mvn clean deploy
+mvn versions:set -DnewVersion=1.0.0
+mvn clean deploy</screen>
+<itemizedlist>
+<listitem>
+<simpara>
+Snapshot versions can be deployed multiple times.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Releases only once.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Now components are available for everybody via the public group.</simpara>
+<tip><simpara>Your continuous integration server could do the deployment.</simpara></tip>
+</section>
+<section id="_advanced_features">
+<title>Advanced Features</title>
+<variablelist>
+<varlistentry>
+<term>
+Procurement
+</term>
+<listitem>
+<simpara>
+Control availability of components
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Staging
+</term>
+<listitem>
+<simpara>
+multi-step, controlled release process including reruns
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Maven Settings Distribution
+</term>
+<listitem>
+<simpara>
+via Nexus Maven Plugin
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Security
+</term>
+<listitem>
+<simpara>
+Enhanced LDAP, Atlassian Crowd
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Other repository formats
+</term>
+<listitem>
+<simpara>
+NuGet, Site, P2, OBR, YUM
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+<section id="_distributed_deployments">
+<title>Distributed Deployments</title>
+<simpara>Scale your organization, while maintaining performance for everybody!</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/nexus-smart-proxy.png" scale="100"/>
+  </imageobject>
+  <textobject><phrase>images/nexus-smart-proxy.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Various scenarios and setups are common,  including:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+integration with component providers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+cooperation with external development teams
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+component distribution to clients
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_component_lifecycle_management">
+<title>Component Lifecycle Management</title>
+<simpara>Component lifecycle management can be defined as the <emphasis role="strong">practice of</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<emphasis role="strong">analyzing</emphasis>,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<emphasis role="strong">controlling</emphasis>, and
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<emphasis role="strong">monitoring</emphasis>
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara><emphasis role="strong">the components used in your software development lifecycle</emphasis>.</simpara>
+<simpara>Sonatype CLM integration in</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Hudson/Jenkins
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Eclipse
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Nexus
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+&#8230;
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_integrating_with_nexus">
+<title>Integrating with Nexus</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Lots of build tools can integrate with Maven repositories
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Ant/Ivy, Gradle, SBT, Grails, &#8230;
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+All functionality is available in REST API
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Java Client for REST API available
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Plugin architecture with examples to create your own
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_want_to_learn_more">
+<title>Want to learn more?</title>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.org/nexus">Nexus Opens Source OSS website</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/Products/Nexus-Professional">Nexus
+  Professional website</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/Support/Videos">Screen cast recordings</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://links.sonatype.com/products/nexus/oss/docs">Repository
+  Management with Nexus</ulink> - free book
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/nexus/free-trial">Nexus Professional
+  Trial Bundle and Guide</ulink> - some examples can be used with Nexus OSS as well
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.org/nexus/participate">Mailing lists</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="https://links.sonatype.com/products/nexus/community-chat">Talk to the developers/support - HipChat</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/Services/Training">Training classes</ulink>
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</article>

@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <title>Nexus for Component Management</title>
+    <date>September 2014</date>
+    <author>
+        <firstname>f</firstname>
+    </author>
+    <authorinitials>F</authorinitials>
+<revhistory><revision><date>September 2014</date><authorinitials>F</authorinitials></revision></revhistory>
+</articleinfo>
+<section id="_nexus_for_component_management">
+<title>Nexus for Component Management</title>
+<simpara>Join me on a journey</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+from no component manager usage
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+to full software development lifecycle integration
+</simpara>
+</listitem>
+</itemizedlist>
+<warning><simpara>Hold on tight. This is going to be a whirlwind trip.</simpara></warning>
+</section>
+<section id="_nexus_for_component_management_2">
+<title>Nexus for Component Management</title>
+<simpara>We will move &#8230;</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+from using unknown jar files
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+dependencies not being understood
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+and brittle version updates
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>to</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+enforced policies
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+well understood component usage
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+avoided security and license issues
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_nexus_for_component_management_3">
+<title>Nexus for Component Management</title>
+<simpara>We will move &#8230;</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+from using e.g. jars checked into version control
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+or just using Maven, Gradle, &#8230; out of the box
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+via Nexus OSS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+to Nexus Professional
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+and onwards to Nexus Professional CLM Edition
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+to Sontype CLM with all its tools
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+IDE integration,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CI integration,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+and more
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_but_what_about_the_top_ten_tips">
+<title>But What About the Top Ten Tips?</title>
+<blockquote>
+<attribution>
+Manfred Moser
+<citetitle>Right Here (And Very Soon)</citetitle>
+</attribution>
+<simpara>Don&#8217;t worry. I got this covered. There will be lots of tips and tricks.</simpara>
+</blockquote>
+</section>
+<section id="_and_what_about_my_questions">
+<title>And What About My Questions?</title>
+<simpara>Go right ahead - ask any time.</simpara>
+<simpara>But first, let me set the stage&#8230;</simpara>
+</section>
+<section id="_so_what_is_a_component">
+<title>So What is a Component?</title>
+<itemizedlist>
+<listitem>
+<simpara>
+All the stuff you use to create your applications
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The plumbing you don&#8217;t want to write yourself
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Logging, IoC, persistence layer, ORM, &#8230;
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+And that you get easily by declaring dependencies with Maven,
+  Gradle, nuget, npm&#8230;
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Comprises 80-90% of your application
+</simpara>
+</listitem>
+</itemizedlist>
+<warning><simpara>And you are responsible for <emphasis role="strong">all</emphasis> of them.</simpara></warning>
+</section>
+<section id="_so_what_is_a_component_2">
+<title>So What is a Component?</title>
+<itemizedlist>
+<listitem>
+<simpara>
+But also all the parts you create and use
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Including the application deployment packages
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+JARs, WARs, EARs..
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+but also rpm and npm packages or tar.gz files
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_development_lifecycle_integration">
+<title>Development Lifecycle Integration?</title>
+<simpara>It is an endless circle of activities:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Research what components to use
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Implement usage of components in development
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Check component usage in QA and release process
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Monitor applications and components used in production
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Go back to the start and change versions or entire components
+</simpara>
+</listitem>
+</itemizedlist>
+<warning><simpara>It only ends when any production deployments are
+decommissioned and <emphasis role="strong">not</emphasis> when development stops.</simpara></warning>
+</section>
+<section id="_getting_started_nexus_oss">
+<title>Getting Started - Nexus OSS</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Installation is simple
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Extract archive and run
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Configuration
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+conf/nexus.properties
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+bin/nexus(.bat)
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Run as a service (JSW)
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+bin/jsw/conf/wrapper.conf
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<tip><simpara>Let&#8217;s have a look at these files.</simpara></tip>
+<simpara>&#8594; It&#8217;s easy and the benefits are immediate.</simpara>
+</section>
+<section id="_what_is_a_repository">
+<title>What is a Repository?</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Organized storage for components
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Uses e.g. GAV coordinates for structure
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>&#8594; A <emphasis role="strong">Component Manager</emphasis> helps with administration and usage of
+   components stored in repositories</simpara>
+</section>
+<section id="_component_manager_tasks">
+<title>Component Manager Tasks</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Proxy and manage access to public repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Store components that are not in public repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Manage internal releases and development components
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>&#8594;  Facilitate internal collaboration across components and teams</simpara>
+</section>
+<section id="_repository_concepts">
+<title>Repository Concepts</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Proxy and hosted repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repository groups for easy access/aggregation
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Maven 2, NuGet and NPM
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>We explore all that in the user interface.</simpara></tip>
+</section>
+<section id="_security">
+<title>Security</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Privileges, roles and users
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+External role mappings e.g. LDAP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repository targets
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Authentication from tools
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+settings.xml and more
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<tip><simpara>Understanding security and possible setups is crucial to control
+component usage.</simpara></tip>
+</section>
+<section id="_search_amp_component_information">
+<title>Search &amp; Component Information</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Different search methods
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Find components in different repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Find available versions - not yet used
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Useful for component selection
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+GAV coordinates and repository location
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Demo time!</simpara></tip>
+</section>
+<section id="_component_management">
+<title>Component Management</title>
+<simpara><emphasis>Supply change management for components</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Security and authentication
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repositories and repository targets
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Component information
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>&#8594;  Set the stage for first repository and component management</simpara>
+</section>
+<section id="_component_management_2">
+<title>Component Management</title>
+<simpara>Who can read?</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+other teams (QA, operations)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+remote offices
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+contractors, partner companies, public access
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_component_management_3">
+<title>Component Management</title>
+<simpara>Who can write?</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Build master
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Release engineers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CI servers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SNAPSHOTS vs. release
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_component_management_4">
+<title>Component Management</title>
+<simpara>What information is available to whom?</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+development
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QA
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+security
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+legal
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+&#8230;
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_component_management_with_nexus_oss">
+<title>Component Management with Nexus OSS</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Internal caching and storing of components &#8594; enables collaboration
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reduced dependency on external repositories
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+One component storage location for backup, audit, control&#8230;
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Highly performant
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reduced bandwitdh usage and costs
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Efficient search
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repository Health Check
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Some meta data
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Formats include Maven, NuGet, NPM, site, Yum and JRuby/Gems
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>&#8594; Way better than manual management or ignoring the need</simpara>
+<important><simpara>Yet easy to implement&#8230;</simpara></important>
+</section>
+<section id="_managing_nexus">
+<title>Managing Nexus</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Logging
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Support tools
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Scheduled tasks
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+System feeds
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+JMX
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+External monitoring software
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_nexus_professional_more_information">
+<title>Nexus Professional - More Information</title>
+<simpara>Lots more component information:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Archive browser and Maven dependency
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Age &amp; popularity
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Security information
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+License information
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Repository health check with component details
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>You gotta see this!</simpara></tip>
+</section>
+<section id="_nexus_professional_more_security">
+<title>Nexus Professional - More Security</title>
+<simpara>More security features:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+User token
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Enterprise LDAP, Atlassian Crowd
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SSL management
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Maven settings management
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_sonatype_nexus_as_central_hub">
+<title>Sonatype Nexus as Central Hub</title>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/nexus-tool-suite-integration.png" scale="100"/>
+  </imageobject>
+  <textobject><phrase>images/nexus-tool-suite-integration.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>&#8594; Nexus is a key component of your enterprise development
+  infrastructure</simpara>
+</section>
+<section id="_scaling_nexus_deployments">
+<title>Scaling Nexus Deployments</title>
+<itemizedlist>
+<listitem>
+<simpara>
+One server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Bigger server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+With failover setup
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Multiple servers for read, single write
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+With load balancer
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_scaling_nexus_deployments_2">
+<title>Scaling Nexus Deployments</title>
+<simpara>With Nexus Professional &#8594; Smart proxy</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/nexus-smart-proxy.png" scale="100"/>
+  </imageobject>
+  <textobject><phrase>images/nexus-smart-proxy.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<tip><simpara>This is used for sync to OSSRH and Central from e.g. JBoss,
+Apache,&#8230;</simpara></tip>
+</section>
+<section id="_release_process">
+<title>Release Process</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Security controls write access
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Configurable with repository targets
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Disallow deployments outside company GAV
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Specific GAV&#8217;s allowed per team
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Or only CI server can deploy
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Or build master
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_release_process_2">
+<title>Release Process</title>
+<simpara>Dedicated tooling for release process in Nexus Professional - Staging</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Temporary repository
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Rule validation upon deployment
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Configurable for repository targets
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Security controlled stages
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Releases can be dropped, if desired
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Used as input funnel for Central Repository - OSSRH
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Check out the
+<ulink url="http://www.sonatype.com/training/free-nexus-training">free video training course on staging</ulink>.</simpara></tip>
+</section>
+<section id="_nexus_professional_clm_edition">
+<title>Nexus Professional CLM Edition</title>
+<simpara>In a nutshell:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Configurable component policies - <emphasis role="strong">very</emphasis> powerful
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Managed on the Sonatype CLM server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Tied into Nexus staging
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Demo time!</simpara></tip>
+</section>
+<section id="_sonatype_clm">
+<title>Sonatype CLM</title>
+<simpara>Expands Nexus Professional CLM Edition</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Manual analysis in CLM server
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Eclipse IDE integration
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Continuous Integration Server support
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SonarQube support
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Command line scanning
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_integrating_with_nexus">
+<title>Integrating with Nexus</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Lots of build tools can integrate with Maven repositories
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Ant/Ivy, Gradle, SBT, Grails Leiningen, &#8230;
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Lots of other repository formats supported
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Maven, NuGet, NPM, Yum, Site,&#8230;
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+All functionality is available in REST API
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Java client for REST API available
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Plugin architecture with examples to create your own
+</simpara>
+</listitem>
+</itemizedlist>
+<tip><simpara>Check out the community chapter in the Nexus book.</simpara></tip>
+</section>
+<section id="_resources">
+<title>Resources</title>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="http://links.sonatype.com/products/nexus/oss/docs">Repository
+  Management with Nexus</ulink> - free book
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.org/nexu">The Nexus Community</ulink>
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+with articles, videos, mailing Lists, Nexus Live and more
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://support.sonatype.com">Sonatype Support</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/Products/Nexus-Professional">Nexus
+  Professional website</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/nexus/free-trial">Nexus Professional
+  Trial Bundle and Guide</ulink> - some examples can be used with Nexus OSS as well
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="https://links.sonatype.com/products/nexus/community-chat">Talk to the developers/support - HipChat</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="http://www.sonatype.com/Services/Training">Training classes</ulink>
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</article>
