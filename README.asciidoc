@@ -1,34 +1,39 @@
-== Introduction to Repository Management and Sonatype Nexus
+== Component Management and Sonatype Nexus
 
-a presentation and labs suitable for a lunch-and-learn/brown bag
+Presentations and labs labs suitable for a lunch-and-learn/brown bag
 session or a user group meeting with sample material available for
 anybody interested to use it. 
 
 Please contact marketing@sonatype.com for assistance, if required.
 
-Presented at the Vancouver Island Java User Group Dec' 2012 
+nexus-introduction:: prepared  by Manfred Moser and presented at the
+Vancouver Island Java User Group December 2012
 
-=== Tips for using
+nexus-for-component-managerment:: prepared by Manfred Moser and
+presented at a Nexus user group meeting in Chicago September 2014
 
-The html file in the root folder is all you need to show the
-presentation. Find some lab material in the labs folder
+nexus-oss-advantages:: prepared  by Manfred Moser and presented at
+JavaOne 2014
+
+=== Tips for Viewing
+
+The html files in the root folder are all you need to show the
+presentations. They are self-contained and ready to be used on any
+browser.
+
+Find some lab material in the labs folder.
 
 Just download the repo with git clone or as zip/tar.gz
 
-Documentation for writing or using slidy2 presentation can be found at 
+Documentation for writing or using the presentations can be found at 
 https://code.google.com/p/asciidoc-slidy2-backend-plugin/.
 
 http://asciidoc-slidy2-backend-plugin.googlecode.com/svn/trunk/doc/slidy2_doc.txt
 
 === Modifications
 
-If you need to modify and rebuild the slides, modify the source
-
-----
-presentation/nexus-presentation.asciidoc
-----
-
-and run
+If you need to modify and rebuild the slides, modify the source in the
++presentation+ folder and run
 
 ----
 cd presentation
