@@ -9,6 +9,11 @@ set -u
 function renderHtml {
     asciidoc -a data-uri --backend slidy2 --attribute stylesheet=`pwd`/sonatype-slides.css -o ../$1.html $1.asciidoc
     echo "Built $1.html"
+    
+    a2x -k -fpdf $1.asciidoc
+
+
+
 }
 
 renderHtml nexus-introduction
