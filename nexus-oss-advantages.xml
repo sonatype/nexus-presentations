@@ -847,6 +847,11 @@ with articles, videos, mailing Lists, Nexus Live and more
 <ulink url="http://www.sonatype.com/Services/Training">Training classes</ulink>
 </simpara>
 </listitem>
+<listitem>
+<simpara>
+<ulink url="https://github.com/sonatype/nexus-introduction-presentation">Presentation in HTML format and related resources</ulink>
+</simpara>
+</listitem>
 </itemizedlist>
 </section>
 <section id="_visit_us">

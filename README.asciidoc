@@ -21,7 +21,9 @@ The html files in the root folder are all you need to show the
 presentations. They are self-contained and ready to be used on any
 browser.
 
-Find some lab material in the labs folder.
+The PDF files are just for being able to print, if desired. 
+
+Find some example material in the +labs+ folder.
 
 Just download the repo with git clone or as zip/tar.gz
 
@@ -33,10 +35,9 @@ http://asciidoc-slidy2-backend-plugin.googlecode.com/svn/trunk/doc/slidy2_doc.tx
 === Modifications
 
 If you need to modify and rebuild the slides, modify the source in the
-+presentation+ folder and run
++src+ folder and run
 
 ----
-cd presentation
 ./generate.sh 
 ----
 
