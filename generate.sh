@@ -14,6 +14,7 @@ function render {
     echo "Built $1.pdf"
 }
 
-render nexus-introduction
-render nexus-oss-advantages
-render nexus-for-component-management
+#render nexus-introduction
+#render nexus-oss-advantages
+#render nexus-for-component-management
+render component-software-supply-chain

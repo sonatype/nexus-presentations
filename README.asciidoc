@@ -15,6 +15,10 @@ presented at a Nexus user group meeting in Chicago September 2014
 nexus-oss-advantages:: prepared  by Manfred Moser and presented at
 JavaOne 2014
 
+component-software-supply-chain:: prepared by Manfred Moser and presented at OSCON 2015, http://www.oscon.com/open-source-2015/public/schedule/detail/41388
+
+components
+
 === Tips for Viewing
 
 The html files in the root folder are all you need to show the

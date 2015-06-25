@@ -1,0 +1,536 @@
+=  Getting your Ducks in a Row - An Introduction to Managing Components in your Software Supply Chain
+:title: Getting your ducks in a row - an introduction to managing components in your software supply chaint
+:Author:   Manfred Moser, Sonatype, Inc.
+:Date: Summer 2015
+:max-width: 45em
+:icons:
+:slidetitleindentcar: 
+:copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
+:incremental:
+
+
+== Abstract
+
+Modern software development on platforms such as the JVM, .Net, Node.js, or JavaScript using web applications largely relies on the use of third-party components. Including these components is the only possible way to build the complex applications required today.
+
+The rise of agile development processes and the DevOps movement has only accelerated innovation, and pushed even more toward the use of open source and other components. The tooling with package managers and build tools such as Maven, Gradle, npm, Nuget, gems, and others has promoted the use of components as a standard practice. This allows developers to take advantage of the features these frameworks and libraries offer. Today, 90% of a typical application is composed of open source components. However, using these components brings ownership and responsibility with them.
+
+A modern software development organization must be able to create an inventory of all the components used in their software, know about the suppliers, and keep track of everything. There are a number of problems that currently exist and are in need of a solution to keep up with the accelerating demands in today’s fast and agile processes.
+
+75% of organizations are not enforcing their open source policies
+64% don’t track changes in open source component vulnerability data
+Only 16% of development teams must prove they are not using components with known vulnerabilities
+1 in 3 organizations had or suspected an open source breach in the past 12 months
+We will discuss how you can face this onslaught of more work for development teams in order to identify, track, and replace components with known vulnerabilities, yet at the same time continue to accelerate releases and get more features and new products to market quickly. Heavily data-driven tools are emerging to allow you to:
+
+Better understand the risks within this open source component-based software supply chain
+Evaluate the quality and security of open source components at the speed of development
+Continuously monitor and manage quality through component use standards, component reviews, and security audits.
+We will demo some of these applications and discuss the data they expose to you and the automation you can achieve.
+
+== Step: Know Your Components
+
+tbd
+
+== Step: Know Component Security Characteristics
+
+tbd
+
+== Step: Understand License Implications
+
+tbd
+
+== Step: Know Their Dependencies
+
+tbd
+
+== Step: Upgrade Often
+
+tbd
+
+== Step: Avoid Duplication
+
+* multiple logging frameworks
+
+ 
+== Step: Reduce Their Numbers
+
+* KISS
+* less complexity
+* less learning effort
+
+== Step: Reduce Different Versions Used
+
+* across enterprise
+
+== Step: Reduce Vendors
+
+tbd
+
+== Step: Upgrade Often
+
+* just like devops - release often
+* reduces complexity of updates
+* open source projects work on master - latest == best, nearly always, avoid issues easily
+* especially regarding security issues, backports are rare!
+* sometimes you will get burned with regressions
+
+== Example Tools
+
+lots of them out there for different stacks, examples to follow
+
+== Maven 
+
+* Dependency Plugin
+* Dependency Management
+* BOM POM file
+* M2e - effective POM view, dependency view
+ 
+== OWASP Dependency Check 
+
+tbd
+
+== Sonatype Nexus Pro
+
+tbd
+
+
+== Sonatype Nexus Lifecycle
+
+* Jenkins plugin
+* IDE integration
+* SonarQube integration
+ 
+
+
+
+
+
+
+
+== Nexus for Component Management
+
+Join me on a journey
+
+* from no component manager usage
+
+* to full software development life cycle integration 
+
+WARNING: Hold on tight. This is going to be a whirlwind trip.
+
+== Nexus for Component Management
+
+We will move ...
+
+* from using unknown jar files
+
+* dependencies not being understood
+
+* and brittle version updates 
+
+to
+
+* enforced policies
+
+* well understood component usage
+
+* avoided security and license issues
+
+
+== Nexus for Component Management
+
+We will move ...
+
+* from using e.g. jars checked into version control
+
+* or just using Maven, Gradle, ... out of the box
+
+* via Nexus OSS
+
+* to Nexus Professional 
+
+* and onwards to Nexus Professional CLM Edition
+
+* to Sontype CLM with all its tools 
+
+** IDE integration, 
+
+** CI integration,
+
+** and more
+
+== But What About the Top Ten Tips?
+
+
+[quote, Manfred Moser, Right Here (And Very Soon)]
+____
+Don't worry. I got this covered. There will be lots of tips and tricks.
+____
+
+== And What About My Questions?
+
+Go right ahead - ask any time. 
+
+But first, let me set the stage...
+
+== So What is a Component?
+
+* All the stuff you use to create your applications 
+
+* The plumbing you don't want to write yourself
+
+* Logging, IoC, persistence layer, ORM, ... 
+
+* And that you get easily by declaring dependencies with Maven,
+  Gradle, nuget, npm... 
+
+* Comprises 80-90% of your application
+
+WARNING: And you are responsible for *all* of them. 
+
+== So What is a Component?
+
+* But also all the parts you create and use 
+
+** Including the application deployment packages
+
+* JARs, WARs, EARs..
+
+**  but also rpm and npm packages or tar.gz files
+
+== Development Lifecycle Integration? 
+
+It is an endless circle of activities: 
+
+* Research what components to use
+
+* Implement usage of components in development
+
+* Check component usage in QA and release process
+
+* Monitor applications and components used in production
+
+* Go back to the start and change versions or entire components
+
+WARNING: It only ends when any production deployments are
+decommissioned and *not* when development stops.
+
+== Getting Started - Nexus OSS
+
+* Installation is simple
+
+** Extract archive and run
+
+* Configuration
+
+** conf/nexus.properties
+
+** bin/nexus(.bat)
+
+* Run as a service (JSW)
+
+** bin/jsw/conf/wrapper.conf
+
+TIP:  Let's have a look at these files.
+
+-> It's easy and the benefits are immediate. 
+
+== What is a Repository?
+
+* Organized storage for components
+
+* Uses e.g. GAV coordinates for structure
+
+-> A *Component Manager* helps with administration and usage of
+   components stored in repositories
+
+== Component Manager Tasks
+
+* Proxy and manage access to public repositories
+
+* Store components that are not in public repositories
+
+* Manage internal releases and development components
+
+->  Facilitate internal collaboration across components and teams
+
+== Repository Concepts
+
+* Proxy and hosted repositories
+
+* Repository groups for easy access/aggregation
+
+* Maven 2, NuGet and NPM  
+
+TIP: We explore all that in the user interface.
+
+
+== Security
+
+* Privileges, roles and users
+
+* External role mappings e.g. LDAP
+
+* Repository targets
+
+* Authentication from tools 
+
+** settings.xml and more
+
+TIP: Understanding security and possible setups is crucial to control
+component usage.
+
+== Search & Component Information
+
+* Different search methods
+
+* Find components in different repositories
+
+* Find available versions - not yet used
+
+** Useful for component selection
+
+* GAV coordinates and repository location
+
+TIP: Demo time! 
+
+== Component Management
+
+'Supply change management for components'
+
+* Security and authentication
+
+* Repositories and repository targets
+
+* Component information
+
+->  Set the stage for first repository and component management
+
+== Component Management
+
+Who can read? 
+
+* other teams (QA, operations)
+
+* remote offices
+
+* contractors, partner companies, public access 
+
+== Component Management
+
+Who can write?
+
+* Build master
+
+* Release engineers
+
+* CI servers
+
+* SNAPSHOTS vs. release
+
+== Component Management
+
+What information is available to whom?
+
+* development
+
+* QA
+
+* security
+
+* legal
+
+* ...
+
+== Component Management with Nexus OSS
+
+* Internal caching and storing of components -> enables collaboration
+
+* Reduced dependency on external repositories
+
+* One component storage location for backup, audit, control...
+
+* Highly performant 
+
+* Reduced bandwitdh usage and costs
+
+* Efficient search 
+
+* Repository Health Check
+
+* Some meta data
+
+* Formats include Maven, NuGet, NPM, site, Yum and JRuby/Gems
+
+-> Way better than manual management or ignoring the need
+
+IMPORTANT: Yet easy to implement...
+
+== Managing Nexus
+
+* Logging
+
+* Support tools
+
+* Scheduled tasks
+
+* System feeds
+
+* JMX
+
+* External monitoring software
+
+== Nexus Professional - More Information
+
+Lots more component information:
+
+* Archive browser and Maven dependency
+
+* Age & popularity
+
+* Security information
+
+* License information
+
+* Repository health check with component details
+
+TIP: You gotta see this!
+
+== Nexus Professional - More Security
+
+More security features:
+
+* User token
+
+* Enterprise LDAP, Atlassian Crowd
+
+* SSL management
+
+* Maven settings management
+
+== Sonatype Nexus as Central Hub
+
+image::images/nexus-tool-suite-integration.png[scale=100]
+
+-> Nexus is a key component of your enterprise development
+  infrastructure
+
+
+== Scaling Nexus Deployments
+
+* One server
+
+* Bigger server
+
+* With failover setup
+
+* Multiple servers for read, single write
+
+* With load balancer
+
+== Scaling Nexus Deployments
+
+With Nexus Professional -> Smart proxy
+
+image::images/nexus-smart-proxy.png[scale=100]
+
+TIP: This is used for sync to OSSRH and Central from e.g. JBoss,
+Apache,...
+
+== Release Process 
+
+* Security controls write access
+
+* Configurable with repository targets
+
+** Disallow deployments outside company GAV
+
+** Specific GAV's allowed per team
+
+** Or only CI server can deploy
+
+** Or build master
+
+== Release Process 
+
+Dedicated tooling for release process in Nexus Professional - Staging
+
+* Temporary repository
+
+* Rule validation upon deployment
+
+* Configurable for repository targets
+
+* Security controlled stages
+
+* Releases can be dropped, if desired
+
+* Used as input funnel for Central Repository - OSSRH
+
+TIP: Check out the
+http://www.sonatype.com/training/free-nexus-training[free video training course on staging].
+
+== Nexus Professional CLM Edition
+In a nutshell:
+
+* Configurable component policies - *very* powerful
+
+* Managed on the Sonatype CLM server
+
+* Tied into Nexus staging
+
+TIP: Demo time!
+
+== Sonatype CLM
+
+Expands Nexus Professional CLM Edition
+
+* Manual analysis in CLM server
+ 
+* Eclipse IDE integration
+
+* Continuous Integration Server support
+
+* SonarQube support
+
+* Command line scanning
+
+== Integrating with Nexus
+
+* Lots of build tools can integrate with Maven repositories 
+
+** Ant/Ivy, Gradle, SBT, Grails Leiningen, ...
+
+* Lots of other repository formats supported
+
+** Maven, NuGet, NPM, Yum, Site,...
+
+* All functionality is available in REST API
+
+* Java client for REST API available
+
+* Plugin architecture with examples to create your own
+
+TIP: Check out the community chapter in the Nexus book.
+
+
+== Resources
+
+* http://links.sonatype.com/products/nexus/oss/docs[Repository
+  Management with Nexus] - free book
+
+* http://www.sonatype.org/nexu[The Nexus Community]
+
+** with articles, videos, mailing Lists, Nexus Live and more
+
+* http://support.sonatype.com[Sonatype Support]
+
+* http://www.sonatype.com/Products/Nexus-Professional[Nexus
+  Professional website]
+
+* http://www.sonatype.com/nexus/free-trial[Nexus Professional
+  Trial Bundle and Guide] - some examples can be used with Nexus OSS as well
+
+* https://links.sonatype.com/products/nexus/community-chat[Talk to the developers/support - HipChat]
+
+* http://www.sonatype.com/Services/Training[Training classes]
