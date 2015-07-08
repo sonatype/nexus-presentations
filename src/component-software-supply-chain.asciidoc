@@ -1,10 +1,9 @@
 =  Getting your Ducks in a Row
 :title: Getting your Ducks in a Row
 :Author:   Manfred Moser, Sonatype, Inc.
-:Date: Summer 2015
+:Date: July 2015
 :max-width: 45em
 :icons:
-:slidetitleindentcar: 
 :copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
 :incremental:
 
@@ -19,70 +18,94 @@ Manfred Moser - http://twitter.com/simpligility[#simpligility] - http://www.simp
 
 Sonatype - http://www.sonatype.com[www.sonatype.com]
 
-== Data
+== What Are You Gonna Learn Today?
+
+* Interesting facts and figures
+
+* A new perspective about your development efforts
+
+* Lots of simple steps for improvements
+
+== Data Sources
+:incremental!:
+
+* Central Repository Usage Statistics
+** Largest binary repository
+** Running for 10+ years
+** A.k.a. Maven Central
+** Sponsored and managed by Sonatype
+
+* Sonatype Nexus Usage Statistics 
+** Most commonly use repository manager
+** >50k installations
+
+== Research Reports
+:incremental:
 
 * 2011-2014 Open Source Software Development Survey
 ** >11k responses
 
 * 2015 State of the Software Supply Chain Report 
-** >110k organizations, 
 
-* Central Repository Usage Statistics
-** Largest binary repository
-** >17 Billon Downloads in 2014
+== How We Develop Today
 
-* Sonatype Nexus Usage Statistics 
-** >50k installations
+* Use components as building blocks
 
-== Development Today
+* Enjoy power of reuse and collaboration 
 
-* Uses components as building blocks
+* Software stack doesn't matter 
 
-* 80-90% of typical application
+* Open source FTW everywhere! 
 
-* average app from application health check has approx 100 components
+== Guess...
+:incremental:
 
-* Mostly open source 
+What is the percentage of a typical application created by components?
+
+TIP: 80-90%
+
+== Estimate...
+:incremental:
+
+How many components can be found in an average application? 
+
+TIP:  > 100 !
 
 == So What is a Component?
 :incremental:
 
-* All the stuff you use to create your applications 
+____
+Frameworks, Libraries, ... Plumbing you don't want to write yourself. Like 
+Logging, IoC, persistence layer, ORM, widgets,... 
+____
 
-* The plumbing you don't want to write yourself
+You get them easily by declaring dependencies with Maven, Gradle, nuget, npm... 
 
-* Logging, IoC, persistence layer, ORM, ... 
+== What is a Component?
+:incremental!:
 
-* And that you get easily by declaring dependencies with Maven,
-  Gradle, nuget, npm... 
-
-* Comprises 80-90% of your application
-
-WARNING: And you are responsible for *all* of them. 
-
-== So What is a Component?
-
-* But also all the parts you create and use 
-
-** Including the application deployment packages
+Third party AND everything you create
 
 * JARs, WARs, EARs..
-
-**  but also rpm and npm packages or tar.gz files
-
-* what is a component
-* percentage of app
-
-== Applications Use Components
-
-lots of them
+* rpm, deb 
+* npm, nupkg, gem packages 
+* zip, tar.gz files
+* installer packages, docker images
+* ...
 
 == Software Supply Chain
+:incremental!:
 
-Like manufacturing
+Like traditional manufacturing
 
+* Understand complete inventory of product
+
+* Including origin (suppliers)
+
+* And usage 
 
 == Software Supply Chain Management
+:incremental:
 
 Components are integrated part of Software Development Life Cycle (SDLC)
 
@@ -98,10 +121,17 @@ It is an endless circle of activities:
 
 * Go back to the start and change versions or entire components
 
-WARNING: It only ends when any production deployments are
-decommissioned and *not* when development stops.
+== So...  
+:incremental:
 
-== Supply Chain 
+When do software supply chain management efforts stop?
+
+TIP: When all production deployments are turned off!
+
+WARNING:  *Not* when development stops.
+
+== Supply Chain Best Practices
+:incremental!:
 
 * Better and fewer suppliers
 
@@ -109,30 +139,98 @@ decommissioned and *not* when development stops.
 
 * Improved visibility and traceability
 
+== Best Practice: Select Projects
 
-== Step: Control Component Source
+TIP: Open source projects are your suppliers!
 
-and improve for performance and stability
+* Large vs small project
+* Active vs inactive in terms of commits
+* Foundation backed or stand alone project
+* Commercial company backing or not
+* Active community support
 
-use a repository manager 
+== Best Practice: Communicate with Suppliers
 
-in your own datacenter
+* Most often open source project
+* Report bugs and feature requests
+* Help with documentation
+* Be present on mailing lists, forums, IRC, ...
 
-95% of downloads from Central Repository are done via build tools and such - inefficient
+== Best Practice: Support Suppliers
 
-only 5% via repo manager
+* Become a committer
+* Sponsor a committer
+* Provide infrastructure
+* Sponsor foundations
+* Pay for support
 
-== Component Management
+== Best Practice: Reduce Vendors
 
-'Supply change management for components'
+Each additional vendor
 
-* Security and authentication
+* Adds integration complexity
+* Adds communication channels
+* Add need for tracking
+* Add new API to learn
+* ...
 
-* Repositories and repository targets
+TIP: So having less is easier. 
 
-* Component information
+== Public Repositories as Warehouses/Distributors
 
-->  Set the stage for first repository and component management
+Very important in their eco-systems
+
+* JVM - Central Repository - 17B downloads in 2014
+** up from 500 M in 2007
+
+* JavaScript/Node - npmjs.org - 15B downloads in 2014
+
+* Ruby - rubygems.org - 5B downloads since inception
+
+* .Net - NuGet Gallery - 300m downloads in 2014
+
+== Example: Central Repository
+
+* approx 1 Million open source components
+
+* approx 11 Million users
+
+* 1000 new components added daily
+
+* exponential growth 
+
+TIP: Growth of other repositories is similar
+
+== Best Practice: Control Component Source
+
+TIP: Run your own local warehouse!
+
+* Reduced bandwidth usage and costs
+
+* Improve performance and stability
+
+* Internal caching and storing of components -> enables collaboration
+
+* Reduced dependency on external repositories
+
+* One component storage location for backup, audit, control...
+
+* Store your own components centrally
+
+-> Use a *repository manager*! 
+
+== Guess
+
+Are people following easily implemented best practice? 
+____
+TIP: No!
+____
+
+* 95% of downloads from Central Repository -> build tools,...
+
+* Only 5% via repo manager
+
+* 18 % of respondents to component survey use *no* repository manager
 
 == Sonatype Nexus as Central Hub
 
@@ -141,27 +239,9 @@ image::images/nexus-tool-suite-integration.png[scale=100]
 -> Nexus is a key component of your enterprise development
   infrastructure
 
-== Component Management with Nexus OSS
+== Repository Management with Nexus OSS
 
-* Used by 66% of repository manager users
-
-* 18 % of respondents to component survey use NO repository manager
-
-* Internal caching and storing of components -> enables collaboration
-
-* Reduced dependency on external repositories
-
-* One component storage location for backup, audit, control...
-
-* Highly performant 
-
-* Reduced bandwidth usage and costs
-
-* Efficient search 
-
-* Repository Health Check
-
-* Some meta data
+* Used by 64% of repository manager users
 
 * Formats include Maven, NuGet, NPM, site, Yum and JRuby/Gems
 
@@ -169,34 +249,66 @@ image::images/nexus-tool-suite-integration.png[scale=100]
 
 IMPORTANT: Yet easy to implement...
 
-== Step: Know Your Components and Suppliers
+== Step: Know Your Components
 
-tbd
+* Look at your build
+
+* Crack open the deployment archive
+
+* Identify which checksum search
+
+== Step: Know Their Dependencies
+
+* `mvn dependency:tree` or similar analysis
+
+* Dependency Hierarchy in M2Eclipse or Nexus Pro
+
+TIP: Challenge yourself to produce a Bill of Materials
+
+== Step: Avoid Duplication
+
+* multiple logging frameworks
+
+ 
+== Step: Reduce Their Numbers
+
+* KISS
+* less complexity
+* less learning effort
+
+* Application Health Check analysis of 1500+ applications
+* 106 components
+* 24 with known vulnerabilities
+* 9 with restrictive licenses
+
+== Guess... 
+
+How many versions of each library are used at Google? 
+
+TIP: One or two mandated in most cases!
+
+== Step: Upgrade Often
+
+* just like devops - release often
+* reduces complexity of updates
+* open source projects work on master - latest == best, nearly always, avoid issues easily
+* especially regarding security issues, backports are rare!
+* sometimes you will get burned with regressions
+
+* Typical component 3-4 releases per year
+
+Average org downloads from Central - top 100 components, 27 are outdated and newer versions exists
 
 
-E.g. Central Repository:
-
-* 985k OSS components
-
-* 100k suppliers (OSS projects)
-
-* 11 Million OSS users
 
 
 
-* annual downloads - 17B in 2014 central (0.5B in 2007 - huge growth), 15B npmjs.org, 5B rubygems (since inception), nuget gallery (300million)
 
-* approx 1000 new components added to central daily
-
-
-
-* How many open source projects used on average per large organization?  
-
-Comparison - e.g. Toyota manages about 800 suppliers, F
+WARNING: And you are responsible for *all* components used in your application! 
 
 
 
-== Step: Know Component Security Characteristics
+== Best Practice: Know Component Security Characteristics
 
 tbd
 
@@ -218,7 +330,7 @@ OWASP dependency check
 
 Show in Nexus Pro
 
-== Step: Understand License Implications
+== Best Practice: Understand License Implications
 
 63 % have incomplete view of license risk from components
 
@@ -228,78 +340,6 @@ Only 32 % examine all open source components for license compliance
 
 approx 280k components in Central have restrictive licenses
 tbd
-
-== Step: Know Their Dependencies
-
-tbd
-
-dependency:tree
- 
- M2e view
- 
- crack open the war and look
- 
- sha checksum search
- 
- can you produce a BOM?
- 
-
-== Step: Upgrade Often
-
-tbd
-
-== Step: Avoid Duplication
-
-* multiple logging frameworks
-
- 
-== Step: Reduce Their Numbers
-
-* KISS
-* less complexity
-* less learning effort
-
-* Application Health Check analysis of 1500+ applications
-* 106 components
-* 24 with known vulnerabilities
-* 9 with restrictive licenses
-
-== Step: Reduce Different Versions Used
-
-* across enterprise
-
-* e.g. Google mandates versions of libraries use, only one or two in most cases
-
-== Step: Reduce Vendors
-
-tbd
-
-== Step: Select Projects and Vendor
-
-* large vs small open source project
-* active vs inactive in terms of commits
-* commercial company backing or not
-* Communicate with vendors! 
-
-== Step: Upgrade Often
-
-* just like devops - release often
-* reduces complexity of updates
-* open source projects work on master - latest == best, nearly always, avoid issues easily
-* especially regarding security issues, backports are rare!
-* sometimes you will get burned with regressions
-
-* Typical component 3-4 releases per year
-
-Average org downloads from Central - top 100 components, 27 are outdated and newer versions exists
-
-== Step: Communicate with Supplier
-
-* most often open source project
-* report bugs, feature requests
-* help with documentation
-* be present and support (mailing lists, forums, issue tracker, IRC, stackoverflow) 
-
 
 
 == Next Steps
@@ -400,6 +440,21 @@ Expands Nexus Pro+
 
 * http://www.modulecounts.com/[modulecounts.com]
 
+* http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/[Java Tools and Technologies Landscape for 2014]
+
+== Summary
+
+* Your code is only part of your application
+
+* Components are important
+
+* Apply software supply chain thinking
+
+* Easy to start with
+
+* Powerful tools available
+
+TIP: Don't wait!
 
 == The End 
 
