@@ -4,7 +4,7 @@
 :icons:
 :toc!:
 :slidetitleindentcar: 
-:copyright: Copyright 2011-2013, Sonatype Inc. All Rights Reserved.
+:copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
 
 
 == Objectives

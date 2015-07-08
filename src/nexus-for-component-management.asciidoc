@@ -5,8 +5,8 @@
 :max-width: 45em
 :icons:
 :slidetitleindentcar: 
-:copyright: Copyright 2011-2014, Sonatype Inc. All Rights Reserved.
-f
+:copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
+
 :incremental:
 
 == Nexus for Component Management
