@@ -121,7 +121,7 @@ It is an endless circle of activities:
 
 * Go back to the start and change versions or entire components
 
-== So...  
+== So what do you think...  
 :incremental:
 
 When do software supply chain management efforts stop?
@@ -140,6 +140,7 @@ WARNING:  *Not* when development stops.
 * Improved visibility and traceability
 
 == Best Practice: Select Projects
+:incremental:
 
 TIP: Open source projects are your suppliers!
 
@@ -150,6 +151,7 @@ TIP: Open source projects are your suppliers!
 * Active community support
 
 == Best Practice: Communicate with Suppliers
+:incremental:
 
 * Most often open source project
 * Report bugs and feature requests
@@ -157,6 +159,7 @@ TIP: Open source projects are your suppliers!
 * Be present on mailing lists, forums, IRC, ...
 
 == Best Practice: Support Suppliers
+:incremental:
 
 * Become a committer
 * Sponsor a committer
@@ -165,6 +168,7 @@ TIP: Open source projects are your suppliers!
 * Pay for support
 
 == Best Practice: Reduce Vendors
+:incremental:
 
 Each additional vendor
 
@@ -177,6 +181,7 @@ Each additional vendor
 TIP: So having less is easier. 
 
 == Public Repositories as Warehouses/Distributors
+:incremental:
 
 Very important in their eco-systems
 
@@ -190,6 +195,7 @@ Very important in their eco-systems
 * .Net - NuGet Gallery - 300m downloads in 2014
 
 == Example: Central Repository
+:incremental:
 
 * approx 1 Million open source components
 
@@ -202,6 +208,7 @@ Very important in their eco-systems
 TIP: Growth of other repositories is similar
 
 == Best Practice: Control Component Source
+:incremental:
 
 TIP: Run your own local warehouse!
 
@@ -220,6 +227,7 @@ TIP: Run your own local warehouse!
 -> Use a *repository manager*! 
 
 == Guess
+:incremental:
 
 Are people following easily implemented best practice? 
 ____
@@ -228,18 +236,20 @@ ____
 
 * 95% of downloads from Central Repository -> build tools,...
 
-* Only 5% via repo manager
+* Only 5% via repository manager
 
 * 18 % of respondents to component survey use *no* repository manager
 
 == Sonatype Nexus as Central Hub
-
+:incremental!:
+  
 image::images/nexus-tool-suite-integration.png[scale=100]
 
 -> Nexus is a key component of your enterprise development
   infrastructure
 
 == Repository Management with Nexus OSS
+:incremental:
 
 * Used by 64% of repository manager users
 
@@ -249,15 +259,17 @@ image::images/nexus-tool-suite-integration.png[scale=100]
 
 IMPORTANT: Yet easy to implement...
 
-== Step: Know Your Components
+== Best Practice: Know Your Components
+:incremental:
 
-* Look at your build
+* Look at your build files
 
 * Crack open the deployment archive
 
 * Identify which checksum search
 
-== Step: Know Their Dependencies
+== Best Practice:: Know Their Dependencies
+:incremental:
 
 * `mvn dependency:tree` or similar analysis
 
@@ -265,12 +277,14 @@ IMPORTANT: Yet easy to implement...
 
 TIP: Challenge yourself to produce a Bill of Materials
 
-== Step: Avoid Duplication
+== Best Practice:: Avoid Duplication
+:incremental:
 
 * multiple logging frameworks
 
  
-== Step: Reduce Their Numbers
+== Best Practice:: Reduce Their Numbers
+:incremental:
 
 * KISS
 * less complexity
@@ -282,12 +296,14 @@ TIP: Challenge yourself to produce a Bill of Materials
 * 9 with restrictive licenses
 
 == Guess... 
+:incremental:
 
 How many versions of each library are used at Google? 
 
 TIP: One or two mandated in most cases!
 
 == Step: Upgrade Often
+:incremental:
 
 * just like devops - release often
 * reduces complexity of updates
@@ -309,6 +325,7 @@ WARNING: And you are responsible for *all* components used in your application!
 
 
 == Best Practice: Know Component Security Characteristics
+:incremental:
 
 tbd
 
@@ -331,6 +348,7 @@ OWASP dependency check
 Show in Nexus Pro
 
 == Best Practice: Understand License Implications
+:incremental:
 
 63 % have incomplete view of license risk from components
 
@@ -343,28 +361,33 @@ tbd
 
 
 == Next Steps
+:incremental:
 
-* Define policies 
+Define policies e.g. 
 
-** No components older than 5 years
-** No components with know security vulnerabilities of score > 8
-** No GPL licensed components
+* No components older than 5 years
+* No components with know security vulnerabilities of score > 8
+* No GPL licensed components
+
+
 
 * Only 56 % have policies
 * Of these only 68% follow policy
 * Often manual, slow
 * But 78% say they have never banned a component
-* Things dont add up.. 
+* Things do not add up.. 
 
 
 
 == Next Steps
+:incremental:
 
 * Add tools to automate the process
 
 * Configure tools with policies
 
 == Aim of Tools
+:incremental:
 
 1. Empower developers with the right information at the right time
 
@@ -373,31 +396,33 @@ tbd
 3. Create, manage and monitor component bill of materials for each application
 
 == Bill of Material
+:incremental:
 
 * Tracking productions applications BOM
 ** 40% including dependencies
 ** 23% NOT including dependencies
 
 == Example Tools
-
+:incremental:
 lots of them out there for different stacks, examples to follow
-
-== Maven 
 
 * Dependency Plugin
 * Dependency Management
 * BOM POM file
 * M2e - effective POM view, dependency view
- 
-== OWASP Dependency Check 
+* OWASP Dependency Check 
 
-tbd
+
 
 == Sonatype Nexus Pro
 
-tbd
+* component info
+* RHC
+* search
 
 == Nexus Pro+
+:incremental:
+
 In a nutshell:
 
 * Configurable component policies - *very* powerful
@@ -409,6 +434,7 @@ In a nutshell:
 TIP: Demo time!
 
 == Sonatype Nexus Lifecycle
+:incremental:
 
 Expands Nexus Pro+
 
@@ -443,6 +469,7 @@ Expands Nexus Pro+
 * http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/[Java Tools and Technologies Landscape for 2014]
 
 == Summary
+:incremental:
 
 * Your code is only part of your application
 
