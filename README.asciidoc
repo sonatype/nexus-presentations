@@ -33,3 +33,6 @@ If you need to modify and rebuild the slides, modify the source in the
 ----
 
 asciidoc with slidy2 backend install required.
+
+The gh-pages branch is a copy of master so you can just merge to it for 
+new versions to be displayed on the site.
