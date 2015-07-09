@@ -259,10 +259,20 @@ WARNING: You will be surprised what you find!
 :incremental:
 
 * `mvn dependency:tree` or similar analysis
+* Use Dependency Management or BOM POM
 * Dependency Hierarchy in M2Eclipse or Nexus Pro
 * Challenge yourself to produce a Bill of Materials
 
 TIP: Demo time!
+
+== Its Not Easy
+:incremental:
+
+Bill of Material - tracking production applications
+
+* 37% no tracking
+* 23% incomplete tracking (not including dependencies)
+* 40% complete tracking 
 
 == Best Practice: Avoid Duplication
 :incremental:
@@ -281,6 +291,8 @@ TIP: But still don't be afraid of using what is best for the job. Find the right
 * Less learning effort
 * Less tracking updates, issues, communication, ...
 
+WARNING: You are responsible for *all* components used in your application! 
+
 == Room for Improvement
 :incremental:
 
@@ -290,72 +302,126 @@ Sonatype Application Health Check analysis of 1500+ applications
 * 24 with known vulnerabilities
 * 9 with restrictive licenses
 
+== What About Component Versions ...
+:incremental:
+
+From the Top 100 components downloaded from the Central Repository - how many are old?
+
+TIP: 27 - so about a third is out of date!
+
+Not too surprising, since a typical component has 3-4 releases per year.
+
 == Guess... 
 :incremental:
 
 How many versions of each library are used at Google? 
 
-TIP: One or two mandated in most cases!
+TIP: One or two are mandated in most cases!
 
-== Step: Upgrade Often
+== Excursion to DevOps 
 :incremental:
 
-* just like devops - release often
-* reduces complexity of updates
-* open source projects work on master - latest == best, nearly always, avoid issues easily
-* especially regarding security issues, backports are rare!
-* sometimes you will get burned with regressions
+One critical part of DevOps - Release Early, Release Often!
 
-* Typical component 3-4 releases per year
+Why?
 
-Average org downloads from Central - top 100 components, 27 are outdated and newer versions exists
+* Bring benefits of new features to users as soon as possible
+* Enable tighter user involvement
+* Fix bugs as soon as possible
+* Reduce complexity of change
+
+== Best Practice: Upgrade Component Versions Regularly
+:incremental:
+
+Just like release often - upgrade often!
+
+* Reduces complexity of updates
+* Access latest features
+** Open source projects work on master
+** Latest release - latest features and fixes
+** Sometimes you will get burned with regressions
+* Access latest security fixes
+** Back ports are very rare
+* Easiest to report issues and receive fixes
+
+And just like in DevOps
+
+->  The more often you release(upgrade), the better you get at it.
+
+== Guess ...
+:incremental:
+
+An average large enterprise downloads about 250k components 
+from the Central Repository per year. 
+
+How many have known security vulnerabilities? 
+
+TIP: Approximately 15k!
+
+Some of them are running in production right now...
 
 
+== How do Companies React? 
+:incremental:
 
+* About 50k components with known security vulnerabilities in Central Repository
+* 46 million vulnerable components were downloaded in 2014. 
+* 16% must prove they are not using known security vulnerabilities
+* New vulnerabilities are found regularly
+* Yet 63 % do NOT monitor for changes in vulnerability data
 
-
-
-WARNING: And you are responsible for *all* components used in your application! 
-
-
+-> Lip service mostly or struggling.
 
 == Best Practice: Know Component Security Characteristics
 :incremental:
 
-tbd
+Very difficult, laborious task
 
-Average org 250k different component downloads per year
-15k components with known vulnerabilities downloaded
-some of them probably are used in production apps
+* Follow mailing lists
+* Monitor security databases
+* Figure out specific versions affected
+* Assess impact 
 
-46 million vulnerable components downloaded in 2014 from Central
+== Security Tools
 
-16% must prove they are not using known security vulnerabilities
+Some free:
 
-New vulnerabilities found regularly, new releases all the time - yet 63 % do NOT monitor for changes in vulnerability data
+*  https://www.owasp.org/index.php/OWASP_Dependency_Check[OWASP dependency check] 
 
-How would you know? A PITA to find out
+Various commercial
 
-approx 50K components in Central have known security vulnerabilities
+* E.g. Nexus Pro
 
-OWASP dependency check 
+TIP: Demo time!
 
-Show in Nexus Pro
+== Similar Problems with Licenses
+
+* 63 % of respondents have incomplete view of license risk from components
+
+* Only 32 % examine all open source components for license compliance
+
+* 58 % say they are not concerned about license risk
+
+*BUT*
+
+Approx 280k components in Central Repository have restrictive licenses.
 
 == Best Practice: Understand License Implications
 :incremental:
 
-63 % have incomplete view of license risk from components
+Similar to security issue - laborious and difficult task
 
-Only 32 % examine all open source components for license compliance
+Tools to the rescue
 
-58 % say they are no concerned about license risk
+== What now? 
 
-approx 280k components in Central have restrictive licenses
-tbd
+Follow DevOps ideas again.. 
 
+* Define what we want to do
+* Automate 
+* Monitor
 
-== Next Steps
+== Define What We Want
 :incremental:
 
 Define policies e.g. 
@@ -364,17 +430,16 @@ Define policies e.g.
 * No components with know security vulnerabilities of score > 8
 * No GPL licensed components
 
-
+== Problems with Policies
 
 * Only 56 % have policies
 * Of these only 68% follow policy
 * Often manual, slow
 * But 78% say they have never banned a component
-* Things do not add up.. 
 
+-> Things do not add up, too painful to work with. 
 
-
-== Next Steps
+== Let's automate this!
 :incremental:
 
 * Add tools to automate the process
@@ -390,58 +455,44 @@ Define policies e.g.
 
 3. Create, manage and monitor component bill of materials for each application
 
-== Bill of Material
-:incremental:
+-> More and more tools for different stacks are emerging!
 
-* Tracking productions applications BOM
-** 40% including dependencies
-** 23% NOT including dependencies
+== Example: Sonatype Nexus and Nexus Lifecycle
 
-== Example Tools
-:incremental:
-lots of them out there for different stacks, examples to follow
-
-* Dependency Plugin
-* Dependency Management
-* BOM POM file
-* M2e - effective POM view, dependency view
-* OWASP Dependency Check 
-
-
-
-== Sonatype Nexus Pro
-
-* component info
-* RHC
-* search
-
-== Nexus Pro+
-:incremental:
-
-In a nutshell:
-
+* Security vulnerability data
+* License data 
+* Age and popularity component info
 * Configurable component policies - *very* powerful
-
-* Managed on the Sonatype CLM server
-
-* Tied into Nexus staging
-
-TIP: Demo time!
 
 == Sonatype Nexus Lifecycle
 :incremental:
 
-Expands Nexus Pro+
+Expands Nexus
 
 * Manual analysis via web interface upload
- 
 * Eclipse IDE integration
-
 * Continuous Integration Server Jenkins/Hudson/Bamboo support
-
 * SonarQube support
-
 * Command line scanning
+
+TIP: Hopefully we have time for a demo... 
+
+== Summary
+:incremental:
+
+* Your code is only part of your application
+* Components are important
+* Apply software supply chain thinking
+* Easy to start with
+* Powerful tools available
+
+TIP: Don't wait!
+
+== The End 
+
+Questions, Remarks &  Discussion
+
+TIP: Slides on OSCON site or email manfred@sonatype.com now
 
 == Resources
 
@@ -463,30 +514,7 @@ Expands Nexus Pro+
 
 * http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/[Java Tools and Technologies Landscape for 2014]
 
-== Summary
-:incremental:
-
-* Your code is only part of your application
-
-* Components are important
-
-* Apply software supply chain thinking
-
-* Easy to start with
-
-* Powerful tools available
-
-TIP: Don't wait!
-
-== The End 
-
-* Questions
-
-* Remarks
-
-* Discussion
-
-* Slides - OSCON site or email manfred@sonatype.com now
+* https://github.com/sonatype/nexus-presentations[Nexus releated slides including this one...]
 
 == Disclaimers
 
