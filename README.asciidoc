@@ -1,6 +1,6 @@
 == Component Management and Sonatype Nexus
 
-Presentations and labs labs suitable for a lunch-and-learn/brown bag
+Presentations and labs  suitable for a lunch-and-learn/brown bag
 session or a user group meeting with sample material available for
 anybody interested to use it. 
 
@@ -15,9 +15,8 @@ presented at a Nexus user group meeting in Chicago September 2014
 nexus-oss-advantages:: prepared  by Manfred Moser and presented at
 JavaOne 2014
 
-component-software-supply-chain:: prepared by Manfred Moser and presented at OSCON 2015, http://www.oscon.com/open-source-2015/public/schedule/detail/41388
-
-components
+component-software-supply-chain:: prepared by Manfred Moser and 
+presented at OSCON 2015, http://www.oscon.com/open-source-2015/public/schedule/detail/41388
 
 === Tips for Viewing
 
@@ -25,11 +24,11 @@ The html files in the root folder are all you need to show the
 presentations. They are self-contained and ready to be used on any
 browser.
 
+You can also see them online at http://sonatype.github.io/nexus-presentations
+
 The PDF files are just for being able to print, if desired. 
 
 Find some example material in the +labs+ folder.
-
-Just download the repo with git clone or as zip/tar.gz
 
 Documentation for writing or using the presentations can be found at 
 https://code.google.com/p/asciidoc-slidy2-backend-plugin/.
