@@ -1057,7 +1057,6 @@ div.slide h1 {
   text-align: right;
   width: 100%;
   background-color: #000000;
-  padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   background-repeat: no-repeat;
@@ -4055,7 +4054,7 @@ setTimeout(w3c_slidy.hide_slides, 50);
 <div id="header" class="slide">
 <h1>Getting your Ducks in a Row</h1>
 <span id="author">Manfred Moser, Sonatype, Inc.</span><br />
-<span id="revdate">Summer 2015</span>
+<span id="revdate">July 2015</span>
 </div>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
@@ -7025,39 +7024,45 @@ bvW0egjtjyVdWWE224zCJjoJiFWmjFSlEdyG4BZrZNGJ2ioEcTobwNAnVAJUFgW2hOhQCp+o2KZH
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_data">Data</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Data";slidefootnotes="";/*]]>*/</script>
+<h1 id="_what_are_you_gonna_learn_today">What Are You Gonna Learn Today?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="What Are You Gonna Learn Today?";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class="">
 <li>
 <span>
-2011-2014 Open Source Software Development Survey
+Interesting facts and figures
 </span>
-<ul class="">
+</li>
 <li>
 <span>
-&gt;11k responses
+A new perspective about your development efforts
+</span>
+</li>
+<li>
+<span>
+Lots of simple steps for improvements
 </span>
 </li>
 </ul>
-</li>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_data_sources">Data Sources</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Data Sources";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class="">
 <li>
 <span>
-2015 State of the Software Supply Chain Report
+Central Repository usage statistics
 </span>
 <ul class="">
 <li>
 <span>
-&gt;110k organizations,
+A.k.a. Maven Central
 </span>
 </li>
-</ul>
-</li>
-<li>
-<span>
-Central Repository Usage Statistics
-</span>
-<ul class="">
 <li>
 <span>
 Largest binary repository
@@ -7065,16 +7070,26 @@ Largest binary repository
 </li>
 <li>
 <span>
-&gt;17 Billon Downloads in 2014
+Running for 10+ years
+</span>
+</li>
+<li>
+<span>
+Sponsored and managed by Sonatype
 </span>
 </li>
 </ul>
 </li>
 <li>
 <span>
-Sonatype Nexus Usage Statistics
+Sonatype Nexus usage statistics
 </span>
 <ul class="">
+<li>
+<span>
+Most commonly use repository manager
+</span>
+</li>
 <li>
 <span>
 &gt;50k installations
@@ -7088,28 +7103,25 @@ Sonatype Nexus Usage Statistics
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_development_today">Development Today</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Development Today";slidefootnotes="";/*]]>*/</script>
+<h1 id="_research_reports">Research Reports</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Research Reports";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<ul class="">
+<ul class=" incremental">
 <li>
 <span>
-Uses components as building blocks
+2011-2014 Open Source Software Development Survey
 </span>
+<ul class=" incremental">
+<li>
+<span>
+&gt;11k responses
+</span>
+</li>
+</ul>
 </li>
 <li>
 <span>
-80-90% of typical application
-</span>
-</li>
-<li>
-<span>
-average app from application health check has approx 100 components
-</span>
-</li>
-<li>
-<span>
-Mostly open source
+2015 State of the Software Supply Chain Report
 </span>
 </li>
 </ul>
@@ -7118,101 +7130,99 @@ Mostly open source
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_so_what_is_a_component">So What is a Component?</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="So What is a Component?";slidefootnotes="";/*]]>*/</script>
+<h1 id="_how_we_develop_today">How We Develop Today</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How We Develop Today";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class=" incremental">
 <li>
 <span>
-All the stuff you use to create your applications
+Use components as building blocks
 </span>
 </li>
 <li>
 <span>
-The plumbing you don&#8217;t want to write yourself
+Enjoy power of reuse and collaboration
 </span>
 </li>
 <li>
 <span>
-Logging, IoC, persistence layer, ORM, &#8230;
+Software stack doesn&#8217;t matter - all use components
 </span>
 </li>
 <li>
 <span>
-And that you get easily by declaring dependencies with Maven,
-  Gradle, nuget, npm&#8230;
-</span>
-</li>
-<li>
-<span>
-Comprises 80-90% of your application
+Open source FTW everywhere!
 </span>
 </li>
 </ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_guess_8230">Guess&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Guess&#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>What is the percentage of components in a typical application?</p>
+</div>
+</div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img alt="Warning" src="data:image/png;base64,
-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
-/F/lgJiyQFHragAAAABJRU5ErkJggg==" />
+<img alt="Tip" src="data:image/png;base64,
+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" />
 </td>
 <td class="content">
-<div class="incremental"><p>And you are responsible for <strong>all</strong> of them.</p></div>
+<div class="incremental"><p>80-90%</p></div>
 </td>
 </tr></table>
 </div>
@@ -7221,58 +7231,139 @@ vr6+wTfK/4tEfzeeMmUKkydPzhg8jJAAREgEg0H6+vrQNC2pFL8ZUVWVrKws8vPzycnJQVXVjH/s
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_so_what_is_a_component_2">So What is a Component?</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="So What is a Component?";slidefootnotes="";/*]]>*/</script>
+<h1 id="_estimate_8230">Estimate&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Estimate&#8230;";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-But also all the parts you create and use
-</span>
-<ul class=" incremental">
-<li>
-<span>
-Including the application deployment packages
-</span>
-</li>
-</ul>
-</li>
-<li>
-<span>
-JARs, WARs, EARs..
-</span>
-<ul class=" incremental">
-<li>
-<span>
-but also rpm and npm packages or tar.gz files
-</span>
-</li>
-</ul>
-</li>
-<li>
-<span>
-what is a component
-</span>
-</li>
-<li>
-<span>
-percentage of app
-</span>
-</li>
-</ul>
+<div class="paragraph">
+<div class="incremental">
+<p>How many components can be found in an average application?</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>More than 100 !</p></div>
+</td>
+</tr></table>
+</div>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_applications_use_components">Applications Use Components</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Applications Use Components";slidefootnotes="";/*]]>*/</script>
+<h1 id="_so_what_is_a_component">So What is a Component?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="So What is a Component?";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
+<div class="quoteblock">
+<div class="content">
 <div class="paragraph">
 <div class="incremental">
-<p>lots of them</p>
+<p>Frameworks, Libraries, &#8230; Plumbing you don&#8217;t want to write yourself. Like
+Logging, IoC, persistence layer, ORM, widgets,&#8230;</p>
 </div>
 </div>
+</div>
+<div class="attribution incremental">
+</div></div>
+<div class="paragraph">
+<div class="incremental">
+<p>You get them easily by declaring dependencies with Maven, Gradle, nuget, npm&#8230;</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_what_is_a_component">What is a Component?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="What is a Component?";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<p>Third party AND everything you create</p>
+</div>
+<ul class="">
+<li>
+<span>
+JARs, WARs, EARs..
+</span>
+</li>
+<li>
+<span>
+rpm, deb
+</span>
+</li>
+<li>
+<span>
+npm, nupkg, gem packages
+</span>
+</li>
+<li>
+<span>
+zip, tar.gz files
+</span>
+</li>
+<li>
+<span>
+installer packages, docker images
+</span>
+</li>
+<li>
+<span>
+&#8230;
+</span>
+</li>
+</ul>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
@@ -7283,9 +7374,26 @@ percentage of app
 <div class="sectionbody" style="max-width:45em">
 <div class="paragraph">
 <div class="incremental">
-<p>Like manufacturing</p>
+<p>Just like for traditional manufacturing</p>
 </div>
 </div>
+<ul class=" incremental">
+<li>
+<span>
+Understand complete inventory of your product
+</span>
+</li>
+<li>
+<span>
+Including origin (suppliers)
+</span>
+</li>
+<li>
+<span>
+And usage
+</span>
+</li>
+</ul>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
@@ -7296,7 +7404,7 @@ percentage of app
 <div class="sectionbody" style="max-width:45em">
 <div class="paragraph">
 <div class="incremental">
-<p>Components are integrated part of Software Development Life Cycle (SDLC)</p>
+<p>Components are integral part of Software Development Life Cycle (SDLC)</p>
 </div>
 </div>
 <div class="paragraph">
@@ -7331,6 +7439,77 @@ Go back to the start and change versions or entire components
 </span>
 </li>
 </ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_so_what_do_you_think_8230">So what do you think&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="So what do you think&#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>When do software supply chain management efforts stop?</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAKZUlEQVRoge2aa3BU5RmAn3Pbs7fs
+JmwCRGITk0hVLFAtNWoq6pAiU0cKaYfa6ShT+YN4YbQw9F/8QX+UMv6gM3Q6oxMV6TgIbe10Gq2g
+cSzDpRaFgmIk4SKB3LP3Pff+SM66m+xuFvEyzvSbeefsbva8+z7nvXzf934RHMfhmzzEr9uAqx3/
+B/i6xzceQP6iFDmT1cBxHNzCkFsgBEHIXnNeC1f7u1cN4DiOY9s2rliWhWVZWRDHcbJGC4KAJElI
+koQoioii6IiieFUgnxvAtm3HNdg0Tbq6uuju7ubYsWP09vYyMjKCpmmoqkokEqGhoYGFCxfS2tpK
+W1sbiqJkRZIkZxLoikGEK50H3CdumiZ9fX3s3LmT3bt3U1V3A0033cKc2nkEQxV4PSqSJOI4Dpqu
+k0gkGLx8kZ4T7zF87iSrV69m3bp1NDY2oqoqHo8HWZa5Uo9cEYBt245lWRiGQUdHB9u2beOe1Y8w
+/6bFVAT9xJJpYvEUiVSGjG5gmBY4DqIoonoUfF4PoYAfRRE5/8kp3njlD6xfv54tW7YQCATw+Xyu
+R8r2RtkAtm07pmly5MgRHn/8cZSaZpbcfjd+n5f+wVEGRqJkdCMv3vME8t77vB6qQn4+OX6YsXPH
+2bp1Ky0tLQQCAVRVdb0xI0RZZdQ1ft++fSxbtozrlqzgrnvvI5nRee9UL+f6h9B0A1EQEIsBiOKE
+TL7XdJOBkTg1jYtouu1+1qxZw549e4hGo6TTaUzTxLbtGZ/ujEmca/wvHnqYnz/2DLNn19B74TID
+I9HPjCvwlLMls4RHdMNC8IRZ8dBmnnp6E7Zts2rVKgB8Ph+yLDulPFEyhBzHcUzT5PDhwyxbtow1
+j3YQqanmozOfEk2kChuLQ3x0lGQihmM7qF4vVdWz8fr9hYFyoK30OG/ufpYXXniB1tZWwuEwXq8X
+WZaLJnZJAMuyHE3TuPPOO2lcsoLGpmZO9ZzPM37q0x0ZuISla2xY2077j5ZSFargZM9Znt97gE8u
+DBb3ziRIfPAcF4/v59VXX6W6uppQKISqqkiSVBCgaA64odPR0YFS00xjUzNnLlwmmkznxbKYI45j
+k04mefaZJ3j04VXMqZ6Fx6Pw3QXXs/3Xv6Tp2rnTALL3T8wDBCLz8M2Zz/bt24nFYjPmQ0EAt9b3
+9fWxbds2ltxxD0NjMQbdmC+QlIIgIIkSoWCAH971/Wk6PYrCg/f/oHiVmhSP6qWm/gY6Ozvp6ekh
+mUyi6zq2bWeXK+UAYFkWO3fu5N72dQT8Pi5cGp6xuoiiiBoMktH0gl5trp87DbqQBEMRbl32U3bt
+2kUikUDTtOzypGwAwzDYvXs3316wiEuDoxiGWVaZrAjP4qW/vFUQ4NAHPdlwKQWiqF4qa+ro6uoi
+kUiQTqcxDKM8ADd8Xn/9dWZdewMVwSCDo7GicT8NSBTZt/8oT259jgOHThBNpIgmUjy3dz/P7z2Q
+r2My7gs9FNUXoPpbN9Ld3Z0FKBRG0+YBN3y6u7tpWnAr8WR6+gxLfr03TYNMMolhGFimiWVbXDzb
+x4G3/4XgOIiyTF3DdW45nHG2RhBQfX6q65o5evQoy5cvn9BtWUiSRG5FLQhg2zbHjh3j+tsfKFrv
+3R8EGL7UT23NLNraWmi+ro5r5kSYHakiVOHH7/OiyDKxZIonf9NJIpWZMQcEwOPx4vNXcPr0B2Qy
+mdxEzrO34ExsWRa9vb3csjzEaP9w1sUFZ1RBQJJk/vjbTdTXzS2kDoBQwI9HmcEDOSJ7PAiiSH9/
+P7quY5omlmVN01soB3Ach5GREbyqiqabM8a+NxAglcmvPOf7h9jR+WdOfNQLwNtHTzIeT+XFfdGC
+IAiIogSOQzQaxTRNdy4ozwO2baNpGpIkY1j2RAJTeJ0jCAKRmtmcPHORmkglxz48y/5DJ3jrnUPM
+b7iGxx7+MZZls/efR0rG/VQPgwMC2eQtZHxRAABVVbM3lEpgV178azcvvfYOgiCgZTJomsbGR9oR
+BIHzl4YYGo2VlcCuWOaE5xVFwbbtqVHiCJOZXBQgEomg6zqSKOIUMrqER+LRKItvaubW78wH4NLQ
+WNmx7+q1DB1ZkgmFQohifqS7xhcFEEWRhoYGEokEqkeeWPLmurcEiGPbpJJJfvbAPVl95/qHJyYv
+mH5/EdG1FA5QW1ubzZvc8pm1deoHroKFCxcycPkiPlWdnmC5iTxlVk2n0wT9Xu69Y3FW51g8OfH3
+ye+WnAgnRcukyKQSNDU1Icty7n65NACAJEm0trbSc/zfVAT9JZ/U1NWklslwx/duxqMoWX0Zzcy/
+bwr0VCDT0NDTSS6f/ZBFixZlN/ySJJXnAVEUaWtrY6DvOIoiFlx5FhPLsrjl5uvzdPq8nsLfL6I3
+FR1FlhUG+v5LS0tLtmtRlgcEYaL5pCgKq1ev5lzPKfxeT8FwKSQA115Tk6eztjpcsubn6rUMnfj4
+MLHxIZYuXYrX683rVpQDIIiiiKIorFu3jn+8vIPKCt+0cCkG4m4Bc0fd3OqCoVIIJDo2iCQrvPu3
+F1m5cmVeu6VQz6hgDrj1t7GxkfXr1/Px+wdRPcr02C+wmgxVVnLm3KU8ffNmVxX03lSgRHSEVGyc
+oYt9tLe3U19fTzAYzAKUVYVyw0hVVbZs2cJw7/uYyZGSIeCCeFWVd499jGGaWX1zq8OfrYOKeC+T
+ijM+cBHHsRju/Q9r164lFAoRDAbdPfEVAQiiKOLxeAgEAmzdupW/v/A7RLPEyjTHuGjKYMfLb3B5
+eBzdMNl/+CSmZReN+0wqztDFs4iSxIE9O9mwYQPhcJhwOEwgEMhN4GkEZXUlYrEYe/bs4elfbWLF
+Q5tQKyJlVaRy+kSJ6AhjA58iihJdf9rBUxufYPny5cyZM6esrkTJxpabzIFAgFWrVmHbNps3b+bu
+n6wnVF2H4lHLmlULgZiGTmxkgGR8DNu2efOV3/PUxo20tbURiUSorKwkEAhkk7fYmLE36rZX0uk0
+0WiUgwcP0tHRQcW8G5ndsIBgaBYe1TvtyRYDMXWNZGyU+Ngwkiwz+GkfQ73vsWHDBhYvXkwkEmHW
+rFmEw2G3M1eyR1pWczcXIh6PMz4+zvbt2+ns7OS2+x6kanYdqjeA1xdAUb3IioIoSjg42JaJaejo
+mTRaOoGeTiHJEvGxYd55rZP29nbWrl1LOBymqqqKyspKKioqyjK+bIBcCE3TSCaTxGIxenp62LVr
+F11dXdTUL2BO/Xx8/goEUcSxbYSJ2EGS5IlzgnSC/r4PuXzmOEuXLmXlypXU19cTCoUIh8OEQqEr
+7k5/7vOBdDpNMpkkkUiQSCTo7u7m6NGjnD59mv7+fqLRKIZhoCgKoVCI2tpampqaWLRoES0tLfh8
+Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
+uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
+qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
+</td>
+<td class="content">
+<div class="incremental"><p>When all production deployments are turned off!</p></div>
+</td>
+</tr></table>
+</div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -7394,8 +7573,7 @@ vr6+wTfK/4tEfzeeMmUKkydPzhg8jJAAREgEg0H6+vrQNC2pFL8ZUVWVrKws8vPzycnJQVXVjH/s
 /F/lgJiyQFHragAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
-<div class="incremental"><p>It only ends when any production deployments are
-decommissioned and <strong>not</strong> when development stops.</p></div>
+<div class="incremental"><p><strong>Not</strong> when development stops.</p></div>
 </td>
 </tr></table>
 </div>
@@ -7404,10 +7582,10 @@ decommissioned and <strong>not</strong> when development stops.</p></div>
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_supply_chain">Supply Chain</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Supply Chain";slidefootnotes="";/*]]>*/</script>
+<h1 id="_supply_chain_best_practices">Supply Chain Best Practices</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Supply Chain Best Practices";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
+<ul class="">
 <li>
 <span>
 Better and fewer suppliers
@@ -7429,32 +7607,288 @@ Improved visibility and traceability
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_step_control_component_source">Step: Control Component Source</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Control Component Source";slidefootnotes="";/*]]>*/</script>
+<h1 id="_best_practice_select_projects">Best Practice: Select Projects</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Select Projects";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Open source projects are your suppliers!</p></div>
+</td>
+</tr></table>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Large vs small project
+</span>
+</li>
+<li>
+<span>
+Active vs inactive in terms of commits
+</span>
+</li>
+<li>
+<span>
+Foundation backed or stand alone project
+</span>
+</li>
+<li>
+<span>
+Commercial company backing or not
+</span>
+</li>
+<li>
+<span>
+Active community and support
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_communicate_with_suppliers">Best Practice: Communicate with Suppliers</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Communicate with Suppliers";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Most often open source project
+</span>
+</li>
+<li>
+<span>
+Report bugs and feature requests
+</span>
+</li>
+<li>
+<span>
+Help with documentation
+</span>
+</li>
+<li>
+<span>
+Be present on mailing lists, forums, IRC, &#8230;
+</span>
+</li>
+<li>
+<span>
+Attend events
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_support_suppliers">Best Practice: Support Suppliers</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Support Suppliers";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Promote project via presentations, &#8230;
+</span>
+</li>
+<li>
+<span>
+Become a committer
+</span>
+</li>
+<li>
+<span>
+Sponsor a committer
+</span>
+</li>
+<li>
+<span>
+Provide infrastructure
+</span>
+</li>
+<li>
+<span>
+Sponsor foundations
+</span>
+</li>
+<li>
+<span>
+Pay for support
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_reduce_vendors">Best Practice: Reduce Vendors</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Reduce Vendors";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="paragraph">
 <div class="incremental">
-<p>and improve for performance and stability</p>
+<p>Each additional vendor</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Adds integration complexity
+</span>
+</li>
+<li>
+<span>
+Adds communication channels
+</span>
+</li>
+<li>
+<span>
+Add need for tracking
+</span>
+</li>
+<li>
+<span>
+Add new APIs to learn
+</span>
+</li>
+<li>
+<span>
+Adds license terms to understand
+</span>
+</li>
+<li>
+<span>
+&#8230;
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>So having less is easier.</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_now">Now..</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Now..";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>That we know that we use <strong>lots</strong> of components</p>
 </div>
 </div>
 <div class="paragraph">
 <div class="incremental">
-<p>use a repository manager</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>in your own datacenter</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>95% of downloads from Central Repository are done via build tools and such - inefficient</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>only 5% via repo manager</p>
+<p>Where do we get them from?</p>
 </div>
 </div>
 </div></div>
@@ -7462,36 +7896,327 @@ Improved visibility and traceability
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_component_management">Component Management</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Component Management";slidefootnotes="";/*]]>*/</script>
+<h1 id="_public_repositories_as_warehouses_distributors">Public Repositories as Warehouses/Distributors</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Public Repositories as Warehouses/Distributors";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <div class="paragraph">
 <div class="incremental">
-<p><em>Supply change management for components</em></p>
+<p>Very important in their eco-systems</p>
 </div>
 </div>
 <ul class=" incremental">
 <li>
 <span>
-Security and authentication
+JVM - Central Repository - 17B downloads in 2014
+</span>
+<ul class=" incremental">
+<li>
+<span>
+up from 500 M in 2007
+</span>
+</li>
+</ul>
+</li>
+<li>
+<span>
+JavaScript/Node - npmjs.org - 15B downloads in 2014
 </span>
 </li>
 <li>
 <span>
-Repositories and repository targets
+Ruby - rubygems.org - 5B downloads since inception
 </span>
 </li>
 <li>
 <span>
-Component information
+.Net - NuGet Gallery - 300m downloads in 2014
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_example_central_repository">Example: Central Repository</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Example: Central Repository";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Approx 1 Million open source components
+</span>
+</li>
+<li>
+<span>
+Approx 11 Million users
+</span>
+</li>
+<li>
+<span>
+1000 new components added daily
+</span>
+</li>
+<li>
+<span>
+Exponential growth
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Growth of other repositories is similar</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_control_component_source">Best Practice: Control Component Source</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Control Component Source";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Run your own local warehouse!</p></div>
+</td>
+</tr></table>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Reduced bandwidth usage and costs
+</span>
+</li>
+<li>
+<span>
+Improve performance and stability
+</span>
+</li>
+<li>
+<span>
+Internal caching and storing of components &#8594; enables collaboration
+</span>
+</li>
+<li>
+<span>
+Reduced dependency on external repositories
+</span>
+</li>
+<li>
+<span>
+One component storage location for backup, audit, control&#8230;
+</span>
+</li>
+<li>
+<span>
+Store your own components centrally
 </span>
 </li>
 </ul>
 <div class="paragraph">
 <div class="incremental">
-<p>&#8594;  Set the stage for first repository and component management</p>
+<p>&#8594; Use a <strong>repository manager</strong>!</p>
 </div>
 </div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_guess_8230_2">Guess&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Guess&#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Are people following this easily implemented best practice?</p>
+</div>
+</div>
+<div class="quoteblock">
+<div class="content">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>No!</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="attribution incremental">
+</div></div>
+<ul class=" incremental">
+<li>
+<span>
+95% of downloads from Central Repository &#8594; build tools,&#8230;
+</span>
+</li>
+<li>
+<span>
+Only 5% via repository manager
+</span>
+</li>
+<li>
+<span>
+18 % of respondents to component survey use <strong>no</strong> repository manager
+</span>
+</li>
+</ul>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
@@ -9535,73 +10260,26 @@ RUVFRUVFRUVFtRP9/wcAiJDDv6CVA+IAAAAASUVORK5CYII=" />
 </div>
 </div>
 <div class="paragraph">
-<div class="incremental">
 <p>&#8594; Nexus is a key component of your enterprise development
   infrastructure</p>
-</div>
 </div>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_component_management_with_nexus_oss">Component Management with Nexus OSS</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Component Management with Nexus OSS";slidefootnotes="";/*]]>*/</script>
+<h1 id="_repository_management_with_nexus_oss">Repository Management with Nexus OSS</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Repository Management with Nexus OSS";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class=" incremental">
 <li>
 <span>
-Used by 66% of repository manager users
+Used by 64% of repository manager users
 </span>
 </li>
 <li>
 <span>
-18 % of respondents to component survey use NO repository manager
-</span>
-</li>
-<li>
-<span>
-Internal caching and storing of components &#8594; enables collaboration
-</span>
-</li>
-<li>
-<span>
-Reduced dependency on external repositories
-</span>
-</li>
-<li>
-<span>
-One component storage location for backup, audit, control&#8230;
-</span>
-</li>
-<li>
-<span>
-Highly performant
-</span>
-</li>
-<li>
-<span>
-Reduced bandwidth usage and costs
-</span>
-</li>
-<li>
-<span>
-Efficient search
-</span>
-</li>
-<li>
-<span>
-Repository Health Check
-</span>
-</li>
-<li>
-<span>
-Some meta data
-</span>
-</li>
-<li>
-<span>
-Formats include Maven, NuGet, NPM, site, Yum and JRuby/Gems
+Formats include Maven, NuGet, NPM, site, Yum and Gems
 </span>
 </li>
 </ul>
@@ -9669,7 +10347,7 @@ JpL5tYCZpEyw2f/nWt1ag2UtM0x3Mq1iAp1j+bH0M7KFCGWDnfmbd8AMnuxfUzL/C0rp/wFnFd4n
 EQn3XQAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
-<div class="incremental"><p>Yet easy to implement&#8230;</p></div>
+<div class="incremental"><p>Yet easy to implement&#8230; and open source!</p></div>
 </td>
 </tr></table>
 </div>
@@ -9678,610 +10356,120 @@ EQn3XQAAAABJRU5ErkJggg==" />
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_step_know_your_components_and_suppliers">Step: Know Your Components and Suppliers</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Know Your Components and Suppliers";slidefootnotes="";/*]]>*/</script>
+<h1 id="_best_practice_know_your_components">Best Practice: Know Your Components</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Know Your Components";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>E.g. Central Repository:</p>
-</div>
-</div>
 <ul class=" incremental">
 <li>
 <span>
-985k OSS components
+Look at your build files
 </span>
 </li>
 <li>
 <span>
-100k suppliers (OSS projects)
+Crack open the deployment archive
 </span>
 </li>
 <li>
 <span>
-11 Million OSS users
-</span>
-</li>
-<li>
-<span>
-annual downloads - 17B in 2014 central (0.5B in 2007 - huge growth), 15B npmjs.org, 5B rubygems (since inception), nuget gallery (300million)
-</span>
-</li>
-<li>
-<span>
-approx 1000 new components added to central daily
-</span>
-</li>
-<li>
-<span>
-How many open source projects used on average per large organization?
+Identify with checksum search
 </span>
 </li>
 </ul>
-<div class="paragraph">
-<div class="incremental">
-<p>Comparison - e.g. Toyota manages about 800 suppliers, F</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_know_component_security_characteristics">Step: Know Component Security Characteristics</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Know Component Security Characteristics";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>Average org 250k different component downloads per year
-15k components with known vulnerabilities downloaded
-some of them probably are used in production apps</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>46 million vulnerable components downloaded in 2014 from Central</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>16% must prove they are not using known security vulnerabilities</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>New vulnerabilities found regularly, new releases all the time - yet 63 % do NOT monitor for changes in vulnerability data</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>How would you know? A PITA to find out</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>approx 50K components in Central have known security vulnerabilities</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>OWASP dependency check</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>Show in Nexus Pro</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_understand_license_implications">Step: Understand License Implications</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Understand License Implications";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>63 % have incomplete view of license risk from components</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>Only 32 % examine all open source components for license compliance</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>58 % say they are no concerned about license risk</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>approx 280k components in Central have restrictive licenses
-tbd</p>
-</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Warning" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAMVUlEQVRogdWZeXDVVZbHP7/f27JB
+wtJIiCERRFlbx5FuHRrRBgtBsRIwCCOrFmGmiDBjYVNlQlgiQjU6IjI4xLJxGf5QGp0Cbaftsu3R
+hu6aYXqgLZoWEsjyyDP7S972e7/l3vnj5cW3Ji9M/zOn6lRS997fvd/vueece+59ipSS/89iv5mP
+ZEQQQsS23RQARVEAUFUVRVFQog0ZyogJSClld3c327Ztw7IsLMuKto90KgBsNhtVVVXMnj2bvLw8
+7Ha7HBEJKWXGKoSQXV1dcsuWLfLSpUsyKkKIIdWyrLTqdrvlU089Jc+cOSM9Ho8Mh8NSCCEzxTRi
+8JWVlbKtre0vAt6yLGmapmxtbZXr1q2TZ86ckW1tbSMikTH4GzduyKqqqkHwsSA1TZOhUChOg8Hg
+oBqGIQ3DSAk+VleuXDliEspwviullD09PbzwwgscO3Yszt91XScQCNDZ2YlhGIPfuFwu7Pb48FJV
+lZycnEG/z8/PRwiBqqqDYzweD88//zyrV69m7ty5jBs3DofDMWRgD0lASik9Hg979uzh2LFjcYEa
+CoVob2/n2q9+hbZ585BGSCWltbVMr61NtSYbN25k7dq1zJkzZ1gSaqrGWPD79+9PAh8MBuns7OTi
+e+8R2rwZCYOaqTTt3cuf6+qSwAMcP36co0eP8vXXX9Pd3Y1hGMg0lk65A1HwdXV1vPHGG0mW7+jo
+4A8/+xn2BAAAI0riQOnu3cyork7Zt3btWtavX89dd92VdieSCEgppdvt5sCBAxw5ciSuLxQK0dTU
+RMOHHyJ37hwh1NSiAKU7djDzxRdT9q9YsYJt27YxY8aMlCTiCEgp5eXLl6mvr+fVV1+NmygYDNLW
+1sY3J09ipLEYQDPw2sBfCTwMLARKgKwhiNxWU8OsXbvi2qLYnnzySSorK1PvRGyqvH79uty6dWtS
+Lg8EAvLKlSvyo1275M8hSV8H+eMBvRPkP9Vslp0tV6W3u12+c7hOTgT5NyAXgtwE8gTIUyn0D9XV
+0jAMqet6klZUVMjPP/88KcWqUcs3NjZy+PBhDh06FGeFqNtcOnECY8+euICVwDWgFtj/m1/wD+8f
+5xtg6uy5ZI+5BSkkU6fexgu7tvLWhd/x1tXL5P/905wAggnzSODavn388Sc/SblDL7/8Mq+99hqX
+L1+OC2zb7t27uX79+u7Dhw+ndJvW1lYaP/qI0EDKS1z0XeDjC7/l9llz+d6EWxjv0imdcgeFRcVo
+fR46vm1Cx8ndP5hP3qjR/GDuX/GbC5/iberl1qirxGjv73+PYRjc8tBDcVhGjRpFRUUF27dvp7i4
+mPz8fFwuV2QHVq1aldLyDQ0NXDt5En91NRIQCRqNHld2HsLUCfu6GD9mNIoVQggDy9RQpYLTbkdV
+7Vh6CH9vJ/fcfz/vALsAN2AlzHv1wAEu1tTExUI0Hl555RXq6upobm4mEAhECEyePDkOvK7rtLS0
+cOP0aby1tUnAo2oNkFAUSTjoRfN+ix7wgjRBShACVVFQRGSkHvTypwtnmXHPQhrbb3D0k1McAdpi
+DBLVhp/+lIvV1UlV7oQJE8jNzcXtduPz+ZIPMtM0aWhooPH99+mtrU1ymVRqUxUQFlJYSBFGCivG
+OSyEaSCFAGlhd+Vy7w/n43BmM3POXWx69hl8AyMTDXTl4EEu7t2bCBGAQCCAruupCdjtdrp3705r
++ViN22YhsUwdyzRBCpACyzIRMnpngCxXNjYlMk4L+ggoYXxp5pbAlX37cDgcSQSEEAxmoVgQg/9n
+AP67bVdAUcFmQ3W6IgtIiWUKLCGwLGvQj69e+m+EsBB6iGB/N/3e9oyNlIgRYm5kiR2JH0L6MkFY
+Ei0UQKAycdJUbIodT3Mjpu6n3xfCptoRlomQCqZpRkhLCykMhLBQSV1HJbalKnvSF3MpNO0OSIEw
+DWyuPCaVzCRv7ER8Ph+mtJM35lZsdjvuxktYhobDkYOCgqJEDWLLaAfSVc1p78SJO2AAvUBggLUN
+KIx2Kgqjv3crY2wOiqaqKKoKihKJCctCC/npbW+jq7sbS7UjkGCZCCkQQkdJsV6mRWHGBH4HLHpx
+F3LcGDq6u7nw2S85++V/4gb0kB9hFoAZwuZwgc2BqjpQVRWbzYXd4cDlysHn7WJi0W2EfH24XA6E
+jKySqhTPtDRPIjB4XUtoPw3sKV/O+KJipJT4V63mq3/7Obu21/LN/5xl9l/PIys7G2fOaBS7E5vN
+QrU7UW0KNlUFp5P8MeO5/8HFhPo7CXr7MMIaQW8neSkMlqnEEYj1s8QJbwXaWpopmDgJh93OqHGF
+LFy9jjunTeHNo2uAvUy54/uMuaUYV24BUpVYpoVEwaY4UVUbitNJ9ugxOBw2tEAPfX29QCjuVB9O
+EmNBTdeRGEj3A56OdkwtgDDCCKFjz8ql6N55/G3VcRouX+SXH72Ht6udcCg4cJiJSPIn8oCloIKU
+KAhURUUIiVCjx128pjtrEiVtFkrMNNOBA+s34XG3YIRDSMtAkSbOrDzuvOchHnmiklEFY3n76G7O
+f/nv9Ht7EMJCSjGoljCxjOBAnaSjhYPowevDZrx04FMSGLwnJEzmAOYCn33wAUYoiGXoSMsEoeNw
+ZTO2aDrzFpWxck0VJVOn4fd2E/T7oneNyOFlGkjLwNTD6FoILRQEa/hDcyhJIuB0OlFVNeVE04B3
+XjnC+d9+hRYKYJlhpDBBGDidDiaUfp/xk24nJ3c0eaPzsKsgzEhtZJkGIuzDNDRCAR99fb309XYh
+NAYPsnQ6IgJSSgoKCihavDilJZ4Aajf8HVf/fAnLCCNNAyktECaqIsgbV8So0WMHrn2RGLBMHREO
+YBg6eiiIFgzQ7/US8vmYoEDuENa/u6oqcwJRPysoKOC+N9+kcNGiJGvkAQuADY+twn3tCuFg/4CV
+DbB0VKHhzHbhdGVhs6kgDKTuR9f86KEAWtBHd0c73p52pB5Av5KewJxnnmHeoUOEw+EkjHEEYi8M
+EHlFKyws5IfHjlG4cGHSxJOA1cATPy7nT388j+73YoYDCEuP1DhSRrKOlFhmmLAWQNMCBHw9tHtu
+8K2nBcsI8uGxf8HoiRBINNTtjz7KQ/X1xL6iRDHGvubZAfr7+1Nuz+TJk6G+nv/atInmX/86rq8A
+WAlUrahk/Fio/8XHjM4fi93pHCgRFCzLQtd1tFAQLeCjs9NNb4cHxdL44J8PozfD7XyXRqNy97p1
+PPz220gp0XU9zriKogw+SaqqGtmB48ePU15enkRASklRURH31tcz6cEHk1JrAfAUcEcPLLjvMU69
+/694uzsI+X3093TS5blBl8eNt72VHk8Tfd9eR+vv4MQ/HkZpiJwttgTL3/Hoo2nBNzY2smjRIhYs
+WEBBQQEulyvyLuT3+2VTUxM7d+7k5MmTKXNuS0sL555+mtYvv0zqE0A7kavhqFL4oAlCCWOygGIi
+qTiHyMnuTBgz/bHHKDt9GillnN8D+P1+ysrKWLJkCdOmTWPWrFmUlpZGCAghpN/vp7m5mZqaGl5/
+/XUKCwtJFLfbzX+sX8+Nr75K6rtZiXr49KVLKf/4Y4QQ6LqeBP6RRx6hvLycadOmMXPmTEpKSsjN
+zf3uZS6WRHV1NadOnUpaTEpJa2sr5zZupOkmSaQqk2csWcLyTz4BQNO0uL7GxkbWr1+fErzNZlMG
+w1lVVSUvL4+SkhL27dvH8uXL8Xg8ceABiouLue+ttyieN2+IK2Z6TRx/5+LFacE3NDRQWVmZFjwk
+nAOxJF566SW2bNnChQsXkmKipKSEB959l9vmzcvo1pZOpz/8ME98+mla8Bs2bGDZsmVpwUOa5/VE
+d0oXE319fXxWXs43Z88m9Q0n03/0I1YPJIRE8OfOnWPHjh2UlZUNCT4tgUQSO3fupKqqigceeGCw
+P/a7VM8emUg0VcbK+fPn2bp1KytWrBgW/JAEEknU1NTw7LPPMn/+/GFBZQI8lZw/f57nnnuO5cuX
+M2XKlGHBD0sgkURdXR2PP/44FRUVNwV+qP7Tp09z8ODBjNxmRAQSSRw4cIBly5axdOnSvwh4RVH4
+4osv2L9/P2VlZRlbfkQEEkls376djo4OQqHE83bk4nK5EEKwZs0aSktLRwR+RATgOxItLS1cu3aN
+vr6+wTfK/4tEfzeeMmUKkydPzhg8jJAAREgEg0H6+vrQNC2pFL8ZUVWVrKws8vPzycnJQVXVjH/s
+/F/lgJiyQFHragAAAABJRU5ErkJggg==" />
+</td>
+<td class="content">
+<div class="incremental"><p>You will be surprised what you find!</p></div>
+</td>
+</tr></table>
 </div>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
-<h1 id="_step_know_their_dependencies">Step: Know Their Dependencies</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Know Their Dependencies";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-<div class="paragraph">
-<div class="incremental">
-<p>dependency:tree</p>
-</div>
-</div>
-<div class="literalblock">
-<div class="content incremental">
-<pre><tt>M2e view</tt></pre>
-</div></div>
-<div class="literalblock">
-<div class="content incremental">
-<pre><tt>crack open the war and look</tt></pre>
-</div></div>
-<div class="literalblock">
-<div class="content incremental">
-<pre><tt>sha checksum search</tt></pre>
-</div></div>
-<div class="literalblock">
-<div class="content incremental">
-<pre><tt>can you produce a BOM?</tt></pre>
-</div></div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_upgrade_often">Step: Upgrade Often</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Upgrade Often";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_avoid_duplication">Step: Avoid Duplication</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Avoid Duplication";slidefootnotes="";/*]]>*/</script>
+<h1 id="_best_practice_know_their_dependencies">Best Practice: Know Their Dependencies</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Know Their Dependencies";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
 <ul class=" incremental">
 <li>
 <span>
-multiple logging frameworks
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_reduce_their_numbers">Step: Reduce Their Numbers</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Reduce Their Numbers";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-KISS
+<code>mvn dependency:tree</code> or similar analysis
 </span>
 </li>
 <li>
 <span>
-less complexity
+Use Dependency Management or BOM POM
 </span>
 </li>
 <li>
 <span>
-less learning effort
+Dependency Hierarchy in M2Eclipse or Nexus Pro
 </span>
 </li>
 <li>
 <span>
-Application Health Check analysis of 1500+ applications
-</span>
-</li>
-<li>
-<span>
-106 components
-</span>
-</li>
-<li>
-<span>
-24 with known vulnerabilities
-</span>
-</li>
-<li>
-<span>
-9 with restrictive licenses
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_reduce_different_versions_used">Step: Reduce Different Versions Used</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Reduce Different Versions Used";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-across enterprise
-</span>
-</li>
-<li>
-<span>
-e.g. Google mandates versions of libraries use, only one or two in most cases
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_reduce_vendors">Step: Reduce Vendors</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Reduce Vendors";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_select_projects_and_vendor">Step: Select Projects and Vendor</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Select Projects and Vendor";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-large vs small open source project
-</span>
-</li>
-<li>
-<span>
-active vs inactive in terms of commits
-</span>
-</li>
-<li>
-<span>
-commercial company backing or not
-</span>
-</li>
-<li>
-<span>
-Communicate with vendors!
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_upgrade_often_2">Step: Upgrade Often</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Upgrade Often";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-just like devops - release often
-</span>
-</li>
-<li>
-<span>
-reduces complexity of updates
-</span>
-</li>
-<li>
-<span>
-open source projects work on master - latest == best, nearly always, avoid issues easily
-</span>
-</li>
-<li>
-<span>
-especially regarding security issues, backports are rare!
-</span>
-</li>
-<li>
-<span>
-sometimes you will get burned with regressions
-</span>
-</li>
-<li>
-<span>
-Typical component 3-4 releases per year
-</span>
-</li>
-</ul>
-<div class="paragraph">
-<div class="incremental">
-<p>Average org downloads from Central - top 100 components, 27 are outdated and newer versions exists</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_step_communicate_with_supplier">Step: Communicate with Supplier</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Step: Communicate with Supplier";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-most often open source project
-</span>
-</li>
-<li>
-<span>
-report bugs, feature requests
-</span>
-</li>
-<li>
-<span>
-help with documentation
-</span>
-</li>
-<li>
-<span>
-be present and support (mailing lists, forums, issue tracker, IRC, stackoverflow)
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_next_steps">Next Steps</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Next Steps";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-Define policies
-</span>
-<ul class=" incremental">
-<li>
-<span>
-No components older than 5 years
-</span>
-</li>
-<li>
-<span>
-No components with know security vulnerabilities of score &gt; 8
-</span>
-</li>
-<li>
-<span>
-No GPL licensed components
-</span>
-</li>
-</ul>
-</li>
-<li>
-<span>
-Only 56 % have policies
-</span>
-</li>
-<li>
-<span>
-Of these only 68% follow policy
-</span>
-</li>
-<li>
-<span>
-Often manual, slow
-</span>
-</li>
-<li>
-<span>
-But 78% say they have never banned a component
-</span>
-</li>
-<li>
-<span>
-Things dont add up..
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_next_steps_2">Next Steps</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Next Steps";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-Add tools to automate the process
-</span>
-</li>
-<li>
-<span>
-Configure tools with policies
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_aim_of_tools">Aim of Tools</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Aim of Tools";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ol class="arabic incremental">
-<li>
-<span>
-Empower developers with the right information at the right time
-</span>
-</li>
-<li>
-<span>
-Design frictionless, automated approach for continuous DevOps processes
-</span>
-</li>
-<li>
-<span>
-Create, manage and monitor component bill of materials for each application
-</span>
-</li>
-</ol>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_bill_of_material">Bill of Material</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Bill of Material";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-Tracking productions applications BOM
-</span>
-<ul class=" incremental">
-<li>
-<span>
-40% including dependencies
-</span>
-</li>
-<li>
-<span>
-23% NOT including dependencies
-</span>
-</li>
-</ul>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_example_tools">Example Tools</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Example Tools";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>lots of them out there for different stacks, examples to follow</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_maven">Maven</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Maven";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
-<li>
-<span>
-Dependency Plugin
-</span>
-</li>
-<li>
-<span>
-Dependency Management
-</span>
-</li>
-<li>
-<span>
-BOM POM file
-</span>
-</li>
-<li>
-<span>
-M2e - effective POM view, dependency view
-</span>
-</li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_owasp_dependency_check">OWASP Dependency Check</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="OWASP Dependency Check";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_sonatype_nexus_pro">Sonatype Nexus Pro</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Sonatype Nexus Pro";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>tbd</p>
-</div>
-</div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_nexus_pro">Nexus Pro+</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Nexus Pro+";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<div class="paragraph">
-<div class="incremental">
-<p>In a nutshell:</p>
-</div>
-</div>
-<ul class=" incremental">
-<li>
-<span>
-Configurable component policies - <strong>very</strong> powerful
-</span>
-</li>
-<li>
-<span>
-Managed on the Sonatype CLM server
-</span>
-</li>
-<li>
-<span>
-Tied into Nexus staging
+Challenge yourself to produce a Bill of Materials
 </span>
 </li>
 </ul>
@@ -10348,6 +10536,999 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </div><div class="slide">
 
 <div class="sect1">
+<h1 id="_best_practice_avoid_duplication">Best Practice: Avoid Duplication</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Avoid Duplication";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Multiple logging frameworks
+</span>
+</li>
+<li>
+<span>
+Multiple web frameworks
+</span>
+</li>
+<li>
+<span>
+Multiple technology stacks
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>But still don&#8217;t be afraid of using what is best for the job. Find the right balance.</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_reduce_their_numbers">Best Practice: Reduce Their Numbers</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Reduce Their Numbers";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+KISS[<a href="https://en.wikipedia.org/wiki/KISS_principle">https://en.wikipedia.org/wiki/KISS_principle</a>]
+</span>
+</li>
+<li>
+<span>
+Less complexity
+</span>
+</li>
+<li>
+<span>
+Less learning effort
+</span>
+</li>
+<li>
+<span>
+Less tracking updates, issues, communication, &#8230;
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Warning" src="data:image/png;base64,
+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
+/F/lgJiyQFHragAAAABJRU5ErkJggg==" />
+</td>
+<td class="content">
+<div class="incremental"><p>You are responsible for <strong>all</strong> components used in your application!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_room_for_improvement">Room for Improvement</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Room for Improvement";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Sonatype Application Health Check analysis of 1500+ applications</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+On average 106 components
+</span>
+</li>
+<li>
+<span>
+24 with known vulnerabilities
+</span>
+</li>
+<li>
+<span>
+9 with restrictive licenses
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_what_about_component_versions_8230">What About Component Versions &#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="What About Component Versions &#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>From the Top 100 components downloaded from the Central Repository - how many are old?</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAKZUlEQVRoge2aa3BU5RmAn3Pbs7fs
+JmwCRGITk0hVLFAtNWoq6pAiU0cKaYfa6ShT+YN4YbQw9F/8QX+UMv6gM3Q6oxMV6TgIbe10Gq2g
+cSzDpRaFgmIk4SKB3LP3Pff+SM66m+xuFvEyzvSbeefsbva8+z7nvXzf934RHMfhmzzEr9uAqx3/
+B/i6xzceQP6iFDmT1cBxHNzCkFsgBEHIXnNeC1f7u1cN4DiOY9s2rliWhWVZWRDHcbJGC4KAJElI
+koQoioii6IiieFUgnxvAtm3HNdg0Tbq6uuju7ubYsWP09vYyMjKCpmmoqkokEqGhoYGFCxfS2tpK
+W1sbiqJkRZIkZxLoikGEK50H3CdumiZ9fX3s3LmT3bt3U1V3A0033cKc2nkEQxV4PSqSJOI4Dpqu
+k0gkGLx8kZ4T7zF87iSrV69m3bp1NDY2oqoqHo8HWZa5Uo9cEYBt245lWRiGQUdHB9u2beOe1Y8w
+/6bFVAT9xJJpYvEUiVSGjG5gmBY4DqIoonoUfF4PoYAfRRE5/8kp3njlD6xfv54tW7YQCATw+Xyu
+R8r2RtkAtm07pmly5MgRHn/8cZSaZpbcfjd+n5f+wVEGRqJkdCMv3vME8t77vB6qQn4+OX6YsXPH
+2bp1Ky0tLQQCAVRVdb0xI0RZZdQ1ft++fSxbtozrlqzgrnvvI5nRee9UL+f6h9B0A1EQEIsBiOKE
+TL7XdJOBkTg1jYtouu1+1qxZw549e4hGo6TTaUzTxLbtGZ/ujEmca/wvHnqYnz/2DLNn19B74TID
+I9HPjCvwlLMls4RHdMNC8IRZ8dBmnnp6E7Zts2rVKgB8Ph+yLDulPFEyhBzHcUzT5PDhwyxbtow1
+j3YQqanmozOfEk2kChuLQ3x0lGQihmM7qF4vVdWz8fr9hYFyoK30OG/ufpYXXniB1tZWwuEwXq8X
+WZaLJnZJAMuyHE3TuPPOO2lcsoLGpmZO9ZzPM37q0x0ZuISla2xY2077j5ZSFargZM9Znt97gE8u
+DBb3ziRIfPAcF4/v59VXX6W6uppQKISqqkiSVBCgaA64odPR0YFS00xjUzNnLlwmmkznxbKYI45j
+k04mefaZJ3j04VXMqZ6Fx6Pw3QXXs/3Xv6Tp2rnTALL3T8wDBCLz8M2Zz/bt24nFYjPmQ0EAt9b3
+9fWxbds2ltxxD0NjMQbdmC+QlIIgIIkSoWCAH971/Wk6PYrCg/f/oHiVmhSP6qWm/gY6Ozvp6ekh
+mUyi6zq2bWeXK+UAYFkWO3fu5N72dQT8Pi5cGp6xuoiiiBoMktH0gl5trp87DbqQBEMRbl32U3bt
+2kUikUDTtOzypGwAwzDYvXs3316wiEuDoxiGWVaZrAjP4qW/vFUQ4NAHPdlwKQWiqF4qa+ro6uoi
+kUiQTqcxDKM8ADd8Xn/9dWZdewMVwSCDo7GicT8NSBTZt/8oT259jgOHThBNpIgmUjy3dz/P7z2Q
+r2My7gs9FNUXoPpbN9Ld3Z0FKBRG0+YBN3y6u7tpWnAr8WR6+gxLfr03TYNMMolhGFimiWVbXDzb
+x4G3/4XgOIiyTF3DdW45nHG2RhBQfX6q65o5evQoy5cvn9BtWUiSRG5FLQhg2zbHjh3j+tsfKFrv
+3R8EGL7UT23NLNraWmi+ro5r5kSYHakiVOHH7/OiyDKxZIonf9NJIpWZMQcEwOPx4vNXcPr0B2Qy
+mdxEzrO34ExsWRa9vb3csjzEaP9w1sUFZ1RBQJJk/vjbTdTXzS2kDoBQwI9HmcEDOSJ7PAiiSH9/
+P7quY5omlmVN01soB3Ach5GREbyqiqabM8a+NxAglcmvPOf7h9jR+WdOfNQLwNtHTzIeT+XFfdGC
+IAiIogSOQzQaxTRNdy4ozwO2baNpGpIkY1j2RAJTeJ0jCAKRmtmcPHORmkglxz48y/5DJ3jrnUPM
+b7iGxx7+MZZls/efR0rG/VQPgwMC2eQtZHxRAABVVbM3lEpgV178azcvvfYOgiCgZTJomsbGR9oR
+BIHzl4YYGo2VlcCuWOaE5xVFwbbtqVHiCJOZXBQgEomg6zqSKOIUMrqER+LRKItvaubW78wH4NLQ
+WNmx7+q1DB1ZkgmFQohifqS7xhcFEEWRhoYGEokEqkeeWPLmurcEiGPbpJJJfvbAPVl95/qHJyYv
+mH5/EdG1FA5QW1ubzZvc8pm1deoHroKFCxcycPkiPlWdnmC5iTxlVk2n0wT9Xu69Y3FW51g8OfH3
+ye+WnAgnRcukyKQSNDU1Icty7n65NACAJEm0trbSc/zfVAT9JZ/U1NWklslwx/duxqMoWX0Zzcy/
+bwr0VCDT0NDTSS6f/ZBFixZlN/ySJJXnAVEUaWtrY6DvOIoiFlx5FhPLsrjl5uvzdPq8nsLfL6I3
+FR1FlhUG+v5LS0tLtmtRlgcEYaL5pCgKq1ev5lzPKfxeT8FwKSQA115Tk6eztjpcsubn6rUMnfj4
+MLHxIZYuXYrX683rVpQDIIiiiKIorFu3jn+8vIPKCt+0cCkG4m4Bc0fd3OqCoVIIJDo2iCQrvPu3
+F1m5cmVeu6VQz6hgDrj1t7GxkfXr1/Px+wdRPcr02C+wmgxVVnLm3KU8ffNmVxX03lSgRHSEVGyc
+oYt9tLe3U19fTzAYzAKUVYVyw0hVVbZs2cJw7/uYyZGSIeCCeFWVd499jGGaWX1zq8OfrYOKeC+T
+ijM+cBHHsRju/Q9r164lFAoRDAbdPfEVAQiiKOLxeAgEAmzdupW/v/A7RLPEyjTHuGjKYMfLb3B5
+eBzdMNl/+CSmZReN+0wqztDFs4iSxIE9O9mwYQPhcJhwOEwgEMhN4GkEZXUlYrEYe/bs4elfbWLF
+Q5tQKyJlVaRy+kSJ6AhjA58iihJdf9rBUxufYPny5cyZM6esrkTJxpabzIFAgFWrVmHbNps3b+bu
+n6wnVF2H4lHLmlULgZiGTmxkgGR8DNu2efOV3/PUxo20tbURiUSorKwkEAhkk7fYmLE36rZX0uk0
+0WiUgwcP0tHRQcW8G5ndsIBgaBYe1TvtyRYDMXWNZGyU+Ngwkiwz+GkfQ73vsWHDBhYvXkwkEmHW
+rFmEw2G3M1eyR1pWczcXIh6PMz4+zvbt2+ns7OS2+x6kanYdqjeA1xdAUb3IioIoSjg42JaJaejo
+mTRaOoGeTiHJEvGxYd55rZP29nbWrl1LOBymqqqKyspKKioqyjK+bIBcCE3TSCaTxGIxenp62LVr
+F11dXdTUL2BO/Xx8/goEUcSxbYSJ2EGS5IlzgnSC/r4PuXzmOEuXLmXlypXU19cTCoUIh8OEQqEr
+7k5/7vOBdDpNMpkkkUiQSCTo7u7m6NGjnD59mv7+fqLRKIZhoCgKoVCI2tpampqaWLRoES0tLfh8
+Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
+uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
+qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
+</td>
+<td class="content">
+<div class="incremental"><p>27 - so about a third is out of date!</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>Not too surprising, since a typical component has 3-4 releases per year.</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_guess_8230_3">Guess&#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Guess&#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>How many versions of each library are used at Google?</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>One or two are mandated in most cases!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_excursion_to_devops">Excursion to DevOps</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Excursion to DevOps";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>One critical part of DevOps - Release Early, Release Often!</p>
+</div>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>Why?</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Bring benefits of new features to users as soon as possible
+</span>
+</li>
+<li>
+<span>
+Enable tighter user involvement
+</span>
+</li>
+<li>
+<span>
+Fix bugs as soon as possible
+</span>
+</li>
+<li>
+<span>
+Reduce complexity of change
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_upgrade_component_versions_regularly">Best Practice: Upgrade Component Versions Regularly</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Upgrade Component Versions Regularly";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Just like release often - upgrade often!</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Reduces complexity of updates
+</span>
+</li>
+<li>
+<span>
+Access latest features
+</span>
+<ul class=" incremental">
+<li>
+<span>
+Open source projects work on master
+</span>
+</li>
+<li>
+<span>
+Latest release - latest features and fixes
+</span>
+</li>
+<li>
+<span>
+Sometimes you will get burned with regressions
+</span>
+</li>
+</ul>
+</li>
+<li>
+<span>
+Access latest security fixes
+</span>
+<ul class=" incremental">
+<li>
+<span>
+Back ports are very rare
+</span>
+</li>
+</ul>
+</li>
+<li>
+<span>
+Easiest to report issues and receive fixes
+</span>
+</li>
+</ul>
+<div class="paragraph">
+<div class="incremental">
+<p>And just like in DevOps</p>
+</div>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>&#8594;  The more often you release(upgrade), the better you get at it.</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_guess_8230_4">Guess &#8230;</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Guess &#8230;";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>An average large enterprise downloads about 250k components
+from the Central Repository per year.</p>
+</div>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>How many have known security vulnerabilities?</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Approximately 15k!</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>Some of them are running in production right now&#8230;</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_how_do_companies_react">How do Companies React?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How do Companies React?";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+About 50k components with known security vulnerabilities in Central Repository
+</span>
+</li>
+<li>
+<span>
+46 million vulnerable components were downloaded in 2014.
+</span>
+</li>
+<li>
+<span>
+16% must prove they are not using known security vulnerabilities
+</span>
+</li>
+<li>
+<span>
+New vulnerabilities are found regularly
+</span>
+</li>
+<li>
+<span>
+Yet 63 % do NOT monitor for changes in vulnerability data
+</span>
+</li>
+</ul>
+<div class="paragraph">
+<div class="incremental">
+<p>&#8594; Lip service mostly or struggling.</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_know_component_security_characteristics">Best Practice: Know Component Security Characteristics</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Know Component Security Characteristics";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Very difficult, laborious task</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Follow mailing lists
+</span>
+</li>
+<li>
+<span>
+Monitor security databases
+</span>
+</li>
+<li>
+<span>
+Figure out specific versions affected
+</span>
+</li>
+<li>
+<span>
+Assess impact
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_security_tools">Security Tools</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Security Tools";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Some free:</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+<a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP dependency check</a>
+</span>
+</li>
+</ul>
+<div class="paragraph">
+<div class="incremental">
+<p>Various commercial</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+E.g. Nexus Pro
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Demo time!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_similar_problems_with_licenses">Similar Problems with Licenses</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Similar Problems with Licenses";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+63 % of respondents have incomplete view of license risk from components
+</span>
+</li>
+<li>
+<span>
+Only 32 % examine all open source components for license compliance
+</span>
+</li>
+<li>
+<span>
+58 % say they are not concerned about license risk
+</span>
+</li>
+</ul>
+<div class="paragraph">
+<div class="incremental">
+<p><strong>BUT</strong></p>
+</div>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>Approx 280k components in Central Repository have restrictive licenses.</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_best_practice_understand_license_implications">Best Practice: Understand License Implications</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Best Practice: Understand License Implications";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Similar to security issue - laborious and difficult task</p>
+</div>
+</div>
+<div class="paragraph">
+<div class="incremental">
+<p>Tools to the rescue</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_what_now">What now?</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="What now?";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Follow DevOps ideas again..</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Define what we want to do
+</span>
+</li>
+<li>
+<span>
+Automate
+</span>
+</li>
+<li>
+<span>
+Monitor
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_define_what_we_want">Define What We Want</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Define What We Want";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Define policies e.g.</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+No components older than 5 years
+</span>
+</li>
+<li>
+<span>
+No components with know security vulnerabilities of score &gt; 8
+</span>
+</li>
+<li>
+<span>
+No GPL licensed components
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_problems_with_policies">Problems with Policies</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Problems with Policies";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Only 56 % have policies
+</span>
+</li>
+<li>
+<span>
+Of these only 68% follow policy
+</span>
+</li>
+<li>
+<span>
+Often manual, slow
+</span>
+</li>
+<li>
+<span>
+But 78% say they have never banned a component
+</span>
+</li>
+</ul>
+<div class="paragraph">
+<div class="incremental">
+<p>&#8594; Things do not add up, too painful to work with.</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_let_8217_s_automate_this">Let&#8217;s automate this!</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Let&#8217;s automate this!";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Add tools to automate the process
+</span>
+</li>
+<li>
+<span>
+Configure tools with policies
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_aim_of_tools">Aim of Tools</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Aim of Tools";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ol class="arabic incremental">
+<li>
+<span>
+Empower developers with the right information at the right time
+</span>
+</li>
+<li>
+<span>
+Design frictionless, automated approach for continuous DevOps processes
+</span>
+</li>
+<li>
+<span>
+Create, manage and monitor component bill of materials for each application
+</span>
+</li>
+</ol>
+<div class="paragraph">
+<div class="incremental">
+<p>&#8594; More and more tools for different stacks are emerging!</p>
+</div>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_bill_of_material">Bill of Material</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Bill of Material";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Tracking productions applications BOM
+</span>
+<ul class=" incremental">
+<li>
+<span>
+40% including dependencies
+</span>
+</li>
+<li>
+<span>
+23% NOT including dependencies
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_sonatype_nexus_pro">Sonatype Nexus Pro</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Sonatype Nexus Pro";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+component info
+</span>
+</li>
+<li>
+<span>
+RHC
+</span>
+</li>
+<li>
+<span>
+search
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_nexus_pro">Nexus Pro+</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Nexus Pro+";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>In a nutshell:</p>
+</div>
+</div>
+<ul class=" incremental">
+<li>
+<span>
+Configurable component policies - <strong>very</strong> powerful
+</span>
+</li>
+<li>
+<span>
+Managed on the Sonatype CLM server
+</span>
+</li>
+<li>
+<span>
+Tied into Nexus staging
+</span>
+</li>
+</ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
 <h1 id="_sonatype_nexus_lifecycle">Sonatype Nexus Lifecycle</h1>
 <script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Sonatype Nexus Lifecycle";slidefootnotes="";/*]]>*/</script>
 <div class="sectionbody" style="max-width:45em">
@@ -10383,6 +11564,170 @@ Command line scanning
 </span>
 </li>
 </ul>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_summary">Summary</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Summary";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<ul class=" incremental">
+<li>
+<span>
+Your code is only part of your application
+</span>
+</li>
+<li>
+<span>
+Components are important
+</span>
+</li>
+<li>
+<span>
+Apply software supply chain thinking
+</span>
+</li>
+<li>
+<span>
+Easy to start with
+</span>
+</li>
+<li>
+<span>
+Powerful tools available
+</span>
+</li>
+</ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAKZUlEQVRoge2aa3BU5RmAn3Pbs7fs
+JmwCRGITk0hVLFAtNWoq6pAiU0cKaYfa6ShT+YN4YbQw9F/8QX+UMv6gM3Q6oxMV6TgIbe10Gq2g
+cSzDpRaFgmIk4SKB3LP3Pff+SM66m+xuFvEyzvSbeefsbva8+z7nvXzf934RHMfhmzzEr9uAqx3/
+B/i6xzceQP6iFDmT1cBxHNzCkFsgBEHIXnNeC1f7u1cN4DiOY9s2rliWhWVZWRDHcbJGC4KAJElI
+koQoioii6IiieFUgnxvAtm3HNdg0Tbq6uuju7ubYsWP09vYyMjKCpmmoqkokEqGhoYGFCxfS2tpK
+W1sbiqJkRZIkZxLoikGEK50H3CdumiZ9fX3s3LmT3bt3U1V3A0033cKc2nkEQxV4PSqSJOI4Dpqu
+k0gkGLx8kZ4T7zF87iSrV69m3bp1NDY2oqoqHo8HWZa5Uo9cEYBt245lWRiGQUdHB9u2beOe1Y8w
+/6bFVAT9xJJpYvEUiVSGjG5gmBY4DqIoonoUfF4PoYAfRRE5/8kp3njlD6xfv54tW7YQCATw+Xyu
+R8r2RtkAtm07pmly5MgRHn/8cZSaZpbcfjd+n5f+wVEGRqJkdCMv3vME8t77vB6qQn4+OX6YsXPH
+2bp1Ky0tLQQCAVRVdb0xI0RZZdQ1ft++fSxbtozrlqzgrnvvI5nRee9UL+f6h9B0A1EQEIsBiOKE
+TL7XdJOBkTg1jYtouu1+1qxZw549e4hGo6TTaUzTxLbtGZ/ujEmca/wvHnqYnz/2DLNn19B74TID
+I9HPjCvwlLMls4RHdMNC8IRZ8dBmnnp6E7Zts2rVKgB8Ph+yLDulPFEyhBzHcUzT5PDhwyxbtow1
+j3YQqanmozOfEk2kChuLQ3x0lGQihmM7qF4vVdWz8fr9hYFyoK30OG/ufpYXXniB1tZWwuEwXq8X
+WZaLJnZJAMuyHE3TuPPOO2lcsoLGpmZO9ZzPM37q0x0ZuISla2xY2077j5ZSFargZM9Znt97gE8u
+DBb3ziRIfPAcF4/v59VXX6W6uppQKISqqkiSVBCgaA64odPR0YFS00xjUzNnLlwmmkznxbKYI45j
+k04mefaZJ3j04VXMqZ6Fx6Pw3QXXs/3Xv6Tp2rnTALL3T8wDBCLz8M2Zz/bt24nFYjPmQ0EAt9b3
+9fWxbds2ltxxD0NjMQbdmC+QlIIgIIkSoWCAH971/Wk6PYrCg/f/oHiVmhSP6qWm/gY6Ozvp6ekh
+mUyi6zq2bWeXK+UAYFkWO3fu5N72dQT8Pi5cGp6xuoiiiBoMktH0gl5trp87DbqQBEMRbl32U3bt
+2kUikUDTtOzypGwAwzDYvXs3316wiEuDoxiGWVaZrAjP4qW/vFUQ4NAHPdlwKQWiqF4qa+ro6uoi
+kUiQTqcxDKM8ADd8Xn/9dWZdewMVwSCDo7GicT8NSBTZt/8oT259jgOHThBNpIgmUjy3dz/P7z2Q
+r2My7gs9FNUXoPpbN9Ld3Z0FKBRG0+YBN3y6u7tpWnAr8WR6+gxLfr03TYNMMolhGFimiWVbXDzb
+x4G3/4XgOIiyTF3DdW45nHG2RhBQfX6q65o5evQoy5cvn9BtWUiSRG5FLQhg2zbHjh3j+tsfKFrv
+3R8EGL7UT23NLNraWmi+ro5r5kSYHakiVOHH7/OiyDKxZIonf9NJIpWZMQcEwOPx4vNXcPr0B2Qy
+mdxEzrO34ExsWRa9vb3csjzEaP9w1sUFZ1RBQJJk/vjbTdTXzS2kDoBQwI9HmcEDOSJ7PAiiSH9/
+P7quY5omlmVN01soB3Ach5GREbyqiqabM8a+NxAglcmvPOf7h9jR+WdOfNQLwNtHTzIeT+XFfdGC
+IAiIogSOQzQaxTRNdy4ozwO2baNpGpIkY1j2RAJTeJ0jCAKRmtmcPHORmkglxz48y/5DJ3jrnUPM
+b7iGxx7+MZZls/efR0rG/VQPgwMC2eQtZHxRAABVVbM3lEpgV178azcvvfYOgiCgZTJomsbGR9oR
+BIHzl4YYGo2VlcCuWOaE5xVFwbbtqVHiCJOZXBQgEomg6zqSKOIUMrqER+LRKItvaubW78wH4NLQ
+WNmx7+q1DB1ZkgmFQohifqS7xhcFEEWRhoYGEokEqkeeWPLmurcEiGPbpJJJfvbAPVl95/qHJyYv
+mH5/EdG1FA5QW1ubzZvc8pm1deoHroKFCxcycPkiPlWdnmC5iTxlVk2n0wT9Xu69Y3FW51g8OfH3
+ye+WnAgnRcukyKQSNDU1Icty7n65NACAJEm0trbSc/zfVAT9JZ/U1NWklslwx/duxqMoWX0Zzcy/
+bwr0VCDT0NDTSS6f/ZBFixZlN/ySJJXnAVEUaWtrY6DvOIoiFlx5FhPLsrjl5uvzdPq8nsLfL6I3
+FR1FlhUG+v5LS0tLtmtRlgcEYaL5pCgKq1ev5lzPKfxeT8FwKSQA115Tk6eztjpcsubn6rUMnfj4
+MLHxIZYuXYrX683rVpQDIIiiiKIorFu3jn+8vIPKCt+0cCkG4m4Bc0fd3OqCoVIIJDo2iCQrvPu3
+F1m5cmVeu6VQz6hgDrj1t7GxkfXr1/Px+wdRPcr02C+wmgxVVnLm3KU8ffNmVxX03lSgRHSEVGyc
+oYt9tLe3U19fTzAYzAKUVYVyw0hVVbZs2cJw7/uYyZGSIeCCeFWVd499jGGaWX1zq8OfrYOKeC+T
+ijM+cBHHsRju/Q9r164lFAoRDAbdPfEVAQiiKOLxeAgEAmzdupW/v/A7RLPEyjTHuGjKYMfLb3B5
+eBzdMNl/+CSmZReN+0wqztDFs4iSxIE9O9mwYQPhcJhwOEwgEMhN4GkEZXUlYrEYe/bs4elfbWLF
+Q5tQKyJlVaRy+kSJ6AhjA58iihJdf9rBUxufYPny5cyZM6esrkTJxpabzIFAgFWrVmHbNps3b+bu
+n6wnVF2H4lHLmlULgZiGTmxkgGR8DNu2efOV3/PUxo20tbURiUSorKwkEAhkk7fYmLE36rZX0uk0
+0WiUgwcP0tHRQcW8G5ndsIBgaBYe1TvtyRYDMXWNZGyU+Ngwkiwz+GkfQ73vsWHDBhYvXkwkEmHW
+rFmEw2G3M1eyR1pWczcXIh6PMz4+zvbt2+ns7OS2+x6kanYdqjeA1xdAUb3IioIoSjg42JaJaejo
+mTRaOoGeTiHJEvGxYd55rZP29nbWrl1LOBymqqqKyspKKioqyjK+bIBcCE3TSCaTxGIxenp62LVr
+F11dXdTUL2BO/Xx8/goEUcSxbYSJ2EGS5IlzgnSC/r4PuXzmOEuXLmXlypXU19cTCoUIh8OEQqEr
+7k5/7vOBdDpNMpkkkUiQSCTo7u7m6NGjnD59mv7+fqLRKIZhoCgKoVCI2tpampqaWLRoES0tLfh8
+Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
+uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
+qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
+</td>
+<td class="content">
+<div class="incremental"><p>Don&#8217;t wait!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+</div><div class="slide">
+
+<div class="sect1">
+<h1 id="_the_end">The End</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="The End";slidefootnotes="";/*]]>*/</script>
+<div class="sectionbody" style="max-width:45em">
+<div class="paragraph">
+<div class="incremental">
+<p>Questions, Remarks &amp;  Discussion</p>
+</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Tip" src="data:image/png;base64,
+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" />
+</td>
+<td class="content">
+<div class="incremental"><p>Slides on OSCON site or email <a href="mailto:manfred@sonatype.com">manfred@sonatype.com</a> now</p></div>
+</td>
+</tr></table>
+</div>
 </div></div>
 <script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
 </div><div class="slide">
@@ -10432,34 +11777,14 @@ Command line scanning
 <a href="http://www.modulecounts.com/">modulecounts.com</a>
 </span>
 </li>
-</ul>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
-</div><div class="slide">
-
-<div class="sect1">
-<h1 id="_the_end">The End</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="The End";slidefootnotes="";/*]]>*/</script>
-<div class="sectionbody" style="max-width:45em">
-<ul class=" incremental">
 <li>
 <span>
-Questions
+<a href="http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/">Java Tools and Technologies Landscape for 2014</a>
 </span>
 </li>
 <li>
 <span>
-Remarks
-</span>
-</li>
-<li>
-<span>
-Discussion
-</span>
-</li>
-<li>
-<span>
-Slides - OSCON site or email <a href="mailto:manfred@sonatype.com">manfred@sonatype.com</a> now
+<a href="https://github.com/sonatype/nexus-presentations">Nexus releated slides including this one&#8230;</a>
 </span>
 </li>
 </ul>
@@ -10485,7 +11810,7 @@ Slides - OSCON site or email <a href="mailto:manfred@sonatype.com">manfred@sonat
 </ul>
 <div id="footer" style="position: absolute; left: 5%; top: 80%; width: 90%;">
 <div id="footer-text">
-Last updated 2015-07-08 12:09:40 PDT
+Last updated 2015-07-09 15:16:36 PDT
 </div>
 </div>
 </div></div>
