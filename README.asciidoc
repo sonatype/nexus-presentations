@@ -1,4 +1,4 @@
-== Component Management and Sonatype Nexus
+== Sonatype Nexus, Sonatype Nexus Lifecycle, Repository Management and the Software Supply Chain
 
 Presentations and labs  suitable for a lunch-and-learn/brown bag
 session or a user group meeting with sample material available for
@@ -6,25 +6,13 @@ anybody interested to use it.
 
 Please contact marketing@sonatype.com for assistance, if required.
 
-nexus-introduction:: prepared  by Manfred Moser and presented at the
-Vancouver Island Java User Group December 2012
-
-nexus-for-component-managerment:: prepared by Manfred Moser and
-presented at a Nexus user group meeting in Chicago September 2014
-
-nexus-oss-advantages:: prepared  by Manfred Moser and presented at
-JavaOne 2014
-
-component-software-supply-chain:: prepared by Manfred Moser and 
-presented at OSCON 2015, http://www.oscon.com/open-source-2015/public/schedule/detail/41388
+Now go check out the HTML slide decks at http://sonatype.github.io/nexus-presentations
 
 === Tips for Viewing
 
 The html files in the root folder are all you need to show the
 presentations. They are self-contained and ready to be used on any
 browser.
-
-You can also see them online at http://sonatype.github.io/nexus-presentations
 
 The PDF files are just for being able to print, if desired. 
 
