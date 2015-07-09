@@ -21,21 +21,19 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 == What Are You Gonna Learn Today?
 
 * Interesting facts and figures
-
 * A new perspective about your development efforts
-
 * Lots of simple steps for improvements
 
 == Data Sources
 :incremental!:
 
-* Central Repository Usage Statistics
+* Central Repository usage statistics
+** A.k.a. Maven Central
 ** Largest binary repository
 ** Running for 10+ years
-** A.k.a. Maven Central
 ** Sponsored and managed by Sonatype
 
-* Sonatype Nexus Usage Statistics 
+* Sonatype Nexus usage statistics 
 ** Most commonly use repository manager
 ** >50k installations
 
@@ -44,7 +42,6 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 
 * 2011-2014 Open Source Software Development Survey
 ** >11k responses
-
 * 2015 State of the Software Supply Chain Report 
 
 == How We Develop Today
@@ -53,14 +50,14 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 
 * Enjoy power of reuse and collaboration 
 
-* Software stack doesn't matter 
+* Software stack doesn't matter - all use components
 
 * Open source FTW everywhere! 
 
 == Guess...
 :incremental:
 
-What is the percentage of a typical application created by components?
+What is the percentage of components in a typical application?
 
 TIP: 80-90%
 
@@ -69,7 +66,7 @@ TIP: 80-90%
 
 How many components can be found in an average application? 
 
-TIP:  > 100 !
+TIP:  More than 100 !
 
 == So What is a Component?
 :incremental:
@@ -94,31 +91,25 @@ Third party AND everything you create
 * ...
 
 == Software Supply Chain
-:incremental!:
+:incremental:
 
-Like traditional manufacturing
+Just like for traditional manufacturing
 
-* Understand complete inventory of product
-
+* Understand complete inventory of your product
 * Including origin (suppliers)
-
 * And usage 
 
 == Software Supply Chain Management
 :incremental:
 
-Components are integrated part of Software Development Life Cycle (SDLC)
+Components are integral part of Software Development Life Cycle (SDLC)
 
 It is an endless circle of activities: 
 
 * Research what components to use
-
 * Implement usage of components in development
-
 * Check component usage in QA and release process
-
 * Monitor applications and components used in production
-
 * Go back to the start and change versions or entire components
 
 == So what do you think...  
@@ -134,9 +125,7 @@ WARNING:  *Not* when development stops.
 :incremental!:
 
 * Better and fewer suppliers
-
 * Higher quality parts
-
 * Improved visibility and traceability
 
 == Best Practice: Select Projects
@@ -148,7 +137,7 @@ TIP: Open source projects are your suppliers!
 * Active vs inactive in terms of commits
 * Foundation backed or stand alone project
 * Commercial company backing or not
-* Active community support
+* Active community and support
 
 == Best Practice: Communicate with Suppliers
 :incremental:
@@ -157,10 +146,12 @@ TIP: Open source projects are your suppliers!
 * Report bugs and feature requests
 * Help with documentation
 * Be present on mailing lists, forums, IRC, ...
+* Attend events
 
 == Best Practice: Support Suppliers
 :incremental:
 
+* Promote project via presentations, ...
 * Become a committer
 * Sponsor a committer
 * Provide infrastructure
@@ -175,10 +166,19 @@ Each additional vendor
 * Adds integration complexity
 * Adds communication channels
 * Add need for tracking
-* Add new API to learn
+* Add new APIs to learn
+* Adds license terms to understand
 * ...
 
 TIP: So having less is easier. 
+
+
+== Now..
+:incremental:
+
+That we know that we use *lots* of components 
+
+Where do we get them from? 
 
 == Public Repositories as Warehouses/Distributors
 :incremental:
@@ -187,23 +187,17 @@ Very important in their eco-systems
 
 * JVM - Central Repository - 17B downloads in 2014
 ** up from 500 M in 2007
-
 * JavaScript/Node - npmjs.org - 15B downloads in 2014
-
 * Ruby - rubygems.org - 5B downloads since inception
-
 * .Net - NuGet Gallery - 300m downloads in 2014
 
 == Example: Central Repository
 :incremental:
 
-* approx 1 Million open source components
-
-* approx 11 Million users
-
+* Approx 1 Million open source components
+* Approx 11 Million users
 * 1000 new components added daily
-
-* exponential growth 
+* Exponential growth 
 
 TIP: Growth of other repositories is similar
 
@@ -213,31 +207,24 @@ TIP: Growth of other repositories is similar
 TIP: Run your own local warehouse!
 
 * Reduced bandwidth usage and costs
-
 * Improve performance and stability
-
 * Internal caching and storing of components -> enables collaboration
-
 * Reduced dependency on external repositories
-
 * One component storage location for backup, audit, control...
-
 * Store your own components centrally
 
 -> Use a *repository manager*! 
 
-== Guess
+== Guess...
 :incremental:
 
-Are people following easily implemented best practice? 
+Are people following this easily implemented best practice? 
 ____
 TIP: No!
 ____
 
 * 95% of downloads from Central Repository -> build tools,...
-
 * Only 5% via repository manager
-
 * 18 % of respondents to component survey use *no* repository manager
 
 == Sonatype Nexus as Central Hub
@@ -253,45 +240,53 @@ image::images/nexus-tool-suite-integration.png[scale=100]
 
 * Used by 64% of repository manager users
 
-* Formats include Maven, NuGet, NPM, site, Yum and JRuby/Gems
+* Formats include Maven, NuGet, NPM, site, Yum and Gems
 
 -> Way better than manual management or ignoring the need
 
-IMPORTANT: Yet easy to implement...
+IMPORTANT: Yet easy to implement... and open source!
 
 == Best Practice: Know Your Components
 :incremental:
 
 * Look at your build files
-
 * Crack open the deployment archive
+* Identify with checksum search
 
-* Identify which checksum search
+WARNING: You will be surprised what you find!
 
-== Best Practice:: Know Their Dependencies
+== Best Practice: Know Their Dependencies
 :incremental:
 
 * `mvn dependency:tree` or similar analysis
-
 * Dependency Hierarchy in M2Eclipse or Nexus Pro
+* Challenge yourself to produce a Bill of Materials
 
-TIP: Challenge yourself to produce a Bill of Materials
+TIP: Demo time!
 
-== Best Practice:: Avoid Duplication
+== Best Practice: Avoid Duplication
 :incremental:
 
-* multiple logging frameworks
+* Multiple logging frameworks
+* Multiple web frameworks
+* Multiple technology stacks
 
- 
-== Best Practice:: Reduce Their Numbers
+TIP: But still don't be afraid of using what is best for the job. Find the right balance.
+
+== Best Practice: Reduce Their Numbers
 :incremental:
 
-* KISS
-* less complexity
-* less learning effort
+* KISS[https://en.wikipedia.org/wiki/KISS_principle]
+* Less complexity
+* Less learning effort
+* Less tracking updates, issues, communication, ...
 
-* Application Health Check analysis of 1500+ applications
-* 106 components
+== Room for Improvement
+:incremental:
+
+Sonatype Application Health Check analysis of 1500+ applications
+
+* On average 106 components
 * 24 with known vulnerabilities
 * 9 with restrictive licenses
 
