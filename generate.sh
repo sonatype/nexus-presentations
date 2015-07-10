@@ -17,7 +17,7 @@ function render {
     echo -e "Completed Processing $1\n"
 }
 
-render nexus-introduction
-render nexus-oss-advantages
-render nexus-for-component-management
+#render nexus-introduction
+#render nexus-oss-advantages
+#render nexus-for-component-management
 render component-software-supply-chain
