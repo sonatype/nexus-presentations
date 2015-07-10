@@ -14,15 +14,26 @@ image::images/ducks_in_a_row.jpg[scale=100]
 
 An Introduction to Managing Components in your Software Supply Chain
 
-Manfred Moser - http://twitter.com/simpligility[#simpligility] - http://www.simplgility.com[www.simpligility.com]
+Manfred Moser - http://twitter.com/simpligility[#simpligility] - http://www.simpligility.com[www.simpligility.com]
 
 Sonatype - http://www.sonatype.com[www.sonatype.com]
 
 == What Are You Gonna Learn Today?
+:incremental!:
 
 * Interesting facts and figures
 * A new perspective about your development efforts
-* Lots of simple steps for improvements
+* Simple steps for improvements
+
+== Learn from whom?
+:incremental!:
+
+* Author (Hudson Book, Maven The Complete Reference, Repository Management with Nexus)
+* Presenter (OSCON, JavaOne, AnDevCon, ...)
+* Trainer (Apache Maven, Sonatype Nexus, ...) 
+* Community advocate with Sonatype
+* Open source hacker (Apache Maven, Android Maven Plugin, ...)
+
 
 == Data Sources
 :incremental!:
@@ -34,17 +45,18 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 ** Sponsored and managed by Sonatype
 
 * Sonatype Nexus usage statistics 
-** Most commonly use repository manager
+** Most commonly used repository manager
 ** >50k installations
 
 == Research Reports
-:incremental:
+:incremental!:
 
 * 2011-2014 Open Source Software Development Survey
 ** >11k responses
 * 2015 State of the Software Supply Chain Report 
 
 == How We Develop Today
+:incremental:
 
 * Use components as building blocks
 
@@ -53,20 +65,6 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 * Software stack doesn't matter - all use components
 
 * Open source FTW everywhere! 
-
-== Guess...
-:incremental:
-
-What is the percentage of components in a typical application?
-
-TIP: 80-90%
-
-== Estimate...
-:incremental:
-
-How many components can be found in an average application? 
-
-TIP:  More than 100 !
 
 == So What is a Component?
 :incremental:
@@ -81,7 +79,7 @@ You get them easily by declaring dependencies with Maven, Gradle, nuget, npm...
 == What is a Component?
 :incremental!:
 
-Third party AND everything you create
+Third party components AND everything you create
 
 * JARs, WARs, EARs..
 * rpm, deb 
@@ -90,8 +88,26 @@ Third party AND everything you create
 * installer packages, docker images
 * ...
 
+
+== Guess...
+:incremental:
+
+What is the percentage of components in a typical application?
+
+TIP: 80-90% - so components are very important
+
+== Estimate...
+:incremental:
+
+How many components can be found in an average application? 
+
+TIP:  More than 100 !
+
+
 == Software Supply Chain
 :incremental:
+
+TIP: Writing applications is assembling components!
 
 Just like for traditional manufacturing
 
@@ -107,10 +123,10 @@ Components are integral part of Software Development Life Cycle (SDLC)
 It is an endless circle of activities: 
 
 * Research what components to use
-* Implement usage of components in development
-* Check component usage in QA and release process
-* Monitor applications and components used in production
-* Go back to the start and change versions or entire components
+* Implement usage
+* Check in QA and release process
+* Monitor in production
+* Go back to the start
 
 == So what do you think...  
 :incremental:
@@ -128,16 +144,18 @@ WARNING:  *Not* when development stops.
 * Higher quality parts
 * Improved visibility and traceability
 
-== Best Practice: Select Projects
+== Best Practice: Select Suppliers Carefully
 :incremental:
 
-TIP: Open source projects are your suppliers!
+WARNING: Open source projects are your suppliers!
 
-* Large vs small project
-* Active vs inactive in terms of commits
+* Large or small project
+* Active or inactive in terms of commits
 * Foundation backed or stand alone project
 * Commercial company backing or not
 * Active community and support
+
+TIP: Demo check forks and https://github.com/simpligility/android-maven-plugin/graphs/contributors[committers on github]!
 
 == Best Practice: Communicate with Suppliers
 :incremental:
@@ -148,6 +166,8 @@ TIP: Open source projects are your suppliers!
 * Be present on mailing lists, forums, IRC, ...
 * Attend events
 
+TIP: Don't be typical passive consumer only! Talk about tfs-plugin...
+
 == Best Practice: Support Suppliers
 :incremental:
 
@@ -157,6 +177,8 @@ TIP: Open source projects are your suppliers!
 * Provide infrastructure
 * Sponsor foundations
 * Pay for support
+
+TIP: Example https://www.patreon.com/rgladwell?ty=h[Ricardo Gladwell working on M2e-Android]
 
 == Best Practice: Reduce Vendors
 :incremental:
@@ -173,17 +195,17 @@ Each additional vendor
 TIP: So having less is easier. 
 
 
-== Now..
+== Now that...
+:incremental!:
+
+We know that we use *lots* of components 
+
+WARNING: Where do we get them from? 
+
+== Public Repositories 
 :incremental:
 
-That we know that we use *lots* of components 
-
-Where do we get them from? 
-
-== Public Repositories as Warehouses/Distributors
-:incremental:
-
-Very important in their eco-systems
+Very important as warehouses/distributors in their eco-systems
 
 * JVM - Central Repository - 17B downloads in 2014
 ** up from 500 M in 2007
@@ -220,7 +242,7 @@ TIP: Run your own local warehouse!
 
 Are people following this easily implemented best practice? 
 ____
-TIP: No!
+No!
 ____
 
 * 95% of downloads from Central Repository -> build tools,...
@@ -249,6 +271,8 @@ IMPORTANT: Yet easy to implement... and open source!
 == Best Practice: Know Your Components
 :incremental:
 
+Now that you optimized getting components...
+
 * Look at your build files
 * Crack open the deployment archive
 * Identify with checksum search
@@ -261,11 +285,12 @@ WARNING: You will be surprised what you find!
 * `mvn dependency:tree` or similar analysis
 * Use Dependency Management or BOM POM
 * Dependency Hierarchy in M2Eclipse or Nexus Pro
-* Challenge yourself to produce a Bill of Materials
+
+Challenge yourself to produce a Bill of Materials
 
 TIP: Demo time!
 
-== Its Not Easy
+== It's Not Easy
 :incremental:
 
 Bill of Material - tracking production applications
@@ -274,6 +299,8 @@ Bill of Material - tracking production applications
 * 23% incomplete tracking (not including dependencies)
 * 40% complete tracking 
 
+Or so they think. 
+
 == Best Practice: Avoid Duplication
 :incremental:
 
@@ -281,12 +308,12 @@ Bill of Material - tracking production applications
 * Multiple web frameworks
 * Multiple technology stacks
 
-TIP: But still don't be afraid of using what is best for the job. Find the right balance.
+TIP: But still - don't be afraid of using what is best for the job. Find the right balance.
 
 == Best Practice: Reduce Their Numbers
 :incremental:
 
-* KISS[https://en.wikipedia.org/wiki/KISS_principle]
+* https://en.wikipedia.org/wiki/KISS_principle[KISS]
 * Less complexity
 * Less learning effort
 * Less tracking updates, issues, communication, ...
@@ -307,7 +334,7 @@ Sonatype Application Health Check analysis of 1500+ applications
 
 From the Top 100 components downloaded from the Central Repository - how many are old?
 
-TIP: 27 - so about a third is out of date!
+TIP: 27 or about a third are out of date!
 
 Not too surprising, since a typical component has 3-4 releases per year.
 
@@ -321,19 +348,19 @@ TIP: One or two are mandated in most cases!
 == Excursion to DevOps 
 :incremental:
 
-One critical part of DevOps - Release Early, Release Often!
+One critical part of DevOps - Release Early, Release Often! Iterate Faster!
 
 Why?
 
 * Bring benefits of new features to users as soon as possible
 * Enable tighter user involvement
 * Fix bugs as soon as possible
-* Reduce complexity of change
+* Reduce complexity of changes
 
-== Best Practice: Upgrade Component Versions Regularly
+== Best Practice: Upgrade Regularly
 :incremental:
 
-Just like release often - upgrade often!
+Just like release often - upgrade component versions often!
 
 * Reduces complexity of updates
 * Access latest features
@@ -372,15 +399,16 @@ Some of them are running in production right now...
 
 -> Lip service mostly or struggling.
 
-== Best Practice: Know Component Security Characteristics
+== Best Practice: Know Security Characteristics
 :incremental:
 
-Very difficult, laborious task
+Research is very difficult, laborious task
 
 * Follow mailing lists
 * Monitor security databases
 * Figure out specific versions affected
 * Assess impact 
+* Never stops
 
 == Security Tools
 
@@ -411,7 +439,7 @@ Approx 280k components in Central Repository have restrictive licenses.
 
 Similar to security issue - laborious and difficult task
 
-Tools to the rescue
+TIP: Tools to the rescue
 
 == What now? 
 
@@ -427,7 +455,7 @@ Follow DevOps ideas again..
 Define policies e.g. 
 
 * No components older than 5 years
-* No components with know security vulnerabilities of score > 8
+* No components with known security vulnerabilities of score >= 7
 * No GPL licensed components
 
 == Problems with Policies
@@ -437,32 +465,37 @@ Define policies e.g.
 * Often manual, slow
 * But 78% say they have never banned a component
 
--> Things do not add up, too painful to work with. 
+-> Things do not add up, too painful to work with.
+
+TIP: Finding agreement on policies can be hard too!
 
 == Let's automate this!
 :incremental:
 
-* Add tools to automate the process
+Once you agree on a policy...
 
+* Add tools to automate the process
 * Configure tools with policies
 
 == Aim of Tools
 :incremental:
 
-1. Empower developers with the right information at the right time
-
-2. Design frictionless, automated approach for continuous DevOps processes
-
-3. Create, manage and monitor component bill of materials for each application
+. Empower developers with the right information at the right time
+. Design frictionless, automated approach for continuous DevOps processes
+. Create, manage and monitor component bill of materials for each application
 
 -> More and more tools for different stacks are emerging!
 
 == Example: Sonatype Nexus and Nexus Lifecycle
+:incremental:
 
 * Security vulnerability data
 * License data 
 * Age and popularity component info
-* Configurable component policies - *very* powerful
+* Configurable component policies
+* Notifications
+* Access control
+* Policy compliance dashboard
 
 == Sonatype Nexus Lifecycle
 :incremental:
@@ -489,12 +522,14 @@ TIP: Hopefully we have time for a demo...
 TIP: Don't wait!
 
 == The End 
+:incremental!:
 
 Questions, Remarks &  Discussion
 
 TIP: Slides on OSCON site or email manfred@sonatype.com now
 
 == Resources
+:incremental!:
 
 * http://www.sonatype.com/about/2014-open-source-software-development-survey[2014 Open Source Software Development Survey Results]
 
@@ -517,6 +552,7 @@ TIP: Slides on OSCON site or email manfred@sonatype.com now
 * https://github.com/sonatype/nexus-presentations[Nexus releated slides including this one...]
 
 == Disclaimers
+:incremental!:
 
 Image sources:
 
