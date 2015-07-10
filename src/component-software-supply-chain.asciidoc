@@ -155,7 +155,7 @@ WARNING: Open source projects are your suppliers!
 * Commercial company backing or not
 * Active community and support
 
-TIP: Demo check forks and https://github.com/simpligility/android-maven-plugin/graphs/contributors[committers on github]!
+TIP: Demo check forks and https://github.com/simpligility/android-maven-plugin/graphs/contributors[committers on Github]!
 
 == Best Practice: Communicate with Suppliers
 :incremental:
@@ -216,8 +216,8 @@ Very important as warehouses/distributors in their eco-systems
 == Example: Central Repository
 :incremental:
 
-* Approx 1 Million open source components
-* Approx 11 Million users
+* Approx. 1 Million open source components
+* Approx. 11 Million users
 * 1000 new components added daily
 * Exponential growth 
 
@@ -432,7 +432,7 @@ TIP: Demo time!
 
 *BUT*
 
-Approx 280k components in Central Repository have restrictive licenses.
+Approx. 280k components in Central Repository have restrictive licenses.
 
 == Best Practice: Understand License Implications
 :incremental:
