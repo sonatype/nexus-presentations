@@ -25,14 +25,15 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 * A new perspective about your development efforts
 * Simple steps for improvements
 
-== Learn from whom?
+== Manfred Moser
 :incremental!:
 
-* Author (Hudson Book, Maven The Complete Reference, Repository Management with Nexus)
-* Presenter (OSCON, JavaOne, AnDevCon, ...)
-* Trainer (Apache Maven, Sonatype Nexus, ...) 
-* Community advocate with Sonatype
-* Open source hacker (Apache Maven, Android Maven Plugin, ...)
+* Author - The Hudson Book, Maven The Complete Reference, Repository Management with Nexus
+* Presenter - OSCON, JavaOne, AnDevCon, ...
+* Trainer - Apache Maven, Sonatype Nexus, ...
+* Community Advocate - with Sonatype
+* Developer - Commodore 64 onwards
+* Open source hacker - Apache Maven, Android Maven Plugin, ...
 
 
 == Data Sources
@@ -40,7 +41,7 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 
 * Central Repository usage statistics
 ** A.k.a. Maven Central
-** Largest binary repository
+** Largest binary repository - http://search.maven.org/#stats[http://search.maven.org/#stats]
 ** Running for 10+ years
 ** Sponsored and managed by Sonatype
 
@@ -105,7 +106,7 @@ TIP:  More than 100 !
 
 
 == Software Supply Chain
-:incremental:
+:incremental!:
 
 TIP: Writing applications is assembling components!
 
@@ -116,7 +117,7 @@ Just like for traditional manufacturing
 * And usage 
 
 == Software Supply Chain Management
-:incremental:
+:incremental!:
 
 Components are integral part of Software Development Life Cycle (SDLC)
 
@@ -145,7 +146,7 @@ WARNING:  *Not* when development stops.
 * Improved visibility and traceability
 
 == Best Practice: Select Suppliers Carefully
-:incremental:
+:incremental!:
 
 WARNING: Open source projects are your suppliers!
 
@@ -155,10 +156,10 @@ WARNING: Open source projects are your suppliers!
 * Commercial company backing or not
 * Active community and support
 
-TIP: Demo check forks and https://github.com/simpligility/android-maven-plugin/graphs/contributors[committers on Github]!
+TIP: Demo - check forks, followers and https://github.com/simpligility/android-maven-plugin/graphs/contributors[committers on Github]!
 
 == Best Practice: Communicate with Suppliers
-:incremental:
+:incremental!:
 
 * Most often open source project
 * Report bugs and feature requests
@@ -169,7 +170,7 @@ TIP: Demo check forks and https://github.com/simpligility/android-maven-plugin/g
 TIP: Don't be typical passive consumer only! Talk about tfs-plugin...
 
 == Best Practice: Support Suppliers
-:incremental:
+:incremental!:
 
 * Promote project via presentations, ...
 * Become a committer
@@ -181,7 +182,7 @@ TIP: Don't be typical passive consumer only! Talk about tfs-plugin...
 TIP: Example https://www.patreon.com/rgladwell?ty=h[Ricardo Gladwell working on M2e-Android]
 
 == Best Practice: Reduce Vendors
-:incremental:
+:incremental!:
 
 Each additional vendor
 
@@ -203,7 +204,7 @@ We know that we use *lots* of components
 WARNING: Where do we get them from? 
 
 == Public Repositories 
-:incremental:
+:incremental!:
 
 Very important as warehouses/distributors in their eco-systems
 
@@ -214,7 +215,7 @@ Very important as warehouses/distributors in their eco-systems
 * .Net - NuGet Gallery - 300m downloads in 2014
 
 == Example: Central Repository
-:incremental:
+:incremental!:
 
 * Approx. 1 Million open source components
 * Approx. 11 Million users
@@ -224,7 +225,7 @@ Very important as warehouses/distributors in their eco-systems
 TIP: http://www.modulecounts.com/[Growth of other repositories is similar.]
 
 == Best Practice: Control Component Source
-:incremental:
+:incremental!:
 
 TIP: Run your own local warehouse!
 
@@ -258,7 +259,7 @@ image::images/nexus-tool-suite-integration.png[scale=100]
   infrastructure
 
 == Repository Management with Nexus OSS
-:incremental:
+:incremental!:
 
 * Used by 64% of repository manager users
 
@@ -269,7 +270,7 @@ image::images/nexus-tool-suite-integration.png[scale=100]
 IMPORTANT: Yet easy to implement... and open source!
 
 == Best Practice: Know Your Components
-:incremental:
+:incremental!:
 
 Now that you optimized getting components...
 
@@ -280,7 +281,7 @@ Now that you optimized getting components...
 WARNING: You will be surprised what you find!
 
 == Best Practice: Know Their Dependencies
-:incremental:
+:incremental!:
 
 * `mvn dependency:tree` or similar analysis
 * Use Dependency Management or BOM POM
@@ -291,7 +292,7 @@ Challenge yourself to produce a Bill of Materials
 TIP: Demo time!
 
 == It's Not Easy
-:incremental:
+:incremental!:
 
 Bill of Material - tracking production applications
 
@@ -302,7 +303,7 @@ Bill of Material - tracking production applications
 Or so they think. 
 
 == Best Practice: Avoid Duplication
-:incremental:
+:incremental!:
 
 * Multiple logging frameworks
 * Multiple web frameworks
@@ -311,7 +312,7 @@ Or so they think.
 TIP: But still - don't be afraid of using what is best for the job. Find the right balance.
 
 == Best Practice: Reduce Their Numbers
-:incremental:
+:incremental!:
 
 * https://en.wikipedia.org/wiki/KISS_principle[KISS]
 * Less complexity
@@ -346,7 +347,7 @@ How many versions of each library are used at Google?
 TIP: One or two are mandated in most cases!
 
 == Excursion to DevOps 
-:incremental:
+:incremental!:
 
 One critical part of DevOps - Release Early, Release Often! Iterate Faster!
 
@@ -358,7 +359,7 @@ Why?
 * Reduce complexity of changes
 
 == Best Practice: Upgrade Regularly
-:incremental:
+:incremental!:
 
 Just like release often - upgrade component versions often!
 
@@ -389,7 +390,7 @@ Some of them are running in production right now...
 
 
 == How do Companies React? 
-:incremental:
+:incremental!:
 
 * About 50k components with known security vulnerabilities in Central Repository
 * 46 million vulnerable components were downloaded in 2014. 
@@ -400,7 +401,7 @@ Some of them are running in production right now...
 -> Lip service mostly or struggling.
 
 == Best Practice: Know Security Characteristics
-:incremental:
+:incremental!:
 
 Research is very difficult, laborious task
 
@@ -411,6 +412,7 @@ Research is very difficult, laborious task
 * Never stops
 
 == Security Tools
+:incremental!:
 
 Some free:
 
@@ -418,11 +420,12 @@ Some free:
 
 Various commercial
 
-* E.g. Nexus Pro
+* Nexus Pro
 
 TIP: Demo time!
 
 == Similar Problems with Licenses
+:incremental!:
 
 * 63 % of respondents have incomplete view of license risk from components
 
@@ -435,13 +438,14 @@ TIP: Demo time!
 Approx. 280k components in Central Repository have restrictive licenses.
 
 == Best Practice: Understand License Implications
-:incremental:
+:incremental!:
 
 Similar to security issue - laborious and difficult task
 
 TIP: Tools to the rescue
 
 == What now? 
+:incremental:
 
 Follow DevOps ideas again.. 
 
@@ -450,7 +454,7 @@ Follow DevOps ideas again..
 * Monitor
 
 == Define What We Want
-:incremental:
+:incremental!:
 
 Define policies e.g. 
 
@@ -459,6 +463,7 @@ Define policies e.g.
 * No GPL licensed components
 
 == Problems with Policies
+:incremental!:
 
 * Only 56 % have policies
 * Of these only 68% follow policy
@@ -470,7 +475,7 @@ Define policies e.g.
 TIP: Finding agreement on policies can be hard too!
 
 == Let's automate this!
-:incremental:
+:incremental!:
 
 Once you agree on a policy...
 
@@ -478,7 +483,7 @@ Once you agree on a policy...
 * Configure tools with policies
 
 == Aim of Tools
-:incremental:
+:incremental!:
 
 . Empower developers with the right information at the right time
 . Design frictionless, automated approach for continuous DevOps processes
@@ -487,7 +492,7 @@ Once you agree on a policy...
 -> More and more tools for different stacks are emerging!
 
 == Example: Sonatype Nexus and Nexus Lifecycle
-:incremental:
+:incremental!:
 
 * Security vulnerability data
 * License data 
@@ -498,7 +503,7 @@ Once you agree on a policy...
 * Policy compliance dashboard
 
 == Sonatype Nexus Lifecycle
-:incremental:
+:incremental!:
 
 Expands Nexus
 
@@ -511,7 +516,7 @@ Expands Nexus
 TIP: Hopefully we have time for a demo... 
 
 == Summary
-:incremental:
+:incremental!:
 
 * Your code is only part of your application
 * Components are important
@@ -526,7 +531,7 @@ TIP: Don't wait!
 
 Questions, Remarks &  Discussion
 
-TIP: Slides on OSCON site or email manfred@sonatype.com now
+TIP: Slides on OSCON site, http://goo.gl/cZ04Is or email manfred@sonatype.com now
 
 == Resources
 :incremental!:
