@@ -1,0 +1,127 @@
+=  Lessons Learned using Repository Managers and Supply Chain Tools for DevOps
+:title: Lessons Learned using Repository Managers and Supply Chain Tools for DevOps
+:Author:   Manfred Moser, Sonatype, Inc.
+:Date: October 2015
+:max-width: 45em
+:icons:
+:copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
+:incremental:
+
+== Repository Managers and Supply Chain Tools
+:incremental!:
+
+Lessons Learned for DevOps at Sonatype
+
+Manfred Moser 
+
+* http://twitter.com/simpligility[#simpligility] 
+* Author, Trainer and Community Advocate
+
+Brian Fox
+
+* http://twitter.com/brian_fox[#brian_fox] 
+* VP of Product Engineering
+
+Sonatype - http://www.sonatype.com[www.sonatype.com]
+
+== What Are You Gonna Learn Today?
+:incremental!:
+
+* Interesting facts and figures
+* A new perspective about your development efforts
+* Simple steps for improvements
+
+== What does Sonatype do? 
+
+Manages and develops:
+
+* Nexus repository manager
+* Nexus Lifecycle software supply chain automation 
+* Nexus IQ Data Services component intellignec
+* Central Repository (formerly Maven Central)
+* OSSRH and related Forges
+* Related documentation, websites, blogs, videos,...
+
+== Nexus Repository Manager
+
+* Nexus 2 - 70% market share
+* Nexus 3 - upcoming
+
+
+== Software Supply Chain Automation
+
+* Nexus Lifecycle
+* Nexus IQ Server
+* Partner integrations (HP Foritfy On Demand ?)
+* Nexus Firewall (?)
+
+
+All of this is backed by... 
+
+== Nexus IQ Data Services
+
+Curated and managed data and services for:
+
+* Age
+* Popularity
+* Security vulnerabilities
+* License analysis data (observed and declared)
+* 
+
+== Central Repository
+
+* Largest Maven2 format repository (numbers!)
+* High performance, global CDN 
+* Default in Maven2 and others
+
+And the components come from
+
+== OSSRH and Forges
+
+Input funnel for Central Repository
+
+* OSSRH - large deployment of Nexus 2
+* Apache, JBoss, ... - secondary Nexus 2 instances that sync
+* Community support - onboarding and documentation
+
+
+
+
+
+////
+
+Lessons Learned using Repository Managers and Supply Chain Tools for DevOps 
+Abstract (max 750 characters): 742
+The Sonatype engineering team manages a lot of open source and proprietary projects using agile methodologies: 
+the Sonatype Nexus repository manager
+the Sonatype Nexus Lifecycle supply chain automation tools
+the Maven Central Repository including the search site
+the various data services for security data, license analysis, popularity data...
+the input funnel for the Central Repository consisting of Nexus Pro deployed as OSSRH and a number of partners
+We are dogfooding Nexus Pro and the software supply chain management tools from Nexus Lifecycle to manage all components and their releases with tools like Atlassian Bamboo, Maven and many others. Join us and learn about many of the best practice approaches we have developed over the years.
+Primary Track: Java, DevOps, and the Cloud
+Secondary Track: Java Development Tools and Agile Techniques
+Presentation Summary (for eval purposes):
+
+This presentation will cover a lot of varied aspects from managing build for software with Maven, usage of an Atlassian Bamboo cluster, release management with the Nexus staging suite, automated component analysis for security and license issues with Nexus Lifecyle and many others
+
+All of these projects are run by a number of smaller teams. Improvements are constantly implemented and integrated. Push button production deployments and other processes are in place.
+
+Nexus Pro allows us to manage our own release processes for open source and proprietary components as well as those of hundreds of open source projects in an agile manner. 
+
+We also manage our documentation in the same manner using tools like asciidoc, pelican and others to produce and manage various websites and other format documents and manage their publishing via scripts and Atlassian Bamboo.
+
+
+Links to supporting videos:
+
+http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/
+http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/
+https://www.youtube.com/watch?v=FA29wmiINKE
+https://www.youtube.com/watch?v=IGtJmYSliQc
+https://www.youtube.com/user/sonatype
+http://www.sonatype.org/nexus/
+
+
+
+////
+
