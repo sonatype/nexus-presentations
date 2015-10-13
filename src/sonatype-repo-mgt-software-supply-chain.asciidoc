@@ -1,5 +1,5 @@
-=  Lessons Learned using Repository Managers and Supply Chain Tools for DevOps
-:title: Lessons Learned using Repository Managers and Supply Chain Tools for DevOps
+=  DevOps at Sonatype
+:title: Lessons Learned using Repository Managers and Supply Chain Tools for DevOps at Sonatype
 :Author:   Manfred Moser, Sonatype, Inc.
 :Date: October 2015
 :max-width: 45em
@@ -7,10 +7,10 @@
 :copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
 :incremental:
 
-== Repository Managers and Supply Chain Tools
+== DevOps at Sonatype
 :incremental!:
 
-Lessons Learned for DevOps at Sonatype
+Lessons Learned from Using Repository Managers and Software Supply Chain Tools 
 
 Manfred Moser 
 
@@ -24,14 +24,15 @@ Brian Fox
 
 Sonatype - http://www.sonatype.com[www.sonatype.com]
 
-== What Are You Gonna Learn Today?
+== What Are You Learning Today?
 :incremental!:
 
-* Interesting facts and figures
-* A new perspective about your development efforts
-* Simple steps for improvements
+* See what worked for us
+* And what caused us problems
 
-== What does Sonatype do? 
+-> Improvements for your own situation
+
+== What does Sonatype actually do? 
 
 Manages and develops:
 
@@ -46,6 +47,8 @@ Manages and develops:
 
 * Nexus 2 - 70% market share
 * Nexus 3 - upcoming
+* Open source: Maven2, npm, RubyGems, NuGet, Docker, ...
+* Commercial: Staging, Smart Proxy, ...
 
 
 == Software Supply Chain Automation
@@ -54,7 +57,9 @@ Manages and develops:
 * Nexus IQ Server
 * Partner integrations (HP Foritfy On Demand ?)
 * Nexus Firewall (?)
-
+* Integrations with Jenkins, Hudson, Bamboo
+* Eclipse IDE/M2e Plugin
+* SonarQube Integration
 
 All of this is backed by... 
 
@@ -80,48 +85,148 @@ And the components come from
 
 Input funnel for Central Repository
 
-* OSSRH - large deployment of Nexus 2
-* Apache, JBoss, ... - secondary Nexus 2 instances that sync
+* OSSRH - large deployment of Nexus Pro
+* Apache, JBoss, ... - secondary Nexus instances that sync
 * Community support - onboarding and documentation
 
 
+== Who Helps at Sonatype
+
+* Internationally distributed 
+* Multiple-time zones
+* Remote work the rule, not exception
+
+== Teams
+
+* Numerous smaller teams
+* Different focus of teams
+* Cross-team members 
+
+
+== Communication
+
+* Google Drive
+* HipChat
+* Good old phone and VOIP
+* Google Hangouts
+
+== SCM
+
+* GitHub
+* Stash
+
+== Track and Plan
+
+* JIRA
+* Aha
+* Trello
+
+== Continuous Integration
+
+* Bamboo
+* feature branch builds
+
+== Nexus Pro usage
+
+* proxy 
+* host 
+* staging
+* Thousands of users and projects on OSSRH
+
+
+== Build
+
+* Apache Maven
+* Grunt and NPM for client side
+* Bash Scripts
+
+== Maven Tips and Tricks
+
+* Maven wrapper
+* Follow 
+* Find balance of number of projects vs.
+* Avoid forking third party libraries
 
 
 
-////
+== Develop
 
-Lessons Learned using Repository Managers and Supply Chain Tools for DevOps 
-Abstract (max 750 characters): 742
-The Sonatype engineering team manages a lot of open source and proprietary projects using agile methodologies: 
-the Sonatype Nexus repository manager
-the Sonatype Nexus Lifecycle supply chain automation tools
-the Maven Central Repository including the search site
-the various data services for security data, license analysis, popularity data...
-the input funnel for the Central Repository consisting of Nexus Pro deployed as OSSRH and a number of partners
-We are dogfooding Nexus Pro and the software supply chain management tools from Nexus Lifecycle to manage all components and their releases with tools like Atlassian Bamboo, Maven and many others. Join us and learn about many of the best practice approaches we have developed over the years.
-Primary Track: Java, DevOps, and the Cloud
-Secondary Track: Java Development Tools and Agile Techniques
-Presentation Summary (for eval purposes):
-
-This presentation will cover a lot of varied aspects from managing build for software with Maven, usage of an Atlassian Bamboo cluster, release management with the Nexus staging suite, automated component analysis for security and license issues with Nexus Lifecyle and many others
-
-All of these projects are run by a number of smaller teams. Improvements are constantly implemented and integrated. Push button production deployments and other processes are in place.
-
-Nexus Pro allows us to manage our own release processes for open source and proprietary components as well as those of hundreds of open source projects in an agile manner. 
-
-We also manage our documentation in the same manner using tools like asciidoc, pelican and others to produce and manage various websites and other format documents and manage their publishing via scripts and Atlassian Bamboo.
-
-
-Links to supporting videos:
-
-http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/
-http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/
-https://www.youtube.com/watch?v=FA29wmiINKE
-https://www.youtube.com/watch?v=IGtJmYSliQc
-https://www.youtube.com/user/sonatype
-http://www.sonatype.org/nexus/
+* Eclipse IDE
+* IntelliJ IDEA
 
 
 
-////
+== Test
 
+
+* Geb
+* Spock
+
+== Document
+
+* Asciidoc
+* Pelican
+
+== Continuously Build
+
+* Atlassian Bamboo
+* EC2 instances
+* Feature branch builds
+* Automated functional test suite runs
+* Automated release
+* Documentation builds and deployments
+
+== Validate
+
+* SonarQube
+* License check with Maven plugin
+
+== Release
+
+* Workflow and notification with Nexus staging
+* Including validation with Nexus Lifecycle
+** Security checks
+** License checks
+** ?? anything else, maybe component age
+
+* Usage of release build number - `2.11.4-01`
+
+* Same release stuff on OSSRH
+
+== Community
+
+* Actively work with vendors
+* Including open source projects
+* Help upstream to help yourself
+** Report issues
+** Release testing
+** Contributions
+
+
+
+== Next?
+:incremental!:
+
+* Join us the Nexus community
+* Try Nexus 
+* Try Nexus Lifecycle
+* Come to out booth
+
+== The End 
+:incremental!:
+
+Questions, Remarks &  Discussion
+
+TIP: Slides and examples at http://sonatype.github.io/nexus-presentations/[http://sonatype.github.io/nexus-presentations/] or email manfred@sonatype.com
+
+... and we are hiring!
+
+== Resources
+:incremental:
+
+* http://www.sonatype.com[sonatype.com]
+* http://www.sonatype.org/nexus/[Nexus community]
+* http://search.maven.org[Central Repository] and http://central.sonatype.org[documentation]
+* https://www.youtube.com/user/sonatype[Youtube channel]
+* http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/[Inside Engineering - blog post]
+* http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/[Inside Engineering - videos]
