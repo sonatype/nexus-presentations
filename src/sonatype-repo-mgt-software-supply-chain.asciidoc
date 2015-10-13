@@ -33,6 +33,7 @@ Sonatype - http://www.sonatype.com[www.sonatype.com]
 -> Improvements for your own situation
 
 == What does Sonatype actually do? 
+:incremental!:
 
 Manages and develops:
 
@@ -44,6 +45,7 @@ Manages and develops:
 * Related documentation, websites, blogs, videos,...
 
 == Nexus Repository Manager
+:incremental!:
 
 * Nexus 2 - 70% market share
 * Nexus 3 - upcoming
@@ -52,6 +54,7 @@ Manages and develops:
 
 
 == Software Supply Chain Automation
+:incremental!:
 
 * Nexus Lifecycle
 * Nexus IQ Server
@@ -64,6 +67,7 @@ Manages and develops:
 All of this is backed by... 
 
 == Nexus IQ Data Services
+:incremental!:
 
 Curated and managed data and services for:
 
@@ -74,6 +78,7 @@ Curated and managed data and services for:
 * 
 
 == Central Repository
+:incremental!:
 
 * Largest Maven2 format repository (numbers!)
 * High performance, global CDN 
@@ -82,6 +87,7 @@ Curated and managed data and services for:
 And the components come from
 
 == OSSRH and Forges
+:incremental!:
 
 Input funnel for Central Repository
 
@@ -89,21 +95,25 @@ Input funnel for Central Repository
 * Apache, JBoss, ... - secondary Nexus instances that sync
 * Community support - onboarding and documentation
 
+* TBD add some numbersf
 
 == Who Helps at Sonatype
+:incremental!:
 
 * Internationally distributed 
 * Multiple-time zones
 * Remote work the rule, not exception
 
+
 == Teams
+:incremental!:
 
 * Numerous smaller teams
 * Different focus of teams
 * Cross-team members 
 
-
 == Communication
+:incremental!:
 
 * Google Drive
 * HipChat
@@ -111,77 +121,115 @@ Input funnel for Central Repository
 * Google Hangouts
 
 == SCM
+:incremental!:
 
 * GitHub
-* Stash
+* Atlassian Stash
 
 == Track and Plan
+:incremental!:
 
 * JIRA
 * Aha
 * Trello
 
 == Continuous Integration
+:incremental!:
 
 * Bamboo
 * feature branch builds
 
-== Nexus Pro usage
-
-* proxy 
-* host 
-* staging
-* Thousands of users and projects on OSSRH
-
-
 == Build
+:incremental!:
 
 * Apache Maven
 * Grunt and NPM for client side
 * Bash Scripts
 
 == Maven Tips and Tricks
+:incremental!:
 
 * Maven wrapper
 * Follow 
 * Find balance of number of projects vs.
 * Avoid forking third party libraries
 
-
-
 == Develop
+:incremental!:
 
-* Eclipse IDE
-* IntelliJ IDEA
-
-
+* Feature branches
+** with CI
+** short lived
+* IDE
+** Eclipse IDE
+** IntelliJ IDEA
+* Lots of OSX, some Windows & Linux
 
 == Test
-
+:incremental!:
 
 * Geb
 * Spock
 
 == Document
+:incremental!:
 
 * Asciidoc
 * Pelican
 
 == Continuously Build
+:incremental!:
 
 * Atlassian Bamboo
-* EC2 instances
-* Feature branch builds
+* > 100 build plans
+* Elastics Bamboo - EC2 instances
+* Feature branch builds increases number
 * Automated functional test suite runs
 * Automated release
 * Documentation builds and deployments
 
-== Validate
+== Bamboo Tips
+:incremental!:
 
-* SonarQube
+* Resource project (link to video maybe)
+* Fresh Maven repo for each build off Nexus
+
+* Build plan notifications into HipChat channels
+* Links to GitHub and JIRA 
+
+
+== More Bamboo Tips
+:incremental!:
+
+* Share repo and other outputs as build artifacts
+* Static documentation = usable artifact
+* Limited number of standard Amazon Machine Images (AMI)
+* Include standard tools
+* Build artifacts stored on Amazon Elastic Block Storage (EBS)
+* Base build plan with tool configuration\
+
+== Build Plan Commonalities
+
+All builds plans:
+
+* Common configuration from base plan - used as shared artifact, managed in git repo
+* Global variables - defaults that allow overrides
+* 'build' task - compile and test code.
+* 'release' task - publish to Nexus and tag in git
+* bundle test artifacts
+* Main vs features branches - different config
+* Branch builds auto-created
+
+== Validate
+:incremental!:
+
+* SonarQube - integrated in Bamboo and GitHub
 * License check with Maven plugin
+* No merges without build passing and code review 
+* Nexus Lifecycle TBD
 
 == Release
+:incremental!:
 
 * Workflow and notification with Nexus staging
 * Including validation with Nexus Lifecycle
@@ -193,7 +241,30 @@ Input funnel for Central Repository
 
 * Same release stuff on OSSRH
 
+== Manage Components
+:incremental!:
+
+Nexus Repository Manager and Nexus Lifecycle
+Nexus Repository Manager 
+* within build cluster
+* also used by developers
+* target for deployments
+* proxy 
+* host 
+* staging
+* Thousands of users and projects on OSSRH
+* smart proxy to Nexus outside cluster
+
+
+== Deploy
+
+Ops team:
+
+* RPMs
+* Docker images
+
 == Community
+:incremental!:
 
 * Actively work with vendors
 * Including open source projects
@@ -202,15 +273,14 @@ Input funnel for Central Repository
 ** Release testing
 ** Contributions
 
-
-
 == Next?
 :incremental!:
 
-* Join us the Nexus community
-* Try Nexus 
+* Join the http://www.sonatype.org/nexus/[Nexus community]
+* Star using Nexus OSS
+* Try Nexus Repository Manager
 * Try Nexus Lifecycle
-* Come to out booth
+* Come to our booth
 
 == The End 
 :incremental!:
@@ -230,3 +300,4 @@ TIP: Slides and examples at http://sonatype.github.io/nexus-presentations/[http:
 * https://www.youtube.com/user/sonatype[Youtube channel]
 * http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/[Inside Engineering - blog post]
 * http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/[Inside Engineering - videos]
+* http://www.sonatype.org/nexus/members-only/video-gallery-2/free-training-sonatype-nexus-and-clm-tips-from-the-trenches/[Nexus Tips from the Trenches video series]
