@@ -30,14 +30,6 @@ div.listingblock {
   margin-bottom: 20px;
 }
 
-div.quoteblock, div.verseblock {
-  color: black;
-  font-size:24pt;
-  line-height: 30pt;
-  border: 2px solid #0080ff;
-  padding: 10px;
-}
-
 div.admonitionblock td.content {
   border: 2px solid #0080ff;
   padding: 10px;
