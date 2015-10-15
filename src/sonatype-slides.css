@@ -1,5 +1,9 @@
 body {
-    font-family: "myriad-pro-1","myriad-pro-2",Arial,Geneva,sans-serif;
+  font-family: Helvetica,Arial,Geneva,sans-serif;
+}
+
+div.slide {
+  font-size: 24pt;
 }
 
 /*
