@@ -10,19 +10,18 @@
 == DevOps at Sonatype
 :incremental!:
 
+[quote]
 Lessons Learned from Using Repository Managers and Software Supply Chain Tools 
 
-Manfred Moser 
+Manfred Moser - http://twitter.com/simpligility[@simpligility] 
 
-* http://twitter.com/simpligility[#simpligility] 
 * Author, Trainer and Community Advocate
 
-Brian Fox
+Brian Fox - http://twitter.com/brian_fox[@brian_fox] 
 
-* http://twitter.com/brian_fox[#brian_fox] 
 * VP of Product Engineering
 
-Sonatype - http://www.sonatype.com[www.sonatype.com]
+Sonatype - http://twitter.com/sonatypebrian_fox[@sonatype] - http://www.sonatype.com[www.sonatype.com]
 
 == What Are You Learning Today?
 :incremental!:
@@ -47,7 +46,7 @@ Manages and develops:
 == Nexus Repository Manager
 :incremental!:
 
-* Nexus 2 - 70% market share
+* Nexus 2 - 70% market share, >50K server installations
 * Nexus 3 - upcoming
 * Open source: Maven2, npm, RubyGems, NuGet, Docker, ...
 * Commercial: Staging, Smart Proxy, ...
@@ -82,6 +81,7 @@ Curated and managed data and services for:
 
 * Largest Maven2 format repository (numbers!)
 * High performance, global CDN 
+* > 17 billion download in 2014
 * Default in Maven2 and others
 
 And the components come from
@@ -100,7 +100,7 @@ Input funnel for Central Repository
 == Who Helps at Sonatype
 :incremental!:
 
-* Internationally distributed 
+* Internationally distributed (West coast to east coast to eastern urope)
 * Multiple-time zones
 * Remote work the rule, not exception
 
@@ -112,6 +112,11 @@ Input funnel for Central Repository
 * Different focus of teams
 * Cross-team members 
 
+== Process
+
+* Scrum framework
+* Backlog refinement
+
 == Communication
 :incremental!:
 
@@ -119,6 +124,7 @@ Input funnel for Central Repository
 * HipChat
 * Good old phone and VOIP
 * Google Hangouts
+* join.me
 
 == SCM
 :incremental!:
@@ -174,6 +180,8 @@ Input funnel for Central Repository
 == Document
 :incremental!:
 
+* Atlassian Confluence
+* Google Docs
 * Asciidoc
 * Pelican
 
@@ -220,6 +228,27 @@ All builds plans:
 * Main vs features branches - different config
 * Branch builds auto-created
 
+
+Repository manager 
+
+* component source for consumers
+* component target for producers
+
+image::images/producers-consumers.png[scale=100]
+
+
+== Co-Locate For Performance
+
+Continuous integration is consumer and producer.
+
+Best practice: 
+
+* Get it close together
+* And sync to another repository if needed. 
+
+image::images/nexus-bamboo-rso.png[scale=100]
+
+
 == Validate
 :incremental!:
 
@@ -246,6 +275,9 @@ All builds plans:
 
 Nexus Repository Manager and Nexus Lifecycle
 Nexus Repository Manager 
+* SNAPSHOT versions of master are deployed to Nexus
+* feature branch versions are not deployed
+* master = integration branch
 * within build cluster
 * also used by developers
 * target for deployments
@@ -255,6 +287,39 @@ Nexus Repository Manager
 * Thousands of users and projects on OSSRH
 * smart proxy to Nexus outside cluster
 
+== Nexus Lifecycle 
+
+* Visualize risk through rule-based automation
+* Streamlines component selection with real time data
+
+
+
+== Starting Off
+
+* Define risks we care about (internal, external, customer used)
+* Open source contributions change out policy (since we contribute it makes sense to use bleeding edge)
+* Understand our process and tooling
+* limit overhead in our build automation
+
+== Nexus IQ Server Deployment
+
+image::images/nexus-iq-server-integration.png[scale=100]
+
+== Policy
+
+image::images/sonatype-policy.png[scale=100]
+
+
+== Resulting Report
+
+image::images/nexus-clm-report.png[scale=100]
+
+== Nexus Lifecycle Lessons
+
+* Surprise how many components are used - so many!
+* Blocking a release for policy violations
+** is a big stick
+** but it works
 
 == Deploy
 
@@ -262,6 +327,30 @@ Ops team:
 
 * RPMs
 * Docker images
+
+== Support
+
+* Engineers on support team
+* Write lots of automation and other code
+* ZenDesk 
+
+
+== Operations
+
+Saas is used whenever possible
+Kanban process
+iDoneThis
+ 
+Nexus used as binary blog store e.g. insert image with Ansible from JasonSwank
+
+Our Nexus instances we manager vary from hundreds of GB to terabytes of non-proxied context 
+
+
+== Operations - Service Management
+
+Using Ansible and Nexus:
+
+image::images/service-management.png[scale=100]
 
 == Community
 :incremental!:
