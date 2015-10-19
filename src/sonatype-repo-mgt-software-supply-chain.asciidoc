@@ -2,7 +2,6 @@
 :title: Lessons Learned using Repository Managers and Supply Chain Tools for DevOps at Sonatype
 :Author:   Manfred Moser, Sonatype, Inc.
 :Date: October 2015
-:max-width: 45em
 :icons:
 :copyright: Copyright 2011-present, Sonatype Inc. All Rights Reserved.
 :incremental:
@@ -15,53 +14,54 @@ Lessons Learned from Using Repository Managers and Software Supply Chain Tools
 
 Manfred Moser - http://twitter.com/simpligility[@simpligility] 
 
-* Author, Trainer and Community Advocate
+* Community Advocate, Author & Trainer
 
 Brian Fox - http://twitter.com/brian_fox[@brian_fox] 
 
-* VP of Product Engineering
+* VP of Product Management
 
 Sonatype - http://twitter.com/sonatypebrian_fox[@sonatype] - http://www.sonatype.com[www.sonatype.com]
 
 == What Are You Learning Today?
 :incremental!:
 
-* See what worked for us
-* And what caused us problems
+[quote]
+What worked? What caused problems?
 
--> Improvements for your own situation
+-> Apply our lessons to your own situation
 
 == What does Sonatype actually do? 
 :incremental!:
 
 Manages and develops:
 
-* Nexus repository manager
-* Nexus Lifecycle software supply chain automation 
-* Nexus IQ Data Services component intellignec
-* Central Repository (formerly Maven Central)
+* Nexus Repository Manager
+* Nexus IQ Server
+* Nexus IQ Data Services component intelligence
+* Central Repository (aka Maven Central)
 * OSSRH and related Forges
 * Related documentation, websites, blogs, videos,...
 
-== Nexus Repository Manager
+== Software Component Warehouse
 :incremental!:
 
-* Nexus 2 - 70% market share, >50K server installations
-* Nexus 3 - upcoming
-* Open source: Maven2, npm, RubyGems, NuGet, Docker, ...
-* Commercial: Staging, Smart Proxy, ...
+Nexus Repository Manager
 
+* 70% market share
+* > 50K server installations
+* Nexus 3 - distinct new codebase
+* Nexus OSS: Maven2, npm, RubyGems, NuGet, Docker, ...
+* Commercial: Component Information, Staging, Smart Proxy, User Token, ...
 
 == Software Supply Chain Automation
 :incremental!:
 
-* Nexus Lifecycle
+Nexus Lifecycle, Nexus Suite, Nexus Firewall
+
 * Nexus IQ Server
-* Partner integrations (HP Foritfy On Demand ?)
-* Nexus Firewall (?)
 * Integrations with Jenkins, Hudson, Bamboo
 * Eclipse IDE/M2e Plugin
-* SonarQube Integration
+* SonarQube integration
 
 All of this is backed by... 
 
@@ -74,36 +74,43 @@ Curated and managed data and services for:
 * Popularity
 * Security vulnerabilities
 * License analysis data (observed and declared)
-* 
+* Multiple component formats
 
-== Central Repository
+== Central Repository (aka Maven Central)
 :incremental!:
 
-* Largest Maven2 format repository (numbers!)
+* Largest Maven2 format repository
 * High performance, global CDN 
 * > 17 billion download in 2014
+* > 1 million GAV coordinates
 * Default in Maven2 and others
 
-And the components come from
+And the components come from...
 
 == OSSRH and Forges
 :incremental!:
 
 Input funnel for Central Repository
 
-* OSSRH - large deployment of Nexus Pro
-* Apache, JBoss, ... - secondary Nexus instances that sync
+* OSSRH - large deployment of Nexus Repository Manager
+* Apache, JBoss, ... - secondary Nexus instances
 * Community support - onboarding and documentation
 
-* TBD add some numbersf
+== More OSSRH and Central Stats
+
+* currently about 100k projects total
+* approx 3000 new projects each month (GA)
+* thats 10 - 30 project verfied and onbarded per day
+* approx 30.000 new releases each month (GAV)
 
 == Who Helps at Sonatype
 :incremental!:
 
-* Internationally distributed (West coast to east coast to eastern urope)
+* Internationally distributed 
 * Multiple-time zones
 * Remote work the rule, not exception
 
+image::images/nexus-team-timezones.png[scale=100]
 
 == Teams
 :incremental!:
@@ -115,35 +122,47 @@ Input funnel for Central Repository
 == Process
 
 * Scrum framework
+* Kanban inspired
 * Backlog refinement
+* Regular meetings
+
+image::images/usual-process.png[scale=100]
 
 == Communication
 :incremental!:
 
-* Google Drive
-* HipChat
 * Good old phone and VOIP
+* Atlassian HipChat
 * Google Hangouts
 * join.me
+* PagerDuty
 
 == SCM
 :incremental!:
 
-* GitHub
-* Atlassian Stash
+* GitHub - public and private
+* Atlassian Stash - private only
 
 == Track and Plan
 :incremental!:
 
-* JIRA
+* Atlassian JIRA
 * Aha
 * Trello
+* Basecamp
+* Salesforce
+
+== Tools Lesson
+
+* Different people use different tools
+* Overlap is inevitable
+* Tools come and go - be agile
 
 == Continuous Integration
 :incremental!:
 
-* Bamboo
-* feature branch builds
+* Atlassian Bamboo
+* Feature branch builds
 
 == Build
 :incremental!:
@@ -156,9 +175,22 @@ Input funnel for Central Repository
 :incremental!:
 
 * Maven wrapper
-* Follow 
-* Find balance of number of projects vs.
+* Follow best practices
+* Organizations POM
+* Enforcer
 * Avoid forking third party libraries
+* But do it cleanly when necessary
+
+
+== Project Complexity
+
+Find balance for
+
+* Number vs Size of projects
+* Multi-module vs multiple projects
+* Consider Release Cycle
+
+TIP: Example Nexus OSS and Pro
 
 == Develop
 :incremental!:
@@ -174,6 +206,9 @@ Input funnel for Central Repository
 == Test
 :incremental!:
 
+Unit, functional and manual
+
+* Junit
 * Geb
 * Spock
 
@@ -228,14 +263,12 @@ All builds plans:
 * Main vs features branches - different config
 * Branch builds auto-created
 
-
 Repository manager 
 
 * component source for consumers
 * component target for producers
 
 image::images/producers-consumers.png[scale=100]
-
 
 == Co-Locate For Performance
 
@@ -248,14 +281,13 @@ Best practice:
 
 image::images/nexus-bamboo-rso.png[scale=100]
 
-
 == Validate
 :incremental!:
 
 * SonarQube - integrated in Bamboo and GitHub
 * License check with Maven plugin
 * No merges without build passing and code review 
-* Nexus Lifecycle TBD
+* Component policy with Nexus Lifecycle
 
 == Release
 :incremental!:
@@ -269,6 +301,8 @@ image::images/nexus-bamboo-rso.png[scale=100]
 * Usage of release build number - `2.11.4-01`
 
 * Same release stuff on OSSRH
+
+image::images/nexus-bamboo-staging.png[scale=100]
 
 == Manage Components
 :incremental!:
@@ -287,12 +321,19 @@ Nexus Repository Manager
 * Thousands of users and projects on OSSRH
 * smart proxy to Nexus outside cluster
 
+
+== Black and White Listing
+
+Wont work .. tbd
+
+== Golden Repository 
+
+wont work
+
 == Nexus Lifecycle 
 
 * Visualize risk through rule-based automation
 * Streamlines component selection with real time data
-
-
 
 == Starting Off
 
@@ -321,6 +362,22 @@ image::images/nexus-clm-report.png[scale=100]
 ** is a big stick
 ** but it works
 
+
+Expect some cleanup of old issues
+
+Socialize the resolution/enforcement process
+
+Low noise and fast results increases usage, adoption
+
+Automate and let the tooling do work (I already have a day job!)
+
+Be responsive (That is my day job!)
+
+
+== Perimeter Protection
+
+is Nexus Firewall. Can help
+
 == Deploy
 
 Ops team:
@@ -330,25 +387,25 @@ Ops team:
 
 == Support
 
-* Engineers on support team
-* Write lots of automation and other code
-* ZenDesk 
+[Quote]
+The support team consistes of engineers. 
 
+* Write lots of automation and other code
+* Atlassian JIRA
+* ZenDesk 
 
 == Operations
 
-Saas is used whenever possible
-Kanban process
-iDoneThis
- 
-Nexus used as binary blog store e.g. insert image with Ansible from JasonSwank
+* SaaS is used whenever possible
+* Kanban process
+* iDoneThis
 
-Our Nexus instances we manager vary from hundreds of GB to terabytes of non-proxied context 
+TIP: Our Nexus instances vary from hundreds of GB to terabytes of non-proxied context.
 
 
 == Operations - Service Management
 
-Using Ansible and Nexus:
+Nexus as component warehouse with Ansible
 
 image::images/service-management.png[scale=100]
 
