@@ -28,18 +28,18 @@ Sonatype - http://twitter.com/sonatypebrian_fox[@sonatype] - http://www.sonatype
 [quote]
 What worked? What caused problems?
 
--> Apply our lessons to your own situation
+-> Apply 'our' lessons to 'your' situation
 
 == What does Sonatype actually do? 
 :incremental!:
 
 Manages and develops:
 
-* Nexus Repository Manager
-* Nexus IQ Server
-* Nexus IQ Data Services component intelligence
 * Central Repository (aka Maven Central)
 * OSSRH and related Forges
+* Nexus Repository Manager
+* Nexus IQ Server
+* Nexus IQ Data Services
 * Related documentation, websites, blogs, videos,...
 
 == Software Component Warehouse
@@ -48,42 +48,53 @@ Manages and develops:
 Nexus Repository Manager
 
 * 70% market share
-* > 50K server installations
-* Nexus 3 - distinct new codebase
-* Nexus OSS: Maven2, npm, RubyGems, NuGet, Docker, ...
+* > 61K active server installations
+* Open Source: Maven2, npm, RubyGems, NuGet, Docker, ...
 * Commercial: Component Information, Staging, Smart Proxy, User Token, ...
+* Nexus 3 - distinct new codebase
 
-== Software Supply Chain Automation
+== Software Supply Chain Solutions
 :incremental!:
 
-Nexus Lifecycle, Nexus Suite, Nexus Firewall
+Solutions:
+
+* Nexus Firewall
+* Nexus Auditor
+* Nexus Lifecycle
+* Nexus Suite
+
+Include
 
 * Nexus IQ Server
 * Integrations with Jenkins, Hudson, Bamboo
 * Eclipse IDE/M2e Plugin
 * SonarQube integration
+* Command-line tool and REST API
 
 All of this is backed by... 
 
 == Nexus IQ Data Services
 :incremental!:
 
-Curated and managed data and services for:
+Managed and *curated* data and services for:
 
 * Age
 * Popularity
-* Security vulnerabilities
+* Security vulnerability data
 * License analysis data (observed and declared)
 * Multiple component formats
 
-== Central Repository (aka Maven Central)
+== Central Repository 
 :incremental!:
+
+[quote]
+aka. Maven Central
 
 * Largest Maven2 format repository
 * High performance, global CDN 
 * > 17 billion download in 2014
 * > 1 million GAV coordinates
-* Default in Maven2 and others
+* Default in Apache Maven and others
 
 And the components come from...
 
@@ -99,16 +110,18 @@ Input funnel for Central Repository
 == More OSSRH and Central Stats
 
 * currently about 100k projects total
-* approx 3000 new projects each month (GA)
-* thats 10 - 30 project verfied and onbarded per day
-* approx 30.000 new releases each month (GAV)
+* approx. 3000 new projects each month (GA)
+* 10 - 30 project verfied and onbarded per day
+* approx. 30.000 new releases each month (GAV)
 
 == Who Helps at Sonatype
 :incremental!:
 
 * Internationally distributed 
 * Multiple-time zones
-* Remote work the rule, not exception
+* Remote work the rule, not the exception
+
+TIP: Western North America to Eastern Europe
 
 image::images/nexus-team-timezones.png[scale=100]
 
@@ -118,6 +131,13 @@ image::images/nexus-team-timezones.png[scale=100]
 * Numerous smaller teams
 * Different focus of teams
 * Cross-team members 
+* Dynamic grouping around efforts - 'task force'
+
+== Process
+
+In a nutshell - nothing special, no surprises.
+
+image::images/usual-process.png[scale=100]
 
 == Process
 
@@ -126,7 +146,11 @@ image::images/nexus-team-timezones.png[scale=100]
 * Backlog refinement
 * Regular meetings
 
-image::images/usual-process.png[scale=100]
+-> Differs per team!
+
+[quote]
+Everyone has their own process. You need to figure out what works for you!
+
 
 == Communication
 :incremental!:
@@ -137,67 +161,73 @@ image::images/usual-process.png[scale=100]
 * join.me
 * PagerDuty
 
-== SCM
+TIP: Using video more has helped avoid misunderstandings.
+
+== Source Control
 :incremental!:
 
 * GitHub - public and private
 * Atlassian Stash - private only
 
+TIP: We are an earlier Git adopter and use it exclusively. 
+
 == Track and Plan
 :incremental!:
 
 * Atlassian JIRA
-* Aha
 * Trello
 * Basecamp
+* Aha.io
 * Salesforce
 
-== Tools Lesson
+Tool Lessons:
 
 * Different people use different tools
 * Overlap is inevitable
+* Be prepared to implment integrations
 * Tools come and go - be agile
 
 == Continuous Integration
 :incremental!:
 
+* Stopped using Hudson long time ago
 * Atlassian Bamboo
-* Feature branch builds
 
 == Build
 :incremental!:
 
 * Apache Maven
 * Grunt and NPM for client side
-* Bash Scripts
+* Shell scripts
 
 == Maven Tips and Tricks
 :incremental!:
 
 * Maven wrapper
 * Follow best practices
-* Organizations POM
-* Enforcer
-* Avoid forking third party libraries
-* But do it cleanly when necessary
+* Organization POM
+* Enforcer Plugin
+* and lots more
 
-
-== Project Complexity
+== (Maven) Project Complexity
 
 Find balance for
 
-* Number vs Size of projects
+* Number vs size of projects
 * Multi-module vs multiple projects
-* Consider Release Cycle
+* Consider release cycle
+* IDE functionality
+* Build time
 
-TIP: Example Nexus OSS and Pro
+TIP: Example Nexus OSS and Nexus Repository Manager
 
 == Develop
 :incremental!:
 
 * Feature branches
-** with CI
 ** short lived
+** sometimes shared between
+** automatic Bamboo feature branch build creation
 * IDE
 ** Eclipse IDE
 ** IntelliJ IDEA
@@ -211,14 +241,29 @@ Unit, functional and manual
 * Junit
 * Geb
 * Spock
+* Pax Exam
+* Selenide
+
+TIP: No tests, no merge!
 
 == Document
 :incremental!:
+
+Multiple output formats from:
 
 * Atlassian Confluence
 * Google Docs
 * Asciidoc
 * Pelican
+
+Instituting development workflows including 
+
+* Git-based versioning 
+* and branching, 
+* pull requests and reviews 
+* and CI builds 
+
+is very useful! 
 
 == Continuously Build
 :incremental!:
@@ -234,22 +279,20 @@ Unit, functional and manual
 == Bamboo Tips
 :incremental!:
 
-* Resource project (link to video maybe)
+* Resource project
 * Fresh Maven repo for each build off Nexus
-
 * Build plan notifications into HipChat channels
 * Links to GitHub and JIRA 
-
 
 == More Bamboo Tips
 :incremental!:
 
-* Share repo and other outputs as build artifacts
+* Share and store repo and other outputs as build artifacts
 * Static documentation = usable artifact
 * Limited number of standard Amazon Machine Images (AMI)
 * Include standard tools
 * Build artifacts stored on Amazon Elastic Block Storage (EBS)
-* Base build plan with tool configuration\
+* Base build plan with tool configuration
 
 == Build Plan Commonalities
 
@@ -263,7 +306,7 @@ All builds plans:
 * Main vs features branches - different config
 * Branch builds auto-created
 
-Repository manager 
+== Repository Manager 
 
 * component source for consumers
 * component target for producers
@@ -296,10 +339,8 @@ image::images/nexus-bamboo-rso.png[scale=100]
 * Including validation with Nexus Lifecycle
 ** Security checks
 ** License checks
-** ?? anything else, maybe component age
-
+** Architecture checks (e.g. component age)
 * Usage of release build number - `2.11.4-01`
-
 * Same release stuff on OSSRH
 
 image::images/nexus-bamboo-staging.png[scale=100]
@@ -308,7 +349,9 @@ image::images/nexus-bamboo-staging.png[scale=100]
 :incremental!:
 
 Nexus Repository Manager and Nexus Lifecycle
+
 Nexus Repository Manager 
+
 * SNAPSHOT versions of master are deployed to Nexus
 * feature branch versions are not deployed
 * master = integration branch
@@ -388,7 +431,7 @@ Ops team:
 == Support
 
 [Quote]
-The support team consistes of engineers. 
+The support team consists of engineers only.
 
 * Write lots of automation and other code
 * Atlassian JIRA
@@ -418,6 +461,8 @@ image::images/service-management.png[scale=100]
 ** Report issues
 ** Release testing
 ** Contributions
+* Avoid forking third party libraries
+* But do it cleanly when necessary
 
 == Next?
 :incremental!:
@@ -447,3 +492,9 @@ TIP: Slides and examples at http://sonatype.github.io/nexus-presentations/[http:
 * http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/[Inside Engineering - blog post]
 * http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/[Inside Engineering - videos]
 * http://www.sonatype.org/nexus/members-only/video-gallery-2/free-training-sonatype-nexus-and-clm-tips-from-the-trenches/[Nexus Tips from the Trenches video series]
+* http://www.sonatype.com/about/2014-open-source-software-development-survey[2014 Open Source Software Development Survey Results]
+* http://www.sonatype.com/speedbumps[2015 State of the Software Supply Chain Report]
+* http://www.slideshare.net/SonatypeCorp[Sonatype slides]
+* http://links.sonatype.com/products/nexus/oss/docs[Repository Management with Nexus]
+* http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/[Java Tools and Technologies Landscape for 2014]
+* http://sonatype.github.io/nexus-presentations/[Nexus related slides including this one...]
