@@ -107,13 +107,13 @@ Input funnel for Central Repository
 
 * OSSRH - large deployment of Nexus Repository Manager
 * Apache, JBoss, ... - secondary Nexus instances
-* Community support - onboarding and documentation
+* Community support - on-boarding and documentation
 
 == More OSSRH and Central Stats
 
 * currently about 100k projects total
 * approx. 3000 new projects each month (GA)
-* 10 - 30 project verfied and onbarded per day
+* 10 - 30 project verified and onbarded per day
 * approx. 30.000 new releases each month (GAV)
 
 == Who Helps at Sonatype
@@ -543,18 +543,15 @@ Slides::
 * or email manfred@sonatype.com
 
 == Resources
-:incremental:
+:incremental!:
 
 * http://www.sonatype.com[sonatype.com]
 * http://www.sonatype.org/nexus/[Nexus community]
 * http://search.maven.org[Central Repository] and http://central.sonatype.org[documentation]
-* https://www.youtube.com/user/sonatype[Youtube channel]
 * http://www.sonatype.org/nexus/2015/04/16/using-atlassian-bamboo-and-nexus-for-continuous-integration/[Inside Engineering - blog post]
 * http://www.sonatype.org/nexus/members-only/video-gallery-2/inside-the-sonatype-engineering-machine-the-process-and-the-tooling/[Inside Engineering - videos]
 * http://www.sonatype.org/nexus/members-only/video-gallery-2/free-training-sonatype-nexus-and-clm-tips-from-the-trenches/[Nexus Tips from the Trenches video series]
-* http://www.sonatype.com/about/2014-open-source-software-development-survey[2014 Open Source Software Development Survey Results]
 * http://www.sonatype.com/speedbumps[2015 State of the Software Supply Chain Report]
-* http://www.slideshare.net/SonatypeCorp[Sonatype slides]
 * http://links.sonatype.com/products/nexus/oss/docs[Repository Management with Nexus]
 * http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/[Java Tools and Technologies Landscape for 2014]
 * http://sonatype.github.io/nexus-presentations/[Nexus related slides including this one...]
