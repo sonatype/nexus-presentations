@@ -61,7 +61,6 @@ Solutions:
 * Nexus Firewall
 * Nexus Auditor
 * Nexus Lifecycle
-* Nexus Suite
 
 Include
 
