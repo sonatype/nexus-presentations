@@ -334,7 +334,19 @@ TIP: Consistency helps users and administrators.
 image::images/nexus-bamboo-staging.png[scale=100]
 
 
-== Repository Manager 
+== Software Supply Chain Management
+:incremental!:
+
+[quote]
+We are dogfooding our own tools 
+
+* Nexus Repository Manager
+* Nexus Lifecycle
+
+including Bamboo integration and IDE integration.
+
+
+== Nexus Repository Manager 
 
 * Component source for consumers
 * Component target for producers
@@ -352,35 +364,6 @@ Best practice:
 
 image::images/nexus-bamboo-rso.png[scale=100]
 
-== Software Supply Chain Management
-:incremental!:
-
-[quote]
-We are dogfooding our own tools - Nexus Repository Manager and Nexus Lifecycle
-
-
-* SNAPSHOT versions of master are deployed to Nexus
-* feature branch versions are not deployed
-* master = integration branch
-* within build cluster
-* also used by developers
-* target for deployments
-* proxy 
-* host 
-* staging
-* Thousands of users and projects on OSSRH
-* smart proxy to Nexus outside cluster
-
-
-
-
-== Black and White Listing
-
-Wont work .. tbd
-
-== Golden Repository 
-
-wont work
 
 == Nexus Lifecycle 
 
@@ -407,6 +390,37 @@ image::images/sonatype-policy.png[scale=100]
 
 image::images/nexus-clm-report.png[scale=100]
 
+
+
+= Nexus Repository Manager Lessons
+* SNAPSHOT versions of master are deployed to Nexus
+* feature branch versions are not deployed
+* master = integration branch
+* within build cluster
+* also used by developers
+* target for deployments
+* proxy 
+* host 
+* staging
+* Thousands of users and projects on OSSRH
+* smart proxy to Nexus outside cluster
+
+
+
+== Black and White Listing
+
+Wont work .. tbd
+
+== Golden Repository 
+
+wont work
+
+
+== Perimeter Protection
+
+is Nexus Firewall. Can help
+
+
 == Nexus Lifecycle Lessons
 
 * Surprise how many components are used - so many!
@@ -426,9 +440,7 @@ Automate and let the tooling do work (I already have a day job!)
 Be responsive (That is my day job!)
 
 
-== Perimeter Protection
 
-is Nexus Firewall. Can help
 
 == Deploy
 
