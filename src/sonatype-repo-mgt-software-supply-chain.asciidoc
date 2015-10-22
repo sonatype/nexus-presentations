@@ -120,6 +120,7 @@ Input funnel for Central Repository
 * Internationally distributed 
 * Multiple-time zones
 * Remote work the rule, not the exception
+* Roughly 100 people
 
 TIP: Western North America to Eastern Europe
 
@@ -276,24 +277,6 @@ is very useful!
 * Automated release
 * Documentation builds and deployments
 
-== Bamboo Tips
-:incremental!:
-
-* Resource project
-* Fresh Maven repo for each build off Nexus
-* Build plan notifications into HipChat channels
-* Links to GitHub and JIRA 
-
-== More Bamboo Tips
-:incremental!:
-
-* Share and store repo and other outputs as build artifacts
-* Static documentation = usable artifact
-* Limited number of standard Amazon Machine Images (AMI)
-* Include standard tools
-* Build artifacts stored on Amazon Elastic Block Storage (EBS)
-* Base build plan with tool configuration
-
 == Build Plan Commonalities
 
 All builds plans:
@@ -306,30 +289,32 @@ All builds plans:
 * Main vs features branches - different config
 * Branch builds auto-created
 
-== Repository Manager 
+TIP: Consistency helps users and administrators.
 
-* component source for consumers
-* component target for producers
+== Bamboo Set Up & Tips
+:incremental!:
 
-image::images/producers-consumers.png[scale=100]
+* Resource base plan project with tool configuration
+* Fresh Maven repo for each build off Nexus
+* Build plan notifications into HipChat channels
+* Links to GitHub and JIRA 
 
-== Co-Locate For Performance
+== More Bamboo Set Up & Tips
+:incremental!:
 
-Continuous integration is consumer and producer.
-
-Best practice: 
-
-* Get it close together
-* And sync to another repository if needed. 
-
-image::images/nexus-bamboo-rso.png[scale=100]
+* Limited number of standard Amazon Machine Images (AMI)
+** Include standard tools
+* Share and store repo and other outputs as build artifacts
+** Stored on Amazon Elastic Block Storage (EBS)
+* Static documentation = usable artifact
 
 == Validate
 :incremental!:
 
 * SonarQube - integrated in Bamboo and GitHub
 * License check with Maven plugin
-* No merges without build passing and code review 
+* Pull requests and code reviews
+** No merges without build passing and code review 
 * Component policy with Nexus Lifecycle
 
 == Release
@@ -343,14 +328,36 @@ image::images/nexus-bamboo-rso.png[scale=100]
 * Usage of release build number - `2.11.4-01`
 * Same release stuff on OSSRH
 
-image::images/nexus-bamboo-staging.png[scale=100]
-
-== Manage Components
+== Release
 :incremental!:
 
-Nexus Repository Manager and Nexus Lifecycle
+image::images/nexus-bamboo-staging.png[scale=100]
 
-Nexus Repository Manager 
+
+== Repository Manager 
+
+* Component source for consumers
+* Component target for producers
+
+image::images/producers-consumers.png[scale=100]
+
+== Colocate For Performance
+
+Continuous integration is consumer and producer.
+
+Best practice: 
+
+* Get it close together
+* And sync to another repository if needed. 
+
+image::images/nexus-bamboo-rso.png[scale=100]
+
+== Software Supply Chain Management
+:incremental!:
+
+[quote]
+We are dogfooding our own tools - Nexus Repository Manager and Nexus Lifecycle
+
 
 * SNAPSHOT versions of master are deployed to Nexus
 * feature branch versions are not deployed
@@ -363,6 +370,8 @@ Nexus Repository Manager
 * staging
 * Thousands of users and projects on OSSRH
 * smart proxy to Nexus outside cluster
+
+
 
 
 == Black and White Listing
