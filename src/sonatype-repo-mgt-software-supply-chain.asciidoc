@@ -76,13 +76,15 @@ All of this is backed by...
 == Nexus IQ Data Services
 :incremental!:
 
-Managed and *curated* data and services for:
+Data and services for:
 
 * Age
 * Popularity
-* Security vulnerability data
-* License analysis data (observed and declared)
+* Security vulnerabilities
+* License information
 * Multiple component formats
+
+-> Constantly updated, curated and accurate data.
 
 == Central Repository 
 :incremental!:
@@ -170,7 +172,7 @@ TIP: Using video more has helped avoid misunderstandings.
 * GitHub - public and private
 * Atlassian Stash - private only
 
-TIP: We are an earlier Git adopter and use it exclusively. 
+TIP: We are an early Git adopter and use it exclusively. 
 
 == Track and Plan
 :incremental!:
@@ -185,7 +187,7 @@ Tool Lessons:
 
 * Different people use different tools
 * Overlap is inevitable
-* Be prepared to implment integrations
+* Be prepared to implement integrations
 * Tools come and go - be agile
 
 == Continuous Integration
@@ -194,9 +196,11 @@ Tool Lessons:
 * Stopped using Hudson long time ago
 * Atlassian Bamboo
 
+IMPORTANT: CI infrastructure is an invaluable workhorse!
+
 == Build
 :incremental!:
-
+ 
 * Apache Maven
 * Grunt and NPM for client side
 * Shell scripts
@@ -294,10 +298,11 @@ TIP: Consistency helps users and administrators.
 == Bamboo Set Up & Tips
 :incremental!:
 
-* Resource base plan project with tool configuration
+* Base plan for resources like  tool configuration
 * Fresh Maven repo for each build off Nexus
 * Build plan notifications into HipChat channels
-* Links to GitHub and JIRA 
+* Linked to GitHub branch and PR
+* Linked to JIRA issue
 
 == More Bamboo Set Up & Tips
 :incremental!:
@@ -327,6 +332,8 @@ TIP: Consistency helps users and administrators.
 ** Architecture checks (e.g. component age)
 * Usage of release build number - `2.11.4-01`
 * Same release stuff on OSSRH
+
+TIP: No matter what you do .. there is always a chance something goes wrong.
 
 == Release
 :incremental!:
@@ -365,82 +372,103 @@ Best practice:
 image::images/nexus-bamboo-rso.png[scale=100]
 
 
-== Nexus Lifecycle 
+== Nexus Lifecycle
 
-* Visualize risk through rule-based automation
-* Streamlines component selection with real time data
-
-== Starting Off
-
-* Define risks we care about (internal, external, customer used)
-* Open source contributions change out policy (since we contribute it makes sense to use bleeding edge)
+* Define risks we care about 
+* Open source contributions change our policy
 * Understand our process and tooling
-* limit overhead in our build automation
+* Limit overhead in our build automation
+
+We gain
+
+* Visualized risk through rule-based automation
+* Streamlined component selection based on real time data
 
 == Nexus IQ Server Deployment
 
 image::images/nexus-iq-server-integration.png[scale=100]
 
-== Policy
+== Policy Configuration
+
+Simplified version: 
 
 image::images/sonatype-policy.png[scale=100]
 
 
 == Resulting Report
 
+Overview section in notification:
+
 image::images/nexus-clm-report.png[scale=100]
 
+== Nexus Repository Manager Tips
 
+Here are a few things that work for us
 
-= Nexus Repository Manager Lessons
-* SNAPSHOT versions of master are deployed to Nexus
-* feature branch versions are not deployed
-* master = integration branch
-* within build cluster
-* also used by developers
-* target for deployments
-* proxy 
-* host 
-* staging
-* Thousands of users and projects on OSSRH
-* smart proxy to Nexus outside cluster
+* Versioning and component deployment
+** Only SNAPSHOT versions of 'master' are deployed
+** Feature branch versions are 'not' deployed
+* Multiple server installations
+** In different networks
+** Smart proxy between them
+* Release with Staging 
+** Dogfooding ourselves 
+** Thousands of users and projects on OSSRH
 
+== Black Listing and White Listing
 
+Define
 
-== Black and White Listing
+* Which components are okay to be used?
+* Which components are 'not' okay to be used?
 
-Wont work .. tbd
+Problem 
+
+* Too many criteria
+* Complex and labor intensive to figure out criteria and values
+* Usage influences criteria
+* Different usage for different projects
+
+IMPORTANT: It just doesn't work! Too slow. Not scalable.
 
 == Golden Repository 
 
-wont work
+[quote] 
+Only the good components can be in the repository.
+
+Problems:
+
+* Components age like milk, not wine!
+* A golden repository per project?
+* Does not scale
+
+IMPORTANT: On the surface it looks easy. It's 'not'!
 
 
 == Perimeter Protection
 
-is Nexus Firewall. Can help
+Nexus Firewall 
 
+* Requires up to date and accurate information
+** As provided by Nexus IQ Data Services
+* Tremendous help to reduce influx
+* But does not control usage
+
+TIP: Helps, but is not the full solution. Just like a network firewall. Its not enough.
 
 == Nexus Lifecycle Lessons
 
-* Surprise how many components are used - so many!
+Once we had Nexus Lifecycle and started using it...
+
+* Surprised how many components are used
 * Blocking a release for policy violations
 ** is a big stick
 ** but it works
+* Shared ownership helps  - socialize the resolution/enforcement process
+* Initial introduction forced some cleanup of old issues
+* Ongoing low noise and fast results increases usage, adoption
 
-
-Expect some cleanup of old issues
-
-Socialize the resolution/enforcement process
-
-Low noise and fast results increases usage, adoption
-
-Automate and let the tooling do work (I already have a day job!)
-
-Be responsive (That is my day job!)
-
-
-
+-> Without the automation this would be not achievable!
 
 == Deploy
 
@@ -448,15 +476,8 @@ Ops team:
 
 * RPMs
 * Docker images
-
-== Support
-
-[Quote]
-The support team consists of engineers only.
-
-* Write lots of automation and other code
-* Atlassian JIRA
-* ZenDesk 
+* Manual tweaks
+* Ansible
 
 == Operations
 
@@ -473,6 +494,17 @@ Nexus as component warehouse with Ansible
 
 image::images/service-management.png[scale=100]
 
+
+== Support
+
+[quote]
+The support team consists of engineers only.
+
+* Write lots of automation and other code
+* Atlassian JIRA
+* ZenDesk 
+
+
 == Community
 :incremental!:
 
@@ -483,25 +515,32 @@ image::images/service-management.png[scale=100]
 ** Release testing
 ** Contributions
 * Avoid forking third party libraries
-* But do it cleanly when necessary
+** But do it cleanly when necessary
+** And send back upstream
 
-== Next?
+== What's Next?
 :incremental!:
 
-* Join the http://www.sonatype.org/nexus/[Nexus community]
-* Star using Nexus OSS
+* Join the Nexus community at http://www.sonatype.org/nexus[http://www.sonatype.org/nexus]
+* Start using Nexus OSS
 * Try Nexus Repository Manager
 * Try Nexus Lifecycle
-* Come to our booth
+
+TIP: Come to our booth for demos, T-shirts and more.
 
 == The End 
 :incremental!:
 
-Questions, Remarks &  Discussion
+[quote]
+Want to help us -> we are hiring!
 
-TIP: Slides and examples at http://sonatype.github.io/nexus-presentations/[http://sonatype.github.io/nexus-presentations/] or email manfred@sonatype.com
+Questions, remarks &  discussion
 
-... and we are hiring!
+
+Slides::
+
+* http://sonatype.github.io/nexus-presentations/[http://sonatype.github.io/nexus-presentations/] 
+* or email manfred@sonatype.com
 
 == Resources
 :incremental:
