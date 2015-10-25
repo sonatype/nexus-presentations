@@ -101,7 +101,7 @@ And the components come from... OSSRH and Forges
 * Apache, JBoss, java.net ... - secondary Nexus instances
 * Community support - on-boarding and documentation
 
-== More OSSRH and Central Stats
+==  Central and OSSRH Numbers
 
 * > 17 billion download in 2014
 * > 1 million GAV coordinates
@@ -290,7 +290,7 @@ is very useful!
 * Feature branch builds increases number
 * Automated test, release and deployment
 * Base plan build with shared artifact
-* All plans same setup
+* All plans - similar setup
 * Share outputs as artifacts
 
 TIP: Consistency helps users and administrators.
@@ -355,6 +355,19 @@ Best practice:
 
 image::images/nexus-bamboo-rso.png[scale=100]
 
+== Nexus Repository Manager Tips
+
+Here are a few things that work for us
+
+* Versioning and component deployment
+** Only SNAPSHOT versions of 'master' are deployed
+** Feature branch versions are 'not' deployed
+* Multiple server installations
+** In different networks
+** Smart proxy between them
+* Release with Staging 
+** Dogfooding ourselves 
+** Thousands of users and projects on OSSRH
 
 == Nexus Lifecycle
 
@@ -385,19 +398,6 @@ Overview section in notification:
 
 image::images/nexus-clm-report.png[scale=100]
 
-== Nexus Repository Manager Tips
-
-Here are a few things that work for us
-
-* Versioning and component deployment
-** Only SNAPSHOT versions of 'master' are deployed
-** Feature branch versions are 'not' deployed
-* Multiple server installations
-** In different networks
-** Smart proxy between them
-* Release with Staging 
-** Dogfooding ourselves 
-** Thousands of users and projects on OSSRH
 
 == Black Listing and White Listing
 
