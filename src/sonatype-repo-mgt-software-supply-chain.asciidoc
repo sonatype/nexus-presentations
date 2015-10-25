@@ -93,27 +93,22 @@ aka. Maven Central
 
 * Largest Maven2 format repository
 * High performance, global CDN 
-* > 17 billion download in 2014
-* > 1 million GAV coordinates
 * Default in Apache Maven and others
 
-And the components come from...
-
-== OSSRH and Forges
-:incremental!:
-
-Input funnel for Central Repository
+And the components come from... OSSRH and Forges
 
 * OSSRH - large deployment of Nexus Repository Manager
-* Apache, JBoss, ... - secondary Nexus instances
+* Apache, JBoss, java.net ... - secondary Nexus instances
 * Community support - on-boarding and documentation
 
 == More OSSRH and Central Stats
 
-* currently about 100k projects total
-* approx. 3000 new projects each month (GA)
+* > 17 billion download in 2014
+* > 1 million GAV coordinates
+* Currently about 100k projects total
+* Approx. 3000 new projects each month (GA)
 * 10 - 30 project verified and onbarded per day
-* approx. 30.000 new releases each month (GAV)
+* Approx. 30.000 new releases each month (GAV)
 
 == Who Helps at Sonatype
 :incremental!:
@@ -154,6 +149,17 @@ image::images/usual-process.png[scale=100]
 Everyone has their own process. You need to figure out what works for you!
 
 
+== Product Owner Team
+
+Multi-disciplinary team: 
+
+* Security
+* Development
+* Architecture
+* User experience
+* Documentation
+
+
 == Communication
 :incremental!:
 
@@ -165,6 +171,7 @@ Everyone has their own process. You need to figure out what works for you!
 
 TIP: Using video more has helped avoid misunderstandings.
 
+////
 == Source Control
 :incremental!:
 
@@ -172,7 +179,8 @@ TIP: Using video more has helped avoid misunderstandings.
 * Atlassian Stash - private only
 
 TIP: We are an early Git adopter and use it exclusively. 
-
+////
+  
 == Track and Plan
 :incremental!:
 
@@ -189,6 +197,7 @@ Tool Lessons:
 * Be prepared to implement integrations
 * Tools come and go - be agile
 
+////
 == Continuous Integration
 :incremental!:
 
@@ -204,6 +213,7 @@ IMPORTANT: CI infrastructure is an invaluable workhorse!
 * Grunt and NPM for client side
 * Shell scripts
 
+
 == Maven Tips and Tricks
 :incremental!:
 
@@ -212,6 +222,7 @@ IMPORTANT: CI infrastructure is an invaluable workhorse!
 * Organization POM
 * Enforcer Plugin
 * and lots more
+////
 
 == (Maven) Project Complexity
 
@@ -220,10 +231,11 @@ Find balance for
 * Number vs size of projects
 * Multi-module vs multiple projects
 * Consider release cycle
+* Branching, Git and CI integration
 * IDE functionality
 * Build time
 
-TIP: Example Nexus OSS and Nexus Repository Manager
+TIP: Example Nexus OSS and Nexus Pro
 
 == Develop
 :incremental!:
@@ -232,6 +244,7 @@ TIP: Example Nexus OSS and Nexus Repository Manager
 ** short lived
 ** sometimes shared between
 ** automatic Bamboo feature branch build creation
+** feature flags for longer lived efforts 
 * IDE
 ** Eclipse IDE
 ** IntelliJ IDEA
@@ -272,45 +285,15 @@ is very useful!
 == Continuously Build
 :incremental!:
 
-* Atlassian Bamboo
+* Atlassian Bamboo with Elastic Bamboo
 * > 100 build plans
-* Elastics Bamboo - EC2 instances
 * Feature branch builds increases number
-* Automated functional test suite runs
-* Automated release
-* Documentation builds and deployments
-
-== Build Plan Commonalities
-
-All builds plans:
-
-* Common configuration from base plan - used as shared artifact, managed in git repo
-* Global variables - defaults that allow overrides
-* 'build' task - compile and test code.
-* 'release' task - publish to Nexus and tag in git
-* bundle test artifacts
-* Main vs features branches - different config
-* Branch builds auto-created
+* Automated test, release and deployment
+* Base plan build with shared artifact
+* All plans same setup
+* Share outputs as artifacts
 
 TIP: Consistency helps users and administrators.
-
-== Bamboo Set Up & Tips
-:incremental!:
-
-* Base plan for resources like  tool configuration
-* Fresh Maven repo for each build off Nexus
-* Build plan notifications into HipChat channels
-* Linked to GitHub branch and PR
-* Linked to JIRA issue
-
-== More Bamboo Set Up & Tips
-:incremental!:
-
-* Limited number of standard Amazon Machine Images (AMI)
-** Include standard tools
-* Share and store repo and other outputs as build artifacts
-** Stored on Amazon Elastic Block Storage (EBS)
-* Static documentation = usable artifact
 
 == Validate
 :incremental!:
@@ -334,11 +317,13 @@ TIP: Consistency helps users and administrators.
 
 TIP: No matter what you do .. there is always a chance something goes wrong.
 
+////
 == Release
 :incremental!:
 
 image::images/nexus-bamboo-staging.png[scale=100]
 
+////
 
 == Software Supply Chain Management
 :incremental!:
@@ -469,6 +454,7 @@ Once we had Nexus Lifecycle and started using it...
 
 -> Without the automation this would be not achievable!
 
+////
 == Deploy
 
 Ops team:
@@ -485,7 +471,7 @@ Ops team:
 * iDoneThis
 
 TIP: Our Nexus instances vary from hundreds of GB to terabytes of non-proxied context.
-
+////
 
 == Operations - Service Management
 
@@ -494,6 +480,7 @@ Nexus as component warehouse with Ansible
 image::images/service-management.png[scale=100]
 
 
+////
 == Support
 
 [quote]
@@ -502,7 +489,7 @@ The support team consists of engineers only.
 * Write lots of automation and other code
 * Atlassian JIRA
 * ZenDesk 
-
+////
 
 == Community
 :incremental!:
