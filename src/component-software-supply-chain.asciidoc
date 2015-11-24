@@ -393,7 +393,7 @@ Some of them are running in production right now...
 :incremental!:
 
 * About 50k components with known security vulnerabilities in Central Repository
-* 46 million vulnerable components were downloaded in 2014. 
+* 1 in 16 components downloaded included known security vulnerabilities in 2014
 * 16% must prove they are not using known security vulnerabilities
 * New vulnerabilities are found regularly
 * Yet 63 % do NOT monitor for changes in vulnerability data

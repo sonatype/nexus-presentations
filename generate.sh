@@ -20,5 +20,5 @@ function render {
 #render nexus-introduction
 #render nexus-oss-advantages
 #render nexus-for-component-management
-#render component-software-supply-chain
-render sonatype-repo-mgt-software-supply-chain
+render component-software-supply-chain
+#render sonatype-repo-mgt-software-supply-chain
